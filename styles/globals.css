@@ -21,6 +21,16 @@
     @apply text-[15px] opacity-70;
   }
 
+  .contact-bg {
+    background: rgba(216, 147, 130, 0.3);
+    backdrop-filter: blur(15px);
+    @apply rounded-[20px];
+  }
+
+  .button-icon-bg {
+    background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+  }
+
   .footer-description {
     @apply text-xs opacity-70 max-w-[410px] leading-normal;
   }
