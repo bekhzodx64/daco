@@ -1,5 +1,6 @@
 import AboutUs from "../components/AboutUs";
 import Advantages from "../components/Advantages";
+import Carousel from "../components/Carousel";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -12,16 +13,17 @@ import Services from "../components/Services";
 const Home = () => {
   return (
     <main className="flex flex-col min-h-screen">
-      {/* <Header /> */}
-      {/* <Intro /> */}
-      {/* <AboutUs /> */}
-      {/* <Services /> */}
-      {/* <Projects /> */}
-      {/* <Infrastructures /> */}
+      <Header />
+      <Intro />
+      <AboutUs />
+      <Carousel />
+      <Services />
+      <Projects />
+      <Infrastructures />
       <Advantages />
-      {/* <Map /> */}
-      {/* <ContactUs /> */}
-      {/* <Footer /> */}
+      <Map />
+      <ContactUs />
+      <Footer />
     </main>
   );
 };

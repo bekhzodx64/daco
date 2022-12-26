@@ -6,6 +6,15 @@
   html {
     @apply select-none;
   }
+
+  .timing > .swiper-wrapper {
+    transition-timing-function: linear !important;
+    @apply pointer-events-none;
+  }
+
+  /* .swiper-free-mode > .swiper-wrapper {
+    transition-timing-function: linear !important;
+  } */
 }
 
 @layer components {
