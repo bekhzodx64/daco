@@ -48,7 +48,7 @@ const Advantages = () => {
 
       <div className="grid lg:grid-cols-4 mt-[70px] gap-10 max-w-5xl mx-auto">
         {advantages.map((advantage, index) => (
-          <div>
+          <div key={advantage.id}>
             <div className="flex flex-col gap-7">
               <Image
                 src={`${advantage.icon}`}
