@@ -12,16 +12,16 @@ import Services from "../components/Services";
 const Home = () => {
   return (
     <main className="flex flex-col min-h-screen">
-      <Header />
-      <Intro />
-      <AboutUs />
-      <Services />
-      <Projects />
-      <Infrastructures />
+      {/* <Header /> */}
+      {/* <Intro /> */}
+      {/* <AboutUs /> */}
+      {/* <Services /> */}
+      {/* <Projects /> */}
+      {/* <Infrastructures /> */}
       <Advantages />
-      <Map />
-      <ContactUs />
-      <Footer />
+      {/* <Map /> */}
+      {/* <ContactUs /> */}
+      {/* <Footer /> */}
     </main>
   );
 };

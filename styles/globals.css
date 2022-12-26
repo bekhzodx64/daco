@@ -31,6 +31,15 @@
     background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
   }
 
+  .advantage-number {
+    position: relative;
+  }
+
+  .advantage-number::after {
+    content: "";
+    @apply absolute top-0 bottom-0 left-0 right-0 pointer-events-none bg-gradient-to-t from-black to-transparent;
+  }
+
   .footer-description {
     @apply text-xs opacity-70 max-w-[410px] leading-normal;
   }

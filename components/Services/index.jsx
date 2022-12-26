@@ -7,15 +7,31 @@ const montserrat = Montserrat({
 });
 
 const services = [
-  { id: 1, title: "Design constructions", icon: "/icons/services/1.svg" },
+  {
+    id: 1,
+    title: "Design constructions",
+    icon: "/icons/services/1.svg",
+  },
   {
     id: 2,
     title: "Installation of engineering network",
     icon: "/icons/services/2.svg",
   },
-  { id: 3, title: "Construction works ", icon: "/icons/services/3.svg" },
-  { id: 4, title: "Interior finishing works", icon: "/icons/services/4.svg" },
-  { id: 5, title: "Commissioning of equipment", icon: "/icons/services/5.svg" },
+  {
+    id: 3,
+    title: "Construction works ",
+    icon: "/icons/services/3.svg",
+  },
+  {
+    id: 4,
+    title: "Interior finishing works",
+    icon: "/icons/services/4.svg",
+  },
+  {
+    id: 5,
+    title: "Commissioning of equipment",
+    icon: "/icons/services/5.svg",
+  },
   {
     id: 6,
     title: "Video surveilliance of during construction",

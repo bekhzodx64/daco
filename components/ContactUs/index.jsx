@@ -9,6 +9,8 @@ const montserrat = Montserrat({
 const ContactUs = () => {
   return (
     <div className={`container ${montserrat.variable} font-sans`}>
+      <div></div>
+
       <div className="flex flex-col items-center justify-between gap-6 py-6 lg:flex-row px-14 contact-bg">
         <div className="max-w-sm">
           <h2 className="font-semibold text-[40px]">Contact us</h2>
