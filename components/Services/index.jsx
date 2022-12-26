@@ -62,7 +62,7 @@ const Services = () => {
 
         <div className="grid items-start flex-1 w-full grid-cols-2 gap-4 md:gap-8 md:grid-cols-3 place-items-center h-min">
           {services.map((service) => (
-            <div className="max-w-[215px]">
+            <div className="max-w-[215px]" key={service.id}>
               <div className="flex flex-col gap-5 text-center">
                 <div className="border w-[86px] h-[86px] flex items-center justify-center mx-auto rounded-2xl">
                   <Image
