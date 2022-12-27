@@ -29,7 +29,7 @@ const Carousel = () => {
       <Image
         src={Top}
         priority
-        className="absolute left-0 right-0 z-10 w-full select-none top-2"
+        className="absolute left-0 right-0 z-10 w-full pointer-events-none select-none top-2"
       />
 
       <Swiper
@@ -100,7 +100,7 @@ const Carousel = () => {
       <Image
         src={Bottom}
         priority
-        className="absolute bottom-0 left-0 right-0 z-10 w-full select-none"
+        className="absolute bottom-0 left-0 right-0 z-10 w-full pointer-events-none select-none"
       />
     </div>
   );

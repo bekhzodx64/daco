@@ -11,15 +11,23 @@
     transition-timing-function: linear !important;
     @apply pointer-events-none;
   }
-
-  /* .swiper-free-mode > .swiper-wrapper {
-    transition-timing-function: linear !important;
-  } */
 }
 
 @layer components {
   .accent-gradient {
     background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+  }
+
+  .custom-pagination {
+    @apply w-[72px] h-[72px] rounded-full flex items-center justify-center absolute z-10 right-36 top-1/2 -translate-y-1/2 pointer-events-none;
+  }
+
+  .perspective:hover {
+    transform: perspective(1500px) rotateY(15deg);
+  }
+
+  .text-shadow {
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   }
 
   .section-title {
