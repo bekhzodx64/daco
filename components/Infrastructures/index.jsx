@@ -48,7 +48,7 @@ const infrastructures = [
 
 const Infrastructures = () => {
   return (
-    <div className={`${montserrat.variable} font-sans `}>
+    <div className={`${montserrat.variable} font-sans`}>
       <div className="container max-w-[960px]">
         <h2 className="section-title">The most beautiful infrastructures</h2>
         <p className="section-description">
@@ -59,7 +59,6 @@ const Infrastructures = () => {
 
       <Swiper
         modules={[Pagination]}
-        effect={"coverflow"}
         pagination={{
           el: ".custom-pagination",
           type: "custom",
