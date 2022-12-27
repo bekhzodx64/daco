@@ -48,6 +48,8 @@ const Carousel = () => {
                 fill
                 quality={100}
                 alt={`${item.id}`}
+                blurDataURL={`${item.url}`}
+                priority
                 className="object-cover"
               />
             </div>

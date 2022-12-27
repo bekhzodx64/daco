@@ -41,7 +41,7 @@ const Header = () => {
       className={`${montserrat.variable} font-sans container py-4 flex items-center justify-between text-sm`}
     >
       <Link href="/">
-        <Image src="/logo.png" width={154} height={44} alt="logo" />
+        <Image src="/logo.png" priority width={154} height={44} alt="logo" />
       </Link>
 
       <div className="items-center hidden gap-20 lg:flex">
@@ -63,19 +63,27 @@ const Header = () => {
                 width={17}
                 height={17}
                 alt="phone"
+                priority
               />
               <span>+998 88 160 55 55</span>
             </a>
           </div>
 
           <div className="flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px] cursor-pointer">
-            <Image src={"/flags/1.jpg"} width={22} height={14} alt="flag" />
+            <Image
+              src={"/flags/1.jpg"}
+              width={22}
+              height={14}
+              alt="flag"
+              priority
+            />
             <div className="flex items-center gap-1">
               <span>eng</span>
               <Image
                 src={"/icons/chevron-down.svg"}
                 width={8}
                 height={4}
+                priority
                 alt="chevron down"
               />
             </div>
@@ -88,6 +96,7 @@ const Header = () => {
           src={"/icons/hamburger-icon.svg"}
           width={30}
           height={30}
+          priority
           alt="hamburger icon"
         />
       </button>
