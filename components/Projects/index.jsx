@@ -43,7 +43,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className={`${montserrat.variable} font-sans`}>
+    <div className={`${montserrat.variable} font-sans pt-40`}>
       <div className="container max-w-[960px]">
         <h2 className="section-title">Our latest projects</h2>
         <p className="section-description">Get to know our latest projects</p>

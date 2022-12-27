@@ -41,7 +41,9 @@ const services = [
 
 const Services = () => {
   return (
-    <div className={`${montserrat.variable} font-sans container space-y-14`}>
+    <div
+      className={`${montserrat.variable} font-sans container space-y-14 pt-60`}
+    >
       <div>
         <h2 className="section-title">Our services</h2>
         <p className="section-description">

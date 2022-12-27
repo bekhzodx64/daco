@@ -38,7 +38,7 @@ const advantages = [
 
 const Advantages = () => {
   return (
-    <div className={`${montserrat.variable} font-sans container`}>
+    <div className={`${montserrat.variable} font-sans container pt-40`}>
       <div>
         <h2 className="section-title">Our advantages</h2>
         <p className="section-description">
