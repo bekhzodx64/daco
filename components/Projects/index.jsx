@@ -63,6 +63,7 @@ const Projects = () => {
           nextEl: ".projects-next",
         }}
         loop={true}
+        speed={1000}
         slidesPerView={1.3}
         centeredSlides={true}
         coverflowEffect={{
