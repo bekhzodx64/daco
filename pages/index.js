@@ -14,7 +14,6 @@ import Live from "../components/Live";
 const Home = () => {
   return (
     <main className="flex flex-col min-h-screen">
-      <Live />
       <Header />
       <Intro />
       <AboutUs />
@@ -22,6 +21,7 @@ const Home = () => {
       <Services />
       <Projects />
       <Infrastructures />
+      <Live />
       <Advantages />
       <Map />
       <ContactUs />
