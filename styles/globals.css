@@ -14,6 +14,11 @@
 }
 
 @layer components {
+  .active-service {
+    background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+    @apply border-transparent;
+  }
+
   .accent-gradient {
     background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
   }
