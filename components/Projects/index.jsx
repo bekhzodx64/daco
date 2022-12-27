@@ -13,26 +13,31 @@ const projects = [
     id: 1,
     title: "Construction nine-storey Residential Building",
     image: "/projects/1.jpg",
+    location: "Tashkent, Almazar district, Karakamysh 1/3 house 35A",
   },
   {
     id: 2,
     title: "Construction nine-storey Residential Building",
     image: "/projects/1.jpg",
+    location: "Tashkent, Almazar district, Karakamysh 1/3 house 35A",
   },
   {
     id: 3,
     title: "Construction nine-storey Residential Building",
     image: "/projects/1.jpg",
+    location: "Tashkent, Almazar district, Karakamysh 1/3 house 35A",
   },
   {
     id: 4,
     title: "Construction nine-storey Residential Building",
     image: "/projects/1.jpg",
+    location: "Tashkent, Almazar district, Karakamysh 1/3 house 35A",
   },
   {
     id: 5,
     title: "Construction nine-storey Residential Building",
     image: "/projects/1.jpg",
+    location: "Tashkent, Almazar district, Karakamysh 1/3 house 35A",
   },
 ];
 
@@ -70,13 +75,46 @@ const Projects = () => {
         className="relative mt-24"
       >
         {projects.map((project) => (
-          <SwiperSlide key={project.id}>
+          <SwiperSlide key={project.id} className="group">
             <div className="pt-[40%]">
               <Image src={"/projects/1.jpg"} fill className="object-cover" />
             </div>
 
-            <div className="absolute inset-0 flex flex-col justify-end px-20 py-11 text-shadow font-semibold text-[28px]">
-              {project.title}
+            <div className="absolute inset-0 flex flex-col justify-end px-20 transition-all py-11 group-hover:bg-black/40">
+              <p className="text-sm font-medium transition-all delay-150">
+                {project.location}
+              </p>
+              <p className="text-shadow font-semibold text-[28px]">
+                {project.title}
+              </p>
+              <div className="flex items-center justify-between transition-all delay-300 mt-9">
+                <button
+                  type="button"
+                  className="z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] flex items-center gap-6 pl-5 rounded-full border border-white/30"
+                >
+                  <span>See available places</span>
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full accent-gradient">
+                    <Image
+                      src={"/icons/chevron-right.svg"}
+                      width={9}
+                      height={5}
+                      alt={project.title}
+                    />
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  className="relative z-10 flex items-center justify-center border rounded-full border-white/30 w-14 h-14"
+                >
+                  <Image
+                    src={"/icons/full-screen.svg"}
+                    width={18}
+                    height={18}
+                    alt={project.title}
+                  />
+                </button>
+              </div>
             </div>
           </SwiperSlide>
         ))}
