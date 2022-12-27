@@ -13,17 +13,17 @@ import Services from "../components/Services";
 const Home = () => {
   return (
     <main className="flex flex-col min-h-screen">
-      {/* <Header /> */}
-      {/* <Intro /> */}
-      {/* <AboutUs /> */}
-      {/* <Carousel /> */}
-      {/* <Services /> */}
+      <Header />
+      <Intro />
+      <AboutUs />
+      <Carousel />
+      <Services />
       <Projects />
-      {/* <Infrastructures /> */}
-      {/* <Advantages /> */}
-      {/* <Map /> */}
-      {/* <ContactUs /> */}
-      {/* <Footer /> */}
+      <Infrastructures />
+      <Advantages />
+      <Map />
+      <ContactUs />
+      <Footer />
     </main>
   );
 };

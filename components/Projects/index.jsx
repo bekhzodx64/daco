@@ -70,7 +70,7 @@ const Projects = () => {
         className="relative mt-24"
       >
         {projects.map((project) => (
-          <SwiperSlide key={project.id} className="bg-blue-400">
+          <SwiperSlide key={project.id}>
             <div className="pt-[40%]">
               <Image src={"/projects/1.jpg"} fill className="object-cover" />
             </div>
