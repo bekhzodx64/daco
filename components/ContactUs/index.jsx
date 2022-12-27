@@ -1,6 +1,8 @@
 import { Montserrat } from "@next/font/google";
 import Image from "next/image";
 import fog from "../../public/contact/fog.png";
+import building from "../../public/contact/contact-bg.png";
+import logo from "../../public/contact/logo.png";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -10,16 +12,25 @@ const montserrat = Montserrat({
 const ContactUs = () => {
   return (
     <div className={`${montserrat.variable} font-sans relative`}>
-      <div className="absolute top-0 left-0 right-0 -translate-y-1/3 -z-10">
-        <Image
-          src={fog}
-          alt="fog"
-          className="object-cover w-full h-full"
-          draggable={false}
-        />
-      </div>
-
       <div className="container">
+        <div className="flex ">
+          <Image
+            src={logo}
+            alt="contact us"
+            quality={100}
+            draggable={false}
+            className="mb-20"
+          />
+
+          <Image
+            src={building}
+            alt="contact us"
+            quality={100}
+            draggable={false}
+            className="ml-auto mr-[5%] relative -z-30"
+          />
+        </div>
+
         <div className="flex flex-col items-center justify-between gap-6 py-6 lg:flex-row px-14 contact-bg">
           <div className="max-w-sm">
             <h2 className="font-semibold text-[40px]">Contact us</h2>
@@ -55,6 +66,16 @@ const ContactUs = () => {
             </button>
           </form>
         </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 translate-y-1/3 -z-10">
+        <Image
+          src={fog}
+          alt="fog"
+          quality={100}
+          className="object-cover w-full h-full"
+          draggable={false}
+        />
       </div>
     </div>
   );
