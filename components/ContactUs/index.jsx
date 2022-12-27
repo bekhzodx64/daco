@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 
 const ContactUs = () => {
   return (
-    <div className={`${montserrat.variable} font-sans relative`}>
+    <div className={`${montserrat.variable} font-sans relative`} id="contacts">
       <div className="container">
         <div className="flex ">
           <Image
