@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper";
 import Image from "next/image";
+import Top from "../../public/carousel/top.svg";
+import Bottom from "../../public/carousel/bottom.svg";
 
 const images = [
   {
@@ -24,6 +26,12 @@ const images = [
 const Carousel = () => {
   return (
     <div className="space-y-[10px] relative">
+      <Image
+        src={Top}
+        priority
+        className="absolute left-0 right-0 z-10 w-full select-none top-2"
+      />
+
       <Swiper
         modules={[FreeMode, Autoplay]}
         loop={true}
@@ -88,6 +96,12 @@ const Carousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <Image
+        src={Bottom}
+        priority
+        className="absolute bottom-0 left-0 right-0 z-10 w-full select-none"
+      />
     </div>
   );
 };
