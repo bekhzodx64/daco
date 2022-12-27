@@ -9,10 +9,12 @@ import Intro from "../components/Intro";
 import Map from "../components/Map";
 import Projects from "../components/Projects";
 import Services from "../components/Services";
+import Live from "../components/Live";
 
 const Home = () => {
   return (
     <main className="flex flex-col min-h-screen">
+      <Live />
       <Header />
       <Intro />
       <AboutUs />

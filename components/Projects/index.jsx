@@ -142,7 +142,7 @@ const Projects = () => {
                 src={"/icons/chevron-right.svg"}
                 width={9}
                 height={5}
-                alt="projects prev"
+                alt="projects next"
               />
             </button>
           </div>
