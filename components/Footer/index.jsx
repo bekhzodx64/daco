@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 const Footer = () => {
   return (
     <div className={`${montserrat.variable} font-sans mt-auto relative pt-48`}>
-      <div className="absolute inset-0 bg-bgBlack -z-10">
+      <div className="absolute inset-0 bg-bgBlack -z-20">
         <Image
           src={background}
           alt="background"
