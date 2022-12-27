@@ -121,7 +121,11 @@ const Services = () => {
                     }
                   />
                 </div>
-                <p className="leading-tight text-[15px] md:text-lg">
+                <p
+                  className={`leading-tight text-[15px] md:text-lg ${
+                    service.id === item.id ? "font-medium" : null
+                  }`}
+                >
                   {item.title}
                 </p>
               </div>
