@@ -94,7 +94,7 @@ const Projects = () => {
               <p className="text-shadow font-semibold text-[28px]">
                 {project.title}
               </p>
-              <div className="flex items-center justify-between overflow-hidden transition-all duration-500 opacity-0 group-hover:mt-9 max-h-0 group-hover:max-h-full group-hover:opacity-100">
+              <div className="flex items-center justify-between overflow-hidden transition-all duration-1000 opacity-0 max-h-0 group-hover:max-h-full group-hover:opacity-100">
                 <button
                   type="button"
                   className="z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] flex items-center gap-6 pl-5 rounded-full border border-white/30"
