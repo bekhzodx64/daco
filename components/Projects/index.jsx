@@ -50,7 +50,9 @@ const Projects = () => {
       </div>
 
       <Swiper
+        modules={[EffectCoverflow, Pagination, Navigation]}
         effect={"coverflow"}
+        allowTouchMove={false}
         pagination={{
           el: ".custom-projects-pagination",
           type: "custom",
@@ -72,23 +74,27 @@ const Projects = () => {
           modifier: 2,
           stretch: -70,
         }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
         className="relative mt-24"
       >
         {projects.map((project) => (
           <SwiperSlide key={project.id} className="group">
             <div className="pt-[40%]">
-              <Image src={"/projects/1.jpg"} fill className="object-cover" />
+              <Image
+                src={project.image}
+                fill
+                className="object-cover"
+                draggable={false}
+              />
             </div>
 
-            <div className="absolute inset-0 flex flex-col justify-end px-20 transition-all py-11 group-hover:bg-black/40">
-              <p className="text-sm font-medium transition-all delay-150">
+            <div className="absolute inset-0 flex flex-col justify-end px-20 transition-all duration-500 py-11 group-hover:bg-black/40">
+              <p className="text-sm font-medium transition-all duration-500 translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0">
                 {project.location}
               </p>
               <p className="text-shadow font-semibold text-[28px]">
                 {project.title}
               </p>
-              <div className="flex items-center justify-between transition-all delay-300 mt-9">
+              <div className="flex items-center justify-between overflow-hidden transition-all duration-500 opacity-0 group-hover:mt-9 max-h-0 group-hover:max-h-full group-hover:opacity-100">
                 <button
                   type="button"
                   className="z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] flex items-center gap-6 pl-5 rounded-full border border-white/30"
