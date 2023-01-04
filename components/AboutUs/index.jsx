@@ -3,12 +3,15 @@ import Image from 'next/image'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
 
 const AboutUs = () => {
 	return (
-		<div className={`${montserrat.variable} font-sans container`} id='about'>
+		<div
+			className={`${montserrat.variable} font-sans container`}
+			id='about'
+		>
 			<div></div>
 			<div>
 				<h2 className='text-[40px] font-semibold'>About us</h2>
@@ -35,7 +38,12 @@ const AboutUs = () => {
 				>
 					<span>Leave an application</span>
 					<div className='flex items-center justify-center w-12 h-12 rounded-full accent-gradient'>
-						<Image src={'/icons/chevron-right.svg'} width={9} height={5} />
+						<Image
+							src={'/icons/chevron-right.svg'}
+							width={9}
+							height={5}
+							alt='chevron right'
+						/>
 					</div>
 				</button>
 			</div>

@@ -7,20 +7,20 @@ import Bottom from '../../public/carousel/bottom.svg'
 const images = [
 	{
 		id: 1,
-		url: '/carousel/1.jpg'
+		url: '/carousel/1.jpg',
 	},
 	{
 		id: 2,
-		url: '/carousel/2.jpg'
+		url: '/carousel/2.jpg',
 	},
 	{
 		id: 3,
-		url: '/carousel/3.jpg'
+		url: '/carousel/3.jpg',
 	},
 	{
 		id: 4,
-		url: '/carousel/4.jpg'
-	}
+		url: '/carousel/4.jpg',
+	},
 ]
 
 const Carousel = () => {
@@ -38,7 +38,7 @@ const Carousel = () => {
 				autoplay={{
 					delay: 1,
 					disableOnInteraction: false,
-					pauseOnMouseEnter: false
+					pauseOnMouseEnter: false,
 				}}
 				speed={30000}
 				freeMode={true}
@@ -48,7 +48,7 @@ const Carousel = () => {
 				spaceBetween={10}
 				className='relative timing'
 			>
-				{images.map(item => (
+				{images.map((item) => (
 					<SwiperSlide key={item.id}>
 						<div className='relative pt-[45%]'>
 							<Image
@@ -72,7 +72,7 @@ const Carousel = () => {
 					delay: 1,
 					disableOnInteraction: false,
 					reverseDirection: true,
-					pauseOnMouseEnter: false
+					pauseOnMouseEnter: false,
 				}}
 				speed={30000}
 				freeMode={true}
@@ -82,14 +82,14 @@ const Carousel = () => {
 				spaceBetween={10}
 				className='relative timing'
 			>
-				{images.map(item => (
+				{images.map((item) => (
 					<SwiperSlide key={item.id}>
 						<div className='relative pt-[45%]'>
 							<Image
 								src={`${item.url}`}
 								fill
+								alt=''
 								quality={100}
-								alt={`${item.id}`}
 								className='object-cover'
 							/>
 						</div>
@@ -100,6 +100,7 @@ const Carousel = () => {
 			<Image
 				src={Bottom}
 				priority
+				alt=''
 				className='absolute bottom-0 left-0 right-0 z-10 w-full pointer-events-none select-none'
 			/>
 		</div>

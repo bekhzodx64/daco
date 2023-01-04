@@ -7,7 +7,7 @@ import { Montserrat } from '@next/font/google'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
 
 const Live = () => {
@@ -65,7 +65,12 @@ const Live = () => {
 					>
 						<span className='text-accent'>See available places</span>
 						<div className='flex items-center justify-center w-12 h-12 rounded-full accent-gradient'>
-							<Image src={'/icons/chevron-right.svg'} width={9} height={5} />
+							<Image
+								src={'/icons/chevron-right.svg'}
+								width={9}
+								height={5}
+								alt='chevron right'
+							/>
 						</div>
 					</button>
 				</div>
