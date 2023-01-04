@@ -159,6 +159,7 @@ const Projects = () => {
 							<Image
 								src={project.image}
 								fill
+								alt={project.title}
 								className='object-cover'
 								draggable={false}
 							/>
