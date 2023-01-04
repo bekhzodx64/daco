@@ -3,78 +3,82 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply select-none;
-  }
+	html {
+		@apply select-none;
+	}
 
-  .timing > .swiper-wrapper {
-    transition-timing-function: linear !important;
-    @apply pointer-events-none;
-  }
+	.timing > .swiper-wrapper {
+		transition-timing-function: linear !important;
+		@apply pointer-events-none;
+	}
+
+	.modal-open {
+		@apply overflow-hidden;
+	}
 }
 
 @layer components {
-  .active-service {
-    background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
-    @apply border-transparent;
-  }
+	.active-service {
+		background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+		@apply border-transparent;
+	}
 
-  .accent-gradient {
-    background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
-  }
+	.accent-gradient {
+		background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+	}
 
-  .custom-pagination {
-    @apply w-[72px] h-[72px] rounded-full flex items-center justify-center absolute z-10 right-36 top-1/2 -translate-y-1/2 pointer-events-none;
-  }
+	.custom-pagination {
+		@apply w-[72px] h-[72px] rounded-full flex items-center justify-center absolute z-10 right-36 top-1/2 -translate-y-1/2 pointer-events-none;
+	}
 
-  .perspective:hover {
-    transform: perspective(1500px) rotateY(15deg);
-  }
+	.perspective:hover {
+		transform: perspective(1500px) rotateY(15deg);
+	}
 
-  .text-shadow {
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-  }
+	.text-shadow {
+		text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+	}
 
-  .section-title {
-    @apply font-semibold text-[40px];
-  }
+	.section-title {
+		@apply font-semibold text-[40px];
+	}
 
-  .section-description {
-    @apply text-[15px] opacity-70;
-  }
+	.section-description {
+		@apply text-[15px] opacity-70;
+	}
 
-  .contact-bg {
-    background: rgba(216, 147, 130, 0.3);
-    backdrop-filter: blur(15px);
-    @apply rounded-[20px];
-  }
+	.contact-bg {
+		background: rgba(216, 147, 130, 0.3);
+		backdrop-filter: blur(15px);
+		@apply rounded-[20px];
+	}
 
-  .button-icon-bg {
-    background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
-  }
+	.button-icon-bg {
+		background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+	}
 
-  .advantage-number {
-    position: relative;
-  }
+	.advantage-number {
+		position: relative;
+	}
 
-  .advantage-number::after {
-    content: "";
-    @apply absolute top-0 bottom-0 left-0 right-0 pointer-events-none bg-gradient-to-t from-bgBlack to-transparent;
-  }
+	.advantage-number::after {
+		content: '';
+		@apply absolute top-0 bottom-0 left-0 right-0 pointer-events-none bg-gradient-to-t from-bgBlack to-transparent;
+	}
 
-  .footer-description {
-    @apply text-xs opacity-70 max-w-[410px] leading-normal;
-  }
+	.footer-description {
+		@apply text-xs opacity-70 max-w-[410px] leading-normal;
+	}
 
-  .footer-title {
-    @apply text-2xl font-medium lg:text-lg text-accent;
-  }
+	.footer-title {
+		@apply text-2xl font-medium lg:text-lg text-accent;
+	}
 
-  .footer-links {
-    @apply opacity-70 text-xl lg:text-[15px];
-  }
+	.footer-links {
+		@apply opacity-70 text-xl lg:text-[15px];
+	}
 
-  .footer-contact {
-    @apply flex justify-center lg:justify-start gap-[5px];
-  }
+	.footer-contact {
+		@apply flex justify-center lg:justify-start gap-[5px];
+	}
 }
