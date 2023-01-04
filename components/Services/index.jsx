@@ -70,10 +70,15 @@ const Services = () => {
 
 	return (
 		<div
-			className={`${montserrat.variable} font-sans container space-y-14 pt-60`}
+			className={`${montserrat.variable} font-sans container relative space-y-14 pt-20`}
 			id='services'
 		>
-			<div>
+			<p className='font-semibold relative opacity-20 text-accent text-[200px] -mb-44 -z-10'>
+				Our Services
+				<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
+			</p>
+
+			<div className='pl-40 '>
 				<h2 className='section-title'>Our services</h2>
 				<p className='section-description'>
 					Our company offers you comfortable and beautiful houses

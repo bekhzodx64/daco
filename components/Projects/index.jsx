@@ -6,12 +6,12 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
 const ProjectModalNoSSR = dynamic(() => import('./components/ProjectModal'), {
-	ssr: false
+	ssr: false,
 })
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
 
 const projects = [
@@ -23,17 +23,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
+				image: '/projects/1.jpg',
+			},
+		],
 	},
 	{
 		id: 2,
@@ -43,17 +43,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
+				image: '/projects/1.jpg',
+			},
+		],
 	},
 	{
 		id: 3,
@@ -63,17 +63,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
+				image: '/projects/1.jpg',
+			},
+		],
 	},
 	{
 		id: 4,
@@ -83,17 +83,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
+				image: '/projects/1.jpg',
+			},
+		],
 	},
 	{
 		id: 5,
@@ -103,25 +103,33 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg'
+				image: '/projects/1.jpg',
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
-	}
+				image: '/projects/1.jpg',
+			},
+		],
+	},
 ]
 
 const Projects = () => {
 	const [gallery, showGallery] = useState(null)
 
 	return (
-		<div className={`${montserrat.variable} font-sans pt-40`} id='project'>
+		<div
+			className={`${montserrat.variable} font-sans pt-40 overflow-x-hidden`}
+			id='project'
+		>
+			<p className='font-semibold relative opacity-20 text-accent text-[200px] -mb-28 -z-10 whitespace-nowrap'>
+				Our latest projects
+				<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
+			</p>
+
 			<div className='container max-w-[960px]'>
 				<h2 className='section-title'>Our latest projects</h2>
 				<p className='section-description'>Get to know our latest projects</p>
@@ -135,11 +143,11 @@ const Projects = () => {
 					type: 'custom',
 					renderCustom: function (swiper, current, total) {
 						return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-					}
+					},
 				}}
 				navigation={{
 					prevEl: '.projects-prev',
-					nextEl: '.projects-next'
+					nextEl: '.projects-next',
 				}}
 				loop={true}
 				speed={1000}
@@ -149,12 +157,15 @@ const Projects = () => {
 					rotate: -5,
 					depth: 150,
 					modifier: 2,
-					stretch: -70
+					stretch: -70,
 				}}
 				className='relative mt-24'
 			>
-				{projects.map(project => (
-					<SwiperSlide key={project.id} className='group'>
+				{projects.map((project) => (
+					<SwiperSlide
+						key={project.id}
+						className='group'
+					>
 						<div className='pt-[40%]'>
 							<Image
 								src={project.image}
@@ -236,7 +247,10 @@ const Projects = () => {
 			</Swiper>
 
 			{gallery ? (
-				<ProjectModalNoSSR showGallery={showGallery} projects={projects} />
+				<ProjectModalNoSSR
+					showGallery={showGallery}
+					projects={projects}
+				/>
 			) : null}
 		</div>
 	)

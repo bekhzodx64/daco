@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 const AboutUs = () => {
 	return (
 		<div
-			className={`${montserrat.variable} ${styles.about} font-sans pt-7 `}
+			className={`${montserrat.variable} ${styles.about} font-sans pt-12`}
 			id='about'
 		>
 			<div className='container'>
@@ -26,9 +26,9 @@ const AboutUs = () => {
 				</div>
 
 				<div>
-					<h2 className='font-semibold relative opacity-20 text-accent text-[182px] -mb-40'>
+					<h2 className='font-semibold relative opacity-20 text-accent text-[182px] -mb-32'>
 						Who we are?
-						<span className='absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
+						<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
 					</h2>
 				</div>
 
@@ -45,7 +45,7 @@ const AboutUs = () => {
 						</div>
 					</div>
 					<div className='w-full'>
-						<h2 className='text-[40px] font-semibold'>About us</h2>
+						<h2 className='text-[40px] font-semibold relative z-0'>About us</h2>
 						<div className='space-y-4 mt-7'>
 							<p className='text-sm opacity-60'>
 								DACO GROUP is one of the fastest growing development companies
