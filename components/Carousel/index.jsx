@@ -29,6 +29,7 @@ const Carousel = () => {
 			<Image
 				src={Top}
 				priority
+				alt=''
 				className='absolute left-0 right-0 z-10 w-full pointer-events-none select-none top-2'
 			/>
 
