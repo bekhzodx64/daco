@@ -1,0 +1,22 @@
+.menu {
+	height: calc(100vh - 76px);
+	@apply p-4 bg-black/40 backdrop-blur-xl;
+
+	&-list {
+		&__item {
+			@apply border-t border-white/10 last:border-b;
+		}
+
+		&__link {
+			@apply text-center font-medium text-lg first-letter:capitalize py-5 w-full block hover:text-accent transition-all;
+		}
+	}
+
+	&-langs {
+		@apply flex items-center justify-between py-10;
+
+		&__item {
+			@apply px-5 py-3 flex items-center gap-[10px] rounded-full border text-sm font-medium;
+		}
+	}
+}
