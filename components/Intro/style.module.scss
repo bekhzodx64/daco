@@ -1,0 +1,49 @@
+.intro {
+	@apply relative overflow-hidden;
+
+	&-content {
+		height: calc(100vh - 86px);
+
+		@apply flex flex-col justify-center relative;
+	}
+
+	&-title {
+		@apply text-[40px] font-medium tracking-tight leading-tight;
+
+		p {
+			@apply text-accent font-semibold;
+		}
+	}
+
+	&-description {
+		@apply w-full max-w-[474px] opacity-50 text-sm font-medium leading-relaxed;
+	}
+
+	&-buttons {
+		@apply flex items-center gap-12;
+	}
+
+	&-button {
+		&__project {
+			@apply flex items-center gap-4 font-medium text-sm px-6 py-5 rounded-full;
+		}
+
+		&__play {
+			@apply flex items-center gap-4;
+
+			@apply text-sm font-medium;
+
+			p {
+				@apply opacity-70;
+			}
+
+			&-icon {
+				@apply w-12 h-12 rounded-full border border-accent flex items-center justify-center;
+			}
+		}
+	}
+
+	&-socials {
+		@apply absolute bottom-9 flex items-center gap-5 align-baseline;
+	}
+}
