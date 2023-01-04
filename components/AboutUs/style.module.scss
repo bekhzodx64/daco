@@ -1,0 +1,15 @@
+.about {
+	@apply relative;
+
+	&-decor {
+		@apply h-[1px] bg-gradient-to-tr from-transparent via-white/30 to-transparent w-full relative;
+
+		&__icon {
+			@apply w-10 h-10 bg-black rounded-full border border-white/30 flex items-center justify-center absolute left-1/2 -translate-x-1/2 -translate-y-1/2;
+		}
+	}
+
+	&-construction {
+		@apply relative pt-[100%] w-[500px];
+	}
+}

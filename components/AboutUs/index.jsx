@@ -1,5 +1,6 @@
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
+import styles from './style.module.scss'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -9,43 +10,88 @@ const montserrat = Montserrat({
 const AboutUs = () => {
 	return (
 		<div
-			className={`${montserrat.variable} font-sans container`}
+			className={`${montserrat.variable} ${styles.about} font-sans pt-7 `}
 			id='about'
 		>
-			<div></div>
-			<div>
-				<h2 className='text-[40px] font-semibold'>About us</h2>
-				<div className='space-y-4 mt-7'>
-					<p className='text-sm opacity-60'>
-						DACO GROUP is one of the fastest growing development companies with
-						15 years of experience in the market. The company&apos;s activity is
-						aimed at creating unique residential complexes, distinguished by
-						their innovation, smart approach and high quality.
-					</p>
-					<p className='text-sm opacity-60'>
-						DACO GROUP pays special attention to both construction issues and
-						work with clients, providing an individual approach and thorough
-						advice when choosing an apartment or business property. Our main
-						task is not only in high-quality construction and development of
-						social infrastructure, but also in timely settlement and after-sales
-						service.
-					</p>
-				</div>
-
-				<button
-					type='button'
-					className='z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] mt-10 flex items-center gap-6 pl-5 rounded-full border border-white/30'
-				>
-					<span>Leave an application</span>
-					<div className='flex items-center justify-center w-12 h-12 rounded-full accent-gradient'>
+			<div className='container'>
+				<div className={styles['about-decor']}>
+					<div className={styles['about-decor__icon']}>
 						<Image
-							src={'/icons/chevron-right.svg'}
+							src={'/icons/chevron-down.svg'}
 							width={9}
 							height={5}
-							alt='chevron right'
+							alt='chevron down'
 						/>
 					</div>
-				</button>
+				</div>
+
+				<div>
+					<h2 className='font-semibold relative opacity-20 text-accent text-[182px] -mb-40'>
+						Who we are?
+						<span className='absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
+					</h2>
+				</div>
+
+				<div className='flex py-24'>
+					<div className='w-full'>
+						<div className='pt-[70%] w-full relative'>
+							<Image
+								src={'/about/sketch.png'}
+								fill
+								draggable={false}
+								alt='about us'
+								className='object-cover'
+							/>
+						</div>
+					</div>
+					<div className='w-full'>
+						<h2 className='text-[40px] font-semibold'>About us</h2>
+						<div className='space-y-4 mt-7'>
+							<p className='text-sm opacity-60'>
+								DACO GROUP is one of the fastest growing development companies
+								with 15 years of experience in the market. The company&apos;s
+								activity is aimed at creating unique residential complexes,
+								distinguished by their innovation, smart approach and high
+								quality.
+							</p>
+							<p className='text-sm opacity-60'>
+								DACO GROUP pays special attention to both construction issues
+								and work with clients, providing an individual approach and
+								thorough advice when choosing an apartment or business property.
+								Our main task is not only in high-quality construction and
+								development of social infrastructure, but also in timely
+								settlement and after-sales service.
+							</p>
+						</div>
+
+						<button
+							type='button'
+							className='z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] mt-10 flex items-center gap-6 pl-5 rounded-full border border-white/30'
+						>
+							<span>Leave an application</span>
+							<div className='flex items-center justify-center w-12 h-12 rounded-full accent-gradient'>
+								<Image
+									src={'/icons/chevron-right.svg'}
+									width={9}
+									height={5}
+									alt='chevron right'
+								/>
+							</div>
+						</button>
+					</div>
+				</div>
+
+				<div className='absolute right-0 -bottom-[15%]'>
+					<div className={styles['about-construction']}>
+						<Image
+							src={'/about/construction.png'}
+							fill
+							alt='construction'
+							className='object-cover'
+							draggable={false}
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
 	)
