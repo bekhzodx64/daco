@@ -12,7 +12,7 @@
 	}
 
 	&-langs {
-		@apply flex items-center justify-between py-10;
+		@apply flex items-center justify-between py-10 max-w-sm mx-auto;
 
 		&__item {
 			@apply px-5 py-3 flex items-center gap-[10px] rounded-full border text-sm font-medium;
