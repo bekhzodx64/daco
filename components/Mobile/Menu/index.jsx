@@ -24,6 +24,8 @@ const MobileMenu = () => {
 								About us
 							</Link>
 						</li>
+
+						<div className='flex p-3 md:text-right sm:text-center'></div>
 						<li className={styles['menu-list__item']}>
 							<Link
 								href={'/'}

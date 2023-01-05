@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
@@ -43,6 +43,7 @@ const navLinks = [
 const Header = () => {
 	const dispatch = useDispatch()
 	const [toggleIcon, setToggleIcon] = useState(false)
+	const { showMobileMenu } = useSelector((state) => state.systemSlice)
 
 	const menuHandler = () => {
 		dispatch(toggleMobileMenu())
@@ -51,7 +52,11 @@ const Header = () => {
 
 	return (
 		<header
-			className={`${montserrat.variable} font-sans py-4 text-sm sticky top-0 right-0 left-0 z-50 bg-bgBlack`}
+			className={`${
+				montserrat.variable
+			} font-sans py-4 text-sm sticky top-0 right-0 left-0 z-50  ${
+				showMobileMenu ? 'backdrop-blur-xl bg-black/40' : 'bg-bgBlack'
+			}`}
 		>
 			<div className='container flex items-center justify-between'>
 				<Link href='/'>

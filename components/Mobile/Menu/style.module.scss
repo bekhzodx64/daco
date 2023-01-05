@@ -1,5 +1,5 @@
 .menu {
-	@apply overflow-y-auto p-4 bg-black/40 backdrop-blur-xl fixed top-[76px] bottom-0 inset-x-0;
+	@apply lg:hidden overflow-y-auto p-4 bg-black/40 backdrop-blur-xl fixed top-[76px] bottom-0 inset-x-0;
 
 	&-list {
 		&__item {
