@@ -26,11 +26,11 @@ const Home = () => {
 	return (
 		<main className='flex flex-col min-h-screen'>
 			<Header />
-			{/* <Intro /> */}
+			<Intro />
 			{/* <AboutUs /> */} {/*ready*/}
 			{/* <Carousel /> */} {/*ready*/}
 			{/* <Services /> */} {/*ready*/}
-			<Projects />
+			{/* <Projects /> */} {/*ready*/}
 			{/* <Infrastructures /> */} {/*ready*/}
 			{/* <Live /> */}
 			{/* <Advantages /> */} {/*ready*/}

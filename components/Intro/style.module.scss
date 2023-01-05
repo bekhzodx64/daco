@@ -1,14 +1,12 @@
 .intro {
-	@apply relative overflow-hidden;
-
 	&-content {
 		height: calc(100vh - 86px);
 
-		@apply flex flex-col justify-center relative;
+		@apply flex flex-col z-10 justify-center relative min-h-[570px];
 	}
 
 	&-title {
-		@apply text-[40px] font-medium tracking-tight leading-tight;
+		@apply text-[32px] lg:text-[40px] font-medium tracking-tight leading-tight mx-auto lg:mx-0;
 
 		p {
 			@apply text-accent font-semibold;
@@ -16,11 +14,11 @@
 	}
 
 	&-description {
-		@apply w-full max-w-[474px] opacity-50 text-sm font-medium leading-relaxed;
+		@apply w-full max-w-[474px] opacity-50 text-sm font-medium leading-relaxed text-center lg:text-left mx-auto lg:mx-0;
 	}
 
 	&-buttons {
-		@apply flex items-center gap-12;
+		@apply flex items-center gap-5 lg:gap-12 justify-center lg:justify-start pt-10;
 	}
 
 	&-button {
@@ -44,6 +42,10 @@
 	}
 
 	&-socials {
-		@apply absolute bottom-9 flex items-center gap-5 align-baseline;
+		@apply lg:flex items-center gap-5 space-y-4 lg:space-y-0 text-center lg:text-left max-w-max mt-auto mb-10;
+
+		&__divide {
+			@apply h-[20px] w-[1px] lg:h-[1px] lg:w-[33px] bg-white/50 mx-auto;
+		}
 	}
 }
