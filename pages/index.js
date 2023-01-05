@@ -30,7 +30,7 @@ const Home = () => {
 			{/* <AboutUs /> */} {/*ready*/}
 			{/* <Carousel /> */} {/*ready*/}
 			{/* <Services /> */} {/*ready*/}
-			{/* <Projects /> */}
+			<Projects />
 			{/* <Infrastructures /> */} {/*ready*/}
 			{/* <Live /> */}
 			{/* <Advantages /> */} {/*ready*/}

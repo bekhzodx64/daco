@@ -166,7 +166,7 @@ const Projects = () => {
 						key={project.id}
 						className='group'
 					>
-						<div className='pt-[40%]'>
+						<div className='pt-[100%] sm:pt-[60%] lg:pt-[40%]'>
 							<Image
 								src={project.image}
 								fill
@@ -176,17 +176,24 @@ const Projects = () => {
 							/>
 						</div>
 
-						<div className='absolute inset-0 flex flex-col justify-end px-20 transition-all duration-500 py-11 group-hover:bg-black/40'>
+						<div className='absolute inset-0 flex flex-col justify-end px-5 py-3 md:py-11 md:px-20 transition-all duration-500  group-hover:bg-black/40'>
 							<p className='text-sm font-medium transition-all duration-500 translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0'>
 								{project.location}
 							</p>
-							<p className='text-shadow font-semibold text-[28px]'>
+							<p className='text-shadow font-semibold text-[22px] lg:text-[28px]'>
 								{project.title}
 							</p>
-							<div className='flex items-center justify-between overflow-hidden transition-all duration-1000 opacity-0 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
+							<div className='flex items-center mt-3 lg:mt-10 justify-between overflow-hidden transition-all duration-1000 opacity-0 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
 								<button
 									type='button'
-									className='z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] flex items-center gap-6 pl-5 rounded-full border border-white/30'
+									className='md:hidden'
+								>
+									See available places
+								</button>
+
+								<button
+									type='button'
+									className='z-10 bg-black/50 relative pr-[6px] pt-[6px] pb-[6px] items-center gap-6 pl-5 rounded-full border border-white/30 hidden md:flex'
 								>
 									<span>See available places</span>
 									<div className='flex items-center justify-center w-12 h-12 rounded-full accent-gradient'>
