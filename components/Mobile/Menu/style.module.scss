@@ -1,6 +1,5 @@
 .menu {
-	height: calc(100vh - 76px);
-	@apply p-4 bg-black/40 backdrop-blur-xl;
+	@apply overflow-y-auto p-4 bg-black/40 backdrop-blur-xl fixed top-[76px] bottom-0 inset-x-0;
 
 	&-list {
 		&__item {

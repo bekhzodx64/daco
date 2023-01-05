@@ -32,7 +32,7 @@ const Home = () => {
 			{/* <Advantages /> */}
 			{/* <Map /> */}
 			{/* <ContactUs /> */}
-			{/* <Footer /> */}
+			<Footer />
 			<MobileMenuNoSSR />
 		</main>
 	)
