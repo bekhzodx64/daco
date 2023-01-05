@@ -1,10 +1,7 @@
 import Image from 'next/image'
 import { Montserrat } from '@next/font/google'
 
-import overlay from '../../public/intro/overlay.png'
-import verticalOverlay from '../../public/intro/vertical-overlay.png'
-import sky from '../../public/intro/sky.png'
-import building from '../../public/intro/building.png'
+import desktop from '../../public/intro/desktop-intro-bg.jpg'
 
 import styles from './style.module.scss'
 
@@ -16,6 +13,15 @@ const montserrat = Montserrat({
 const Intro = () => {
 	return (
 		<div className={`${styles.intro} ${montserrat.variable} font-sans`}>
+			<Image
+				src={desktop}
+				quality={100}
+				priority
+				alt='daco'
+				fill
+				className='object-cover min-h-[570px]'
+			/>
+
 			<div className={`${styles['intro-content']} container`}>
 				<div className='flex flex-col justify-center h-full'>
 					<div className='space-y-7 mt-auto'>
