@@ -28,8 +28,8 @@ const Home = () => {
 			<Header />
 			{/* <Intro /> */}
 			{/* <AboutUs /> */} {/*ready*/}
-			<Carousel />
-			{/* <Services /> */}
+			{/* <Carousel /> */} {/*ready*/}
+			{/* <Services /> */} {/*ready*/}
 			{/* <Projects /> */}
 			{/* <Infrastructures /> */} {/*ready*/}
 			{/* <Live /> */}
