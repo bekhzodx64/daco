@@ -43,9 +43,14 @@ const Carousel = () => {
 				}}
 				speed={30000}
 				freeMode={true}
+				breakpoints={{
+					768: {
+						slidesPerView: 2.5,
+					},
+				}}
+				slidesPerView={1}
 				centeredSlides={true}
 				allowTouchMove={false}
-				slidesPerView={2.5}
 				spaceBetween={10}
 				className='relative timing'
 			>
@@ -78,7 +83,12 @@ const Carousel = () => {
 				speed={30000}
 				freeMode={true}
 				centeredSlides={true}
-				slidesPerView={2.5}
+				breakpoints={{
+					768: {
+						slidesPerView: 2.5,
+					},
+				}}
+				slidesPerView={1}
 				allowTouchMove={false}
 				spaceBetween={10}
 				className='relative timing'
