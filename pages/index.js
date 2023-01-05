@@ -12,6 +12,8 @@ import Services from '../components/Services'
 import Live from '../components/Live'
 import MobileMenu from '../components/Mobile/Menu'
 
+import { useSelector } from 'react-redux'
+
 import dynamic from 'next/dynamic'
 
 const MobileMenuNoSSR = dynamic(() => import('../components/Mobile/Menu'), {
@@ -19,6 +21,8 @@ const MobileMenuNoSSR = dynamic(() => import('../components/Mobile/Menu'), {
 })
 
 const Home = () => {
+	const { showMobileMenu } = useSelector((state) => state.systemSlice)
+
 	return (
 		<main className='flex flex-col min-h-screen'>
 			<Header />
@@ -33,7 +37,8 @@ const Home = () => {
 			{/* <Map /> */}
 			{/* <ContactUs /> */}
 			<Footer />
-			<MobileMenuNoSSR />
+
+			{showMobileMenu ? <MobileMenuNoSSR /> : null}
 		</main>
 	)
 }

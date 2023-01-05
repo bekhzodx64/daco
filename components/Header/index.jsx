@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { toggleMobileMenu } from '../../store/features/system'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -38,7 +41,13 @@ const navLinks = [
 ]
 
 const Header = () => {
+	const dispatch = useDispatch()
 	const [toggleIcon, setToggleIcon] = useState(false)
+
+	const menuHandler = () => {
+		dispatch(toggleMobileMenu())
+		setToggleIcon(!toggleIcon)
+	}
 
 	return (
 		<header
@@ -109,7 +118,7 @@ const Header = () => {
 
 				<button
 					type='button'
-					onClick={() => setToggleIcon(!toggleIcon)}
+					onClick={menuHandler}
 					className='p-1 rounded-lg bg-darkAccent lg:hidden'
 				>
 					{toggleIcon ? (
