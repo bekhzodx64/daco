@@ -27,11 +27,11 @@ const Home = () => {
 		<main className='flex flex-col min-h-screen'>
 			<Header />
 			{/* <Intro /> */}
-			{/* <AboutUs /> */}
+			{/* <AboutUs /> */} {/*ready*/}
 			{/* <Carousel /> */}
 			{/* <Services /> */}
 			{/* <Projects /> */}
-			<Infrastructures /> {/*ready*/}
+			{/* <Infrastructures /> */} {/*ready*/}
 			{/* <Live /> */}
 			{/* <Advantages /> */} {/*ready*/}
 			{/* <Map /> */}
