@@ -87,6 +87,58 @@ const MobileMenu = () => {
 							<p>RUS</p>
 						</li>
 					</ul>
+
+					<div className={styles['menu-phone']}>
+						<p className={styles['menu-phone__title']}>Phone number:</p>
+
+						<a
+							href='tel:+998881605555'
+							className={styles['menu-phone__link']}
+						>
+							<Image
+								src={'/icons/phone.svg'}
+								width={18}
+								height={18}
+								alt='phone'
+							/>
+							<span>+998 88 160 55 55</span>
+						</a>
+					</div>
+
+					<ul className={styles['menu-socials']}>
+						<li>
+							<a href='#'>
+								<Image
+									src={'/icons/twitter.svg'}
+									width={32}
+									height={32}
+									alt='twitter'
+								/>
+							</a>
+						</li>
+						<li>
+							<a href='#'>
+								<Image
+									src={'/icons/facebook.svg'}
+									width={32}
+									height={32}
+									alt='facebook'
+								/>
+							</a>
+						</li>
+						<li>
+							<a href='#'>
+								<Image
+									src={'/icons/instagram.svg'}
+									width={32}
+									height={32}
+									alt='instagram'
+								/>
+							</a>
+						</li>
+					</ul>
+
+					<span className={styles['menu-divide']}></span>
 				</div>,
 				document.querySelector('main')
 			)}

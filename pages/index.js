@@ -22,7 +22,6 @@ const Home = () => {
 	return (
 		<main className='flex flex-col min-h-screen'>
 			<Header />
-			<MobileMenuNoSSR />
 			{/* <Intro /> */}
 			{/* <AboutUs /> */}
 			{/* <Carousel /> */}
@@ -34,6 +33,7 @@ const Home = () => {
 			{/* <Map /> */}
 			{/* <ContactUs /> */}
 			{/* <Footer /> */}
+			<MobileMenuNoSSR />
 		</main>
 	)
 }

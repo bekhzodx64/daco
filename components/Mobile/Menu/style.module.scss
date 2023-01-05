@@ -19,4 +19,24 @@
 			@apply px-5 py-3 flex items-center gap-[10px] rounded-full border text-sm font-medium;
 		}
 	}
+
+	&-phone {
+		@apply space-y-4 pt-4;
+
+		&__title {
+			@apply opacity-50 text-sm text-center;
+		}
+
+		&__link {
+			@apply flex items-center gap-2 mx-auto py-4 px-6 w-max text-lg border border-white/80 rounded-full;
+		}
+	}
+
+	&-socials {
+		@apply flex items-center justify-center gap-9 py-8;
+	}
+
+	&-divide {
+		@apply h-[1px] block mx-auto w-20 bg-white/30;
+	}
 }
