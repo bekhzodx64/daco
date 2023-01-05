@@ -28,7 +28,7 @@
 	}
 
 	.custom-pagination {
-		@apply w-[72px] h-[72px] rounded-full flex items-center justify-center absolute z-10 right-36 top-1/2 -translate-y-1/2 pointer-events-none;
+		@apply w-[72px] h-[72px] rounded-full flex items-center justify-center absolute z-10 right-4 xl:right-36 top-1/2 -translate-y-1/2 pointer-events-none;
 	}
 
 	.perspective:hover {
@@ -40,11 +40,11 @@
 	}
 
 	.section-title {
-		@apply font-semibold text-[40px];
+		@apply font-semibold text-[32px] lg:text-[40px];
 	}
 
 	.section-description {
-		@apply text-[15px] opacity-70;
+		@apply text-sm opacity-70 font-light;
 	}
 
 	.contact-bg {

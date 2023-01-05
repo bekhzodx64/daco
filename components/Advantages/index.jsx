@@ -42,20 +42,20 @@ const Advantages = () => {
 			className={`${montserrat.variable} font-sans pt-20`}
 			id='advantages'
 		>
-			<p className='font-semibold relative opacity-20 text-accent text-[200px] -mb-28 -z-10 whitespace-nowrap'>
+			<p className='font-semibold relative opacity-20 text-accent text-[80px] lg:text-[200px] lg:-mb-28 -z-10 whitespace-nowrap overflow-hidden'>
 				Our advantages
 				<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
 			</p>
 
 			<div className='container'>
-				<div className='pl-52'>
+				<div className='lg:pl-52'>
 					<h2 className='section-title'>Our advantages</h2>
 					<p className='section-description'>
 						Get to know the best aspects of our company
 					</p>
 				</div>
 
-				<div className='grid lg:grid-cols-4 mt-[70px] gap-10 max-w-5xl mx-auto'>
+				<div className='grid lg:grid-cols-4 mt-[60px] lg:mt-[70px] gap-10 max-w-5xl mx-auto'>
 					{advantages.map((advantage, index) => (
 						<div key={advantage.id}>
 							<div className='flex flex-col gap-7'>

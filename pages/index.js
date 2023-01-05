@@ -31,13 +31,12 @@ const Home = () => {
 			{/* <Carousel /> */}
 			{/* <Services /> */}
 			{/* <Projects /> */}
-			{/* <Infrastructures /> */}
+			{/* <Infrastructures /> */} {/*ready*/}
 			{/* <Live /> */}
-			{/* <Advantages /> */}
+			{/* <Advantages /> */} {/*ready*/}
 			{/* <Map /> */}
 			{/* <ContactUs /> */}
 			<Footer />
-
 			{showMobileMenu ? <MobileMenuNoSSR /> : null}
 		</main>
 	)

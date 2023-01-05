@@ -48,15 +48,13 @@ const infrastructures = [
 
 const Infrastructures = () => {
 	return (
-		<div
-			className={`${montserrat.variable} font-sans pb-40 pt-20 overflow-x-hidden`}
-		>
-			<p className='font-semibold relative opacity-20 text-accent text-[200px] -mb-28 -z-10 whitespace-nowrap -translate-x-1/2'>
+		<div className={`${montserrat.variable} font-sans pb-36 lg:pb-40 pt-20`}>
+			<p className='font-semibold relative opacity-20 text-accent text-[80px] lg:text-[200px] lg:-mb-28 -z-10 whitespace-nowrap overflow-hidden'>
 				The most beautiful infrastructures
 				<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
 			</p>
 
-			<div className='container max-w-[960px]'>
+			<div className='container max-w-[960px] space-y-4 lg:space-y-0'>
 				<h2 className='section-title'>The most beautiful infrastructures</h2>
 				<p className='section-description'>
 					You can see the wonderful and beautiful places and infrastructure near
@@ -75,15 +73,29 @@ const Infrastructures = () => {
 				}}
 				loop={true}
 				spaceBetween={30}
-				slidesPerView={4}
-				centeredSlides={true}
-				className='relative mt-24'
+				slidesPerView={1.2}
+				breakpoints={{
+					640: {
+						slidesPerView: 2,
+						centeredSlides: true,
+					},
+					1024: {
+						slidesPerView: 3,
+						centeredSlides: true,
+					},
+					1360: {
+						slidesPerView: 4,
+						centeredSlides: true,
+					},
+				}}
+				className='relative mt-11 xl:mt-24'
 			>
 				{infrastructures.map((infrastructure) => (
 					<SwiperSlide
 						key={infrastructure.id}
 						className='py-10'
 					>
+						{/* w-full pt-[100%] */}
 						<div className='w-full pt-[100%] relative group transition-all perspective'>
 							<Image
 								src={infrastructure.image}
