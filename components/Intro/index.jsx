@@ -36,8 +36,8 @@ const Intro = () => {
 			<div className={`${styles['intro-content']} `}>
 				<div className='sm:hidden min-h-[90vh]'></div>
 
-				<div className='flex flex-col justify-center h-full relative -mt-20 sm:mt-0 gap-10 sm:gap-0 pt-16 container'>
-					<div className='space-y-7 mt-auto container'>
+				<div className='container relative flex flex-col justify-center h-full gap-10 pt-16 -mt-20 sm:mt-0 sm:gap-0'>
+					<div className='mt-auto space-y-7'>
 						<h1 className={styles['intro-title']}>
 							We always offer perfect
 							<p>Construction Services</p>
@@ -128,7 +128,7 @@ const Intro = () => {
 						priority
 						alt='daco'
 						fill
-						className='sm:hidden object-cover object-top -z-10'
+						className='object-cover object-top sm:hidden -z-10'
 					/>
 				</div>
 			</div>
