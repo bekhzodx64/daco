@@ -5,7 +5,7 @@ import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { toggleMobileMenu } from '../../store/features/system'
+import { toggleModal } from '../../store/features/system'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -43,20 +43,16 @@ const navLinks = [
 const Header = () => {
 	const dispatch = useDispatch()
 	const [toggleIcon, setToggleIcon] = useState(false)
-	const { showMobileMenu } = useSelector((state) => state.systemSlice)
+	const { showModal } = useSelector((state) => state.systemSlice)
 
 	const menuHandler = () => {
-		dispatch(toggleMobileMenu())
+		dispatch(toggleModal())
 		setToggleIcon(!toggleIcon)
 	}
 
 	return (
 		<header
-			className={`${
-				montserrat.variable
-			} font-sans py-4 text-sm sticky top-0 right-0 left-0 z-50  ${
-				showMobileMenu ? 'backdrop-blur-xl bg-black/40' : 'bg-bgBlack'
-			}`}
+			className={`${montserrat.variable} font-sans py-4 text-sm sticky top-0 right-0 left-0 z-50 bg-bgBlack`}
 		>
 			<div className='container flex items-center justify-between'>
 				<Link href='/'>
@@ -126,23 +122,13 @@ const Header = () => {
 					onClick={menuHandler}
 					className='p-1 rounded-lg bg-darkAccent lg:hidden'
 				>
-					{toggleIcon ? (
-						<Image
-							src={'/icons/hamburger-close.svg'}
-							width={30}
-							height={30}
-							priority
-							alt='hamburger icon'
-						/>
-					) : (
-						<Image
-							src={'/icons/hamburger-icon.svg'}
-							width={30}
-							height={30}
-							priority
-							alt='hamburger icon'
-						/>
-					)}
+					<Image
+						src={'/icons/hamburger-icon.svg'}
+						width={30}
+						height={30}
+						priority
+						alt='hamburger icon'
+					/>
 				</button>
 			</div>
 		</header>

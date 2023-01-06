@@ -15,11 +15,11 @@ import MobileMenu from '../components/Mobile/Menu'
 import { useSelector } from 'react-redux'
 
 const Home = () => {
-	const { showMobileMenu } = useSelector((state) => state.systemSlice)
+	const { showModal } = useSelector((state) => state.systemSlice)
 
 	return (
 		<main className='flex flex-col min-h-screen'>
-			<Header />
+			{showModal ? null : <Header />}
 			<Intro />
 			<AboutUs />
 			<Carousel />
@@ -32,7 +32,7 @@ const Home = () => {
 			<ContactUs />
 			<Footer />
 
-			{showMobileMenu ? <MobileMenu /> : null}
+			{showModal ? <MobileMenu /> : null}
 		</main>
 	)
 }

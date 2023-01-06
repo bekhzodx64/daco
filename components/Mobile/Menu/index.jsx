@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { createPortal } from 'react-dom'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
+import { toggleModal } from '../../../store/features/system'
+import { useDispatch } from 'react-redux'
 
 import styles from './style.module.scss'
 
@@ -11,8 +12,39 @@ const montserrat = Montserrat({
 })
 
 const MobileMenu = () => {
+	const dispatch = useDispatch()
+
+	const closeHandler = () => {
+		dispatch(toggleModal())
+	}
+
 	return (
 		<div className={`${styles.menu} ${montserrat.variable} font-sans`}>
+			<header className='flex items-center justify-between px-1 py-4'>
+				<div>
+					<Image
+						src='/logo.png'
+						priority
+						width={154}
+						height={44}
+						alt='logo'
+					/>
+				</div>
+				<button
+					type='button'
+					onClick={closeHandler}
+					className='p-1 rounded-lg bg-darkAccent lg:hidden w-[38px] h-[38px]'
+				>
+					<Image
+						src={'/icons/hamburger-close.svg'}
+						width={30}
+						height={30}
+						priority
+						alt='hamburger icon'
+					/>
+				</button>
+			</header>
+
 			<ul className={styles['menu-list']}>
 				<li className={styles['menu-list__item']}>
 					<Link
