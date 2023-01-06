@@ -35,7 +35,7 @@ const Home = () => {
 			{/* <Live /> */} {/*ready*/}
 			{/* <Advantages /> */} {/*ready*/}
 			{/* <Map /> */}
-			{/* <ContactUs /> */}
+			{/* <ContactUs /> */} {/*ready*/}
 			<Footer />
 			{showMobileMenu ? <MobileMenuNoSSR /> : null}
 		</main>
