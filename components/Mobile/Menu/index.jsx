@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { toggleModal } from '../../../store/features/system'
@@ -47,45 +46,50 @@ const MobileMenu = () => {
 
 			<ul className={styles['menu-list']}>
 				<li className={styles['menu-list__item']}>
-					<Link
-						href={'/'}
+					<a
+						href={'#about'}
+						onClick={closeHandler}
 						className={styles['menu-list__link']}
 					>
 						About us
-					</Link>
+					</a>
 				</li>
 
 				<li className={styles['menu-list__item']}>
-					<Link
-						href={'/'}
+					<a
+						href={'#services'}
+						onClick={closeHandler}
 						className={styles['menu-list__link']}
 					>
 						Our service
-					</Link>
+					</a>
 				</li>
 				<li className={styles['menu-list__item']}>
-					<Link
-						href={'/'}
+					<a
+						href={'#project'}
+						onClick={closeHandler}
 						className={styles['menu-list__link']}
 					>
 						Our projects
-					</Link>
+					</a>
 				</li>
 				<li className={styles['menu-list__item']}>
-					<Link
-						href={'/'}
+					<a
+						href={'#advantages'}
+						onClick={closeHandler}
 						className={styles['menu-list__link']}
 					>
 						Our advantages
-					</Link>
+					</a>
 				</li>
 				<li className={styles['menu-list__item']}>
-					<Link
-						href={'/'}
+					<a
+						href={'#contacts'}
+						onClick={closeHandler}
 						className={styles['menu-list__link']}
 					>
 						Contacts
-					</Link>
+					</a>
 				</li>
 			</ul>
 
