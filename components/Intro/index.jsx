@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import { Montserrat } from '@next/font/google'
+import { useDispatch } from 'react-redux'
+
+import { toggleVideo } from '../../store/features/system'
 
 import desktop from '../../public/intro/desktop-intro-bg.jpg'
 import building from '../../public/intro/building.jpg'
@@ -13,6 +16,12 @@ const montserrat = Montserrat({
 })
 
 const Intro = () => {
+	const dispatch = useDispatch()
+
+	const playHandler = () => {
+		dispatch(toggleVideo())
+	}
+
 	return (
 		<div className={`${styles.intro} ${montserrat.variable} font-sans`}>
 			<Image
@@ -49,7 +58,8 @@ const Intro = () => {
 						</p>
 
 						<div className={styles['intro-buttons']}>
-							<button
+							<a
+								href='#project'
 								type='button'
 								className={`${styles['intro-button__project']} accent-gradient`}
 							>
@@ -61,9 +71,10 @@ const Intro = () => {
 									priority
 									alt='chevron right'
 								/>
-							</button>
+							</a>
 							<button
 								type='button'
+								onClick={playHandler}
 								className={styles['intro-button__play']}
 							>
 								<div className={styles['intro-button__play-icon']}>

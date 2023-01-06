@@ -55,7 +55,7 @@ const Header = () => {
 			className={`${montserrat.variable} font-sans py-4 text-sm sticky top-0 right-0 left-0 z-50 bg-bgBlack`}
 		>
 			<div className='container flex items-center justify-between'>
-				<Link href='/'>
+				<a href='#main'>
 					<Image
 						src='/logo.png'
 						priority
@@ -63,7 +63,7 @@ const Header = () => {
 						height={44}
 						alt='logo'
 					/>
-				</Link>
+				</a>
 
 				<div className='items-center hidden gap-20 lg:flex'>
 					<div>

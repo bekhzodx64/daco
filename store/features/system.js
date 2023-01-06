@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	showModal: false,
+
+	videoModal: false,
 }
 
 const systemSlice = createSlice({
@@ -11,8 +13,11 @@ const systemSlice = createSlice({
 		toggleModal: (state, action) => {
 			state.showModal = !state.showModal
 		},
+		toggleVideo: (state) => {
+			state.videoModal = !state.videoModal
+		},
 	},
 })
 
-export const { toggleModal } = systemSlice.actions
+export const { toggleModal, toggleVideo } = systemSlice.actions
 export default systemSlice.reducer
