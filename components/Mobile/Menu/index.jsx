@@ -19,7 +19,7 @@ const MobileMenu = () => {
 
 	return (
 		<div className={`${styles.menu} ${montserrat.variable} font-sans`}>
-			<header className='flex items-center justify-between px-1 py-4'>
+			<header className='flex items-center justify-between px-1 py-4 sm:container'>
 				<div>
 					<Image
 						src='/logo.png'
