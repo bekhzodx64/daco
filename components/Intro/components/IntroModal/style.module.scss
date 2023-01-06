@@ -2,7 +2,7 @@
 	@apply fixed inset-0 bg-black/80 backdrop-blur-xl z-[60] flex items-center flex-col justify-center space-y-5;
 
 	&-player {
-		@apply aspect-video max-w-4xl relative;
+		@apply aspect-video max-w-4xl relative container;
 
 		video {
 			@apply w-full h-full object-cover;
