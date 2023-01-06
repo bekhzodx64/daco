@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import { useDispatch } from 'react-redux'
+import { toggleServices } from '../../store/features/system'
 
 const ServicesModalNoSSR = dynamic(() => import('./components/ServicesModal'), {
 	ssr: false,
@@ -58,6 +60,8 @@ const services = [
 ]
 
 const Services = () => {
+	const dispatch = useDispatch()
+
 	const [service, setService] = useState({
 		id: 1,
 		title: 'Design constructions',
@@ -66,7 +70,9 @@ const Services = () => {
 		icon: '/icons/services/1.svg',
 	})
 
-	const [showForm, setShowForm] = useState(false)
+	const modalHandler = () => {
+		dispatch(toggleServices())
+	}
 
 	return (
 		<div
@@ -96,7 +102,7 @@ const Services = () => {
 						</p>
 						<button
 							type='button'
-							onClick={() => setShowForm(!showForm)}
+							onClick={modalHandler}
 							className='text-[15px] flex items-center w-full justify-between border p-5 rounded-full mt-8'
 						>
 							<span>Leave an application</span>
@@ -147,13 +153,6 @@ const Services = () => {
 					))}
 				</div>
 			</div>
-
-			{showForm ? (
-				<ServicesModalNoSSR
-					showForm={showForm}
-					setShowForm={setShowForm}
-				/>
-			) : null}
 		</div>
 	)
 }

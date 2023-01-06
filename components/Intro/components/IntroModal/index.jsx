@@ -64,6 +64,7 @@ const IntroModal = () => {
 							src={'/icons/play-white.svg'}
 							width={20}
 							height={20}
+							priority
 							alt='play'
 						/>
 					</div>

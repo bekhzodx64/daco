@@ -13,11 +13,14 @@ import Live from '../components/Live'
 
 import MobileMenu from '../components/Mobile/Menu'
 import IntroModal from '../components/Intro/components/IntroModal'
+import ServicesModal from '../components/Services/components/ServicesModal'
 
 import { useSelector } from 'react-redux'
 
 const Home = () => {
-	const { showModal, videoModal } = useSelector((state) => state.systemSlice)
+	const { showModal, videoModal, servicesModal } = useSelector(
+		(state) => state.systemSlice
+	)
 
 	return (
 		<main className='flex flex-col min-h-screen'>
@@ -36,6 +39,7 @@ const Home = () => {
 
 			{videoModal ? <IntroModal /> : null}
 			{showModal ? <MobileMenu /> : null}
+			{servicesModal ? <ServicesModal /> : null}
 		</main>
 	)
 }
