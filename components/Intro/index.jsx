@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { Montserrat } from '@next/font/google'
 
 import desktop from '../../public/intro/desktop-intro-bg.jpg'
+import building from '../../public/intro/building.jpg'
+import layer from '../../public/intro/layer.png'
 
 import styles from './style.module.scss'
 
@@ -19,12 +21,23 @@ const Intro = () => {
 				priority
 				alt='daco'
 				fill
-				className='object-cover min-h-[570px]'
+				className='object-cover min-h-[570px] hidden sm:block'
 			/>
 
-			<div className={`${styles['intro-content']} container`}>
-				<div className='flex flex-col justify-center h-full'>
-					<div className='space-y-7 mt-auto'>
+			<Image
+				src={building}
+				quality={100}
+				priority
+				alt='daco'
+				fill
+				className='sm:hidden object-cover object-top pt-[76px]'
+			/>
+
+			<div className={`${styles['intro-content']} `}>
+				<div className='sm:hidden min-h-[90vh]'></div>
+
+				<div className='flex flex-col justify-center h-full relative -mt-20 sm:mt-0 gap-10 sm:gap-0 pt-16 container'>
+					<div className='space-y-7 mt-auto container'>
 						<h1 className={styles['intro-title']}>
 							We always offer perfect
 							<p>Construction Services</p>
@@ -67,7 +80,7 @@ const Intro = () => {
 						</div>
 					</div>
 
-					<div className={styles['intro-socials']}>
+					<div className={`${styles['intro-socials']}`}>
 						<div>
 							<ul className='flex items-center gap-5'>
 								<li>
@@ -108,6 +121,15 @@ const Intro = () => {
 						<div className={styles['intro-socials__divide']}></div>
 						<div className='text-sm opacity-50'>Follow us</div>
 					</div>
+
+					<Image
+						src={layer}
+						quality={100}
+						priority
+						alt='daco'
+						fill
+						className='sm:hidden object-cover object-top -z-10'
+					/>
 				</div>
 			</div>
 		</div>
