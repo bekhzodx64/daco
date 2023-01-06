@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import building from '../../public/live/1.png'
-import building2 from '../../public/live/2.png'
-import birds1 from '../../public/live/birds1.png'
+import desktop from '../../public/live/1.png'
+import mobile from '../../public/live/mobile-building.png'
+import desktop2 from '../../public/live/2.png'
 import birds2 from '../../public/live/birds2.png'
 import { Montserrat } from '@next/font/google'
 
@@ -13,30 +13,20 @@ const montserrat = Montserrat({
 const Live = () => {
 	return (
 		<div
-			className={`${montserrat.variable} font-sans relative z-0 bg-white min-h-[90vh] flex items-center`}
+			className={`${montserrat.variable} font-sans relative z-0 bg-white lg:min-h-[90vh] flex flex-col lg:flex-row lg:items-center pt-[100px] lg:pt-0`}
 		>
 			<Image
-				src={building}
+				src={desktop}
 				alt=''
 				quality={100}
-				draggable={false}
-				className='absolute bottom-0 left-0 -z-10'
+				className='absolute bottom-0 left-0 right-0 hidden object-cover -z-10 lg:block'
 			/>
 
 			<Image
-				src={building2}
+				src={desktop2}
 				alt=''
 				quality={100}
-				draggable={false}
-				className='absolute bottom-0 left-0 right-0 w-full -z-20'
-			/>
-
-			<Image
-				src={birds1}
-				alt=''
-				quality={100}
-				draggable={false}
-				className='absolute z-10 top-[15%] left-1/4'
+				className='absolute bottom-0 right-0 hidden object-cover -z-20 lg:block'
 			/>
 
 			<Image
@@ -44,10 +34,10 @@ const Live = () => {
 				alt=''
 				quality={100}
 				draggable={false}
-				className='absolute right-0 z-10 top-[10%]'
+				className='absolute right-0 z-10 top-[10%] hidden sm:block pointer-events-none'
 			/>
 
-			<div className='container flex flex-col items-end justify-center'>
+			<div className='container flex justify-center lg:justify-end'>
 				<div className='max-w-[400px] space-y-7'>
 					<h2 className='text-[40px] font-semibold leading-tight text-black'>
 						Live at the center of the city
@@ -74,6 +64,23 @@ const Live = () => {
 						</div>
 					</button>
 				</div>
+			</div>
+
+			<div className='relative overflow-hidden'>
+				<Image
+					src={mobile}
+					alt=''
+					quality={100}
+					draggable={false}
+					className='lg:hidden'
+				/>
+
+				<Image
+					src={desktop2}
+					alt=''
+					quality={100}
+					className='absolute bottom-0 right-0 object-cover -z-20 lg:hidden'
+				/>
 			</div>
 		</div>
 	)
