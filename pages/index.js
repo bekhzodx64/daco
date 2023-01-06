@@ -10,7 +10,6 @@ import Map from '../components/Map'
 import Projects from '../components/Projects'
 import Services from '../components/Services'
 import Live from '../components/Live'
-import MobileMenu from '../components/Mobile/Menu'
 
 import { useSelector } from 'react-redux'
 
@@ -26,16 +25,16 @@ const Home = () => {
 	return (
 		<main className='flex flex-col min-h-screen'>
 			<Header />
-			{/* <Intro /> */} {/*ready*/}
-			{/* <AboutUs /> */} {/*ready*/}
-			{/* <Carousel /> */} {/*ready*/}
-			{/* <Services /> */} {/*ready*/}
-			{/* <Projects /> */} {/*ready*/}
-			{/* <Infrastructures /> */} {/*ready*/}
-			{/* <Live /> */} {/*ready*/}
-			{/* <Advantages /> */} {/*ready*/}
+			<Intro />
+			<AboutUs />
+			<Carousel />
+			<Services />
+			<Projects />
+			<Infrastructures />
+			<Live />
+			<Advantages />
 			{/* <Map /> */}
-			{/* <ContactUs /> */} {/*ready*/}
+			<ContactUs />
 			<Footer />
 			{showMobileMenu ? <MobileMenuNoSSR /> : null}
 		</main>
