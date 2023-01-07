@@ -20,7 +20,7 @@
 			@apply flex items-center py-1 pr-1 pl-6 border gap-[14px] rounded-full;
 
 			.icon {
-				@apply rounded-full button-icon-bg w-[42px] h-[42px] overflow-hidden flex items-center justify-center;
+				@apply rounded-full w-[42px] h-[42px] overflow-hidden flex items-center justify-center;
 			}
 		}
 
