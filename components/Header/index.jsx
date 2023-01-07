@@ -3,41 +3,14 @@ import { useDispatch } from 'react-redux'
 
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
+import { navLinks } from '../../helpers/data'
 
 import { toggleMenu } from '../../store/features/system'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
-
-const navLinks = [
-	{
-		id: 1,
-		name: 'About us',
-		url: 'about'
-	},
-	{
-		id: 2,
-		name: 'Our service',
-		url: 'services'
-	},
-	{
-		id: 3,
-		name: 'Our project',
-		url: 'project'
-	},
-	{
-		id: 4,
-		name: 'Our advantages',
-		url: 'advantages'
-	},
-	{
-		id: 5,
-		name: 'Contacts',
-		url: 'contacts'
-	}
-]
 
 const Header = () => {
 	const dispatch = useDispatch()
@@ -54,14 +27,20 @@ const Header = () => {
 		>
 			<div className='container flex items-center justify-between'>
 				<a href='#main'>
-					<Image src='/logo.png' priority width={154} height={44} alt='logo' />
+					<Image
+						src='/logo.png'
+						priority
+						width={154}
+						height={44}
+						alt='logo'
+					/>
 				</a>
 
 				<div className='items-center hidden gap-20 lg:flex'>
 					<div>
 						<nav>
 							<ul className='flex items-center gap-7'>
-								{navLinks.map(link => (
+								{navLinks.map((link) => (
 									<li key={link.id}>
 										<a href={`#${link.url}`}>{link.name}</a>
 									</li>
@@ -72,7 +51,10 @@ const Header = () => {
 
 					<div className='flex items-center gap-12'>
 						<div>
-							<a href='tel:+998881605555' className='flex items-center gap-1'>
+							<a
+								href='tel:+998881605555'
+								className='flex items-center gap-1'
+							>
 								<Image
 									src={'/icons/phone.svg'}
 									width={17}

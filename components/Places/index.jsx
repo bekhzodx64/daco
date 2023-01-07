@@ -1,0 +1,164 @@
+import { Montserrat } from '@next/font/google'
+import Image from 'next/image'
+import { plans } from '../../helpers/data'
+
+import styles from './style.module.scss'
+
+import plan1 from '../../public/places/1.png'
+
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
+
+const Places = () => {
+	return (
+		<div
+			className={`${styles.places} ${montserrat.variable} font-sans container`}
+		>
+			<div className={styles['places-section']}>
+				<h2 className='text-center'>2. Choose available places</h2>
+
+				<div className={styles['places-plans']}>
+					{plans.map((plan) => (
+						<div
+							key={plan.id}
+							className={styles['places-plans__item']}
+						>
+							<div className={styles['places-plans__image']}>
+								<Image
+									src={plan.planImage}
+									fill
+									alt=''
+									draggable={false}
+									quality={100}
+									className='object-scale-down w-full h-full'
+								/>
+							</div>
+
+							<ul className={styles['places-plans__list']}>
+								<li>
+									<span>Этаж:</span>
+									<span>{plan.floor}</span>
+								</li>
+								<li>
+									<span>
+										С балконом м<sup>2</sup>:
+									</span>
+									<span>{plan.hasBalcony}</span>
+								</li>
+								<li>
+									<span>
+										Без балкона м<sup>2</sup>:
+									</span>
+									<span>{plan.noBalcony}</span>
+								</li>
+								<li>
+									<span>Комнат:</span>
+									<span>{plan.rooms}</span>
+								</li>
+							</ul>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div className={styles['places-footer']}>
+				<div className={styles['places-section']}>
+					<h2 className='mb-10'>3. You choosed</h2>
+
+					<div className={`${styles['places-footer__layout']} p-10 space-y-8`}>
+						<div className='flex flex-col gap-2'>
+							<h3 className={styles['places-footer__layout-title']}>
+								Project name:
+							</h3>
+							<p className={styles['places-footer__layout-description']}>
+								Project of a multi-store residental building “Anxor Tower”
+							</p>
+						</div>
+
+						<div className='space-y-3'>
+							<h3 className={styles['places-footer__layout-title']}>
+								Plan information:
+							</h3>
+
+							<div className='flex justify-between'>
+								<div className='w-1/3'>
+									<div className={styles['places-footer__layout-image']}>
+										<Image
+											src={plan1}
+											fill
+											alt=''
+											quality={100}
+											className='object-scale-down'
+										/>
+									</div>
+								</div>
+								<ul className={`${styles['places-plans__list']} w-1/2`}>
+									<li>
+										<span>Этаж:</span>
+										<span>2-6</span>
+									</li>
+									<li>
+										<span>
+											С балконом м<sup>2</sup>:
+										</span>
+										<span>84.71</span>
+									</li>
+									<li>
+										<span>
+											Без балкона м<sup>2</sup>:
+										</span>
+										<span>74.46</span>
+									</li>
+									<li>
+										<span>Комнат:</span>
+										<span>3</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className={styles['places-section']}>
+					<h2 className='mb-10'>4. Fill an application below </h2>
+
+					<div
+						className={`${styles['places-footer__layout']} px-20 pt-6 pb-12`}
+					>
+						<h2 className='text-lg font-medium text-center'>Application</h2>
+
+						<form className={styles['places-form']}>
+							<input
+								type='text'
+								placeholder='Your name'
+							/>
+
+							<input
+								type='tel'
+								placeholder='Phone number'
+							/>
+
+							<div className='flex justify-center mt-[15px]'>
+								<button className={styles['places-form__button']}>
+									<span>Send all information</span>
+									<div className={styles.icon}>
+										<Image
+											src={'/icons/chevron-right.svg'}
+											width={10}
+											height={10}
+											alt='chevron'
+										/>
+									</div>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+export default Places

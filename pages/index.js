@@ -10,6 +10,7 @@ import Intro from '../components/Intro'
 import Projects from '../components/Projects'
 import Services from '../components/Services'
 import Live from '../components/Live'
+import Places from '../components/Places'
 
 import MobileMenu from '../components/Mobile/Menu'
 import IntroModal from '../components/Intro/components/IntroModal'
@@ -33,6 +34,7 @@ const Home = () => {
 			<Projects />
 			<Infrastructures />
 			<Live />
+			<Places />
 			<Advantages />
 			{/* <Map /> */}
 			<ContactUs />
