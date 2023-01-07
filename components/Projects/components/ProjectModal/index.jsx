@@ -1,17 +1,29 @@
+import { useSelector, useDispatch } from 'react-redux'
 import Image from 'next/image'
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const ProjectModal = ({ showGallery, projects }) => {
+import { toggleProjects } from '../../../../store/features/system'
+
+const ProjectModal = () => {
+	const dispatch = useDispatch()
+
+	const { projectModal } = useSelector((state) => state.systemSlice)
+
 	return (
 		<div className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xl'>
 			<div className='mb-4'>
 				<button
 					type='button'
-					onClick={() => showGallery(null)}
+					onClick={() => dispatch(toggleProjects(false))}
 					className='flex items-center justify-center w-12 h-12 border rounded-full'
 				>
-					<Image src={'/icons/close.svg'} width={14} height={14} alt='close' />
+					<Image
+						src={'/icons/close.svg'}
+						width={14}
+						height={14}
+						alt='close'
+					/>
 				</button>
 			</div>
 
@@ -38,24 +50,22 @@ const ProjectModal = ({ showGallery, projects }) => {
 					loop={true}
 					navigation={{
 						prevEl: '.projects-modal-prev',
-						nextEl: '.projects-modal-next'
+						nextEl: '.projects-modal-next',
 					}}
 				>
-					{projects.map(project =>
-						project.gallery.map(image => (
-							<SwiperSlide key={image.id}>
-								<div className='relative pt-[60%]'>
-									<Image
-										src={image.image}
-										fill
-										quality={100}
-										alt='image'
-										className='object-cover'
-									/>
-								</div>
-							</SwiperSlide>
-						))
-					)}
+					{projectModal.map((project) => (
+						<SwiperSlide key={project.id}>
+							<div className='relative pt-[60%]'>
+								<Image
+									src={project.image}
+									fill
+									quality={100}
+									alt='image'
+									className='object-cover'
+								/>
+							</div>
+						</SwiperSlide>
+					))}
 				</Swiper>
 
 				<div className='absolute z-50 translate-x-full -translate-y-1/2 -right-4 top-1/2'>

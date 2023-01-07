@@ -1,126 +1,19 @@
-import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCoverflow, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
 import { useDispatch } from 'react-redux'
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
+import { toggleProjects } from '../../store/features/system'
 
-const ProjectModalNoSSR = dynamic(() => import('./components/ProjectModal'), {
-	ssr: false
-})
+import { projects } from '../../helpers/data'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
-
-const projects = [
-	{
-		id: 1,
-		title: 'Construction nine-storey Residential Building',
-		image: '/projects/1.jpg',
-		location: 'Tashkent, Almazar district, Karakamysh 1/3 house 35A',
-		gallery: [
-			{
-				id: 1,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 2,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
-	},
-	{
-		id: 2,
-		title: 'Construction nine-storey Residential Building',
-		image: '/projects/1.jpg',
-		location: 'Tashkent, Almazar district, Karakamysh 1/3 house 35A',
-		gallery: [
-			{
-				id: 1,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 2,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
-	},
-	{
-		id: 3,
-		title: 'Construction nine-storey Residential Building',
-		image: '/projects/1.jpg',
-		location: 'Tashkent, Almazar district, Karakamysh 1/3 house 35A',
-		gallery: [
-			{
-				id: 1,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 2,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
-	},
-	{
-		id: 4,
-		title: 'Construction nine-storey Residential Building',
-		image: '/projects/1.jpg',
-		location: 'Tashkent, Almazar district, Karakamysh 1/3 house 35A',
-		gallery: [
-			{
-				id: 1,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 2,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
-	},
-	{
-		id: 5,
-		title: 'Construction nine-storey Residential Building',
-		image: '/projects/1.jpg',
-		location: 'Tashkent, Almazar district, Karakamysh 1/3 house 35A',
-		gallery: [
-			{
-				id: 1,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 2,
-				image: '/projects/1.jpg'
-			},
-			{
-				id: 3,
-				image: '/projects/1.jpg'
-			}
-		]
-	}
-]
 
 const Projects = () => {
 	const dispatch = useDispatch()
-	const [gallery, showGallery] = useState(null)
 
 	return (
 		<div
@@ -145,11 +38,11 @@ const Projects = () => {
 					type: 'custom',
 					renderCustom: function (swiper, current, total) {
 						return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-					}
+					},
 				}}
 				navigation={{
 					prevEl: '.projects-prev',
-					nextEl: '.projects-next'
+					nextEl: '.projects-next',
 				}}
 				loop={true}
 				speed={1000}
@@ -159,12 +52,15 @@ const Projects = () => {
 					rotate: -5,
 					depth: 150,
 					modifier: 2,
-					stretch: -70
+					stretch: -70,
 				}}
 				className='relative mt-24'
 			>
-				{projects.map(project => (
-					<SwiperSlide key={project.id} className='group'>
+				{projects.map((project) => (
+					<SwiperSlide
+						key={project.id}
+						className='group'
+					>
 						<div className='pt-[100%] sm:pt-[60%] lg:pt-[40%]'>
 							<Image
 								src={project.image}
@@ -183,7 +79,10 @@ const Projects = () => {
 								{project.title}
 							</p>
 							<div className='flex items-center justify-between mt-3 overflow-hidden transition-all duration-1000 opacity-0 lg:mt-10 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
-								<button type='button' className='md:hidden'>
+								<button
+									type='button'
+									className='md:hidden'
+								>
 									See available places
 								</button>
 
@@ -204,7 +103,7 @@ const Projects = () => {
 
 								<button
 									type='button'
-									onClick={() => showGallery(project.gallery)}
+									onClick={() => dispatch(toggleProjects(project.gallery))}
 									className='relative z-10 flex items-center justify-center border rounded-full border-white/30 w-14 h-14'
 								>
 									<Image

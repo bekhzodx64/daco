@@ -20,7 +20,7 @@ import ProjectModal from '../components/Projects/components/ProjectModal'
 
 const Home = () => {
 	const { menuModal, videoModal, servicesModal, projectModal } = useSelector(
-		state => state.systemSlice
+		(state) => state.systemSlice
 	)
 
 	return (

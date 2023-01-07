@@ -4,26 +4,26 @@ const initialState = {
 	menuModal: false,
 	servicesModal: false,
 	videoModal: false,
-	projectModal: false
+	projectModal: false,
 }
 
 const systemSlice = createSlice({
 	name: 'system',
 	initialState,
 	reducers: {
-		toggleMenu: state => {
+		toggleMenu: (state) => {
 			state.menuModal = !state.menuModal
 		},
-		toggleVideo: state => {
+		toggleVideo: (state) => {
 			state.videoModal = !state.videoModal
 		},
-		toggleServices: state => {
+		toggleServices: (state) => {
 			state.servicesModal = !state.servicesModal
 		},
-		toggleProjects: state => {
-			state.projectModal = !state.projectModal
-		}
-	}
+		toggleProjects: (state, action) => {
+			state.projectModal = action.payload
+		},
+	},
 })
 
 export const { toggleMenu, toggleVideo, toggleServices, toggleProjects } =
