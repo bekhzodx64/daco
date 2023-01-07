@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Image from 'next/image'
 import { Navigation, Pagination } from 'swiper'
@@ -9,6 +10,14 @@ const ProjectModal = () => {
 	const dispatch = useDispatch()
 
 	const { projectModal } = useSelector((state) => state.systemSlice)
+
+	useEffect(() => {
+		document.body.classList.add('modal-open')
+
+		return () => {
+			document.body.classList.remove('modal-open')
+		}
+	}, [])
 
 	return (
 		<div className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xl'>
