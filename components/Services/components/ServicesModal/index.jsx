@@ -62,7 +62,6 @@ const ServicesModal = () => {
 						placeholder='Your name'
 						{...register('name', {
 							required: true,
-							pattern: /^[A-Za-z]+$/i,
 						})}
 						className={styles['modal-form__input']}
 					/>
@@ -85,12 +84,7 @@ const ServicesModal = () => {
 
 						<div className={styles['modal-form__checkboxes']}>
 							<label>
-								<input
-									type='checkbox'
-									className={styles.checkbox}
-								/>
-								<span></span>
-
+								<input type='checkbox' />
 								<p>Design constructions</p>
 							</label>
 							<label>
@@ -98,7 +92,6 @@ const ServicesModal = () => {
 									type='checkbox'
 									className={styles.checkbox}
 								/>
-								<span></span>
 								<p>Interior finishing works</p>
 							</label>
 							<label>
@@ -106,7 +99,6 @@ const ServicesModal = () => {
 									type='checkbox'
 									className={styles.checkbox}
 								/>
-								<span></span>
 								<p>Installation of engineering network</p>
 							</label>
 							<label>
@@ -114,7 +106,6 @@ const ServicesModal = () => {
 									type='checkbox'
 									className={styles.checkbox}
 								/>
-								<span></span>
 								<p>Commissioning of equipment</p>
 							</label>
 							<label>
@@ -122,7 +113,6 @@ const ServicesModal = () => {
 									type='checkbox'
 									className={styles.checkbox}
 								/>
-								<span></span>
 								<p>Construction works</p>
 							</label>
 							<label>
@@ -130,7 +120,6 @@ const ServicesModal = () => {
 									type='checkbox'
 									className={styles.checkbox}
 								/>
-								<span></span>
 								<p>Video surveilliance of during construction</p>
 							</label>
 						</div>

@@ -21,6 +21,7 @@ const ProjectModal = () => {
 					<Image
 						src={'/icons/close.svg'}
 						width={14}
+						priority
 						height={14}
 						alt='close'
 					/>
@@ -36,6 +37,7 @@ const ProjectModal = () => {
 						<Image
 							src={'/icons/chevron-left.svg'}
 							width={9}
+							priority
 							height={5}
 							alt='projects prev'
 						/>
@@ -76,6 +78,7 @@ const ProjectModal = () => {
 						<Image
 							src={'/icons/chevron-right.svg'}
 							width={9}
+							priority
 							height={5}
 							alt='projects next'
 						/>
