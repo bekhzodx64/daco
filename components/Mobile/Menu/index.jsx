@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
-import { toggleModal } from '../../../store/features/system'
+import { toggleMenu } from '../../../store/features/system'
 import { useDispatch } from 'react-redux'
 
 import styles from './style.module.scss'
@@ -15,7 +15,7 @@ const MobileMenu = () => {
 	const dispatch = useDispatch()
 
 	const closeHandler = () => {
-		dispatch(toggleModal())
+		dispatch(toggleMenu())
 	}
 
 	useEffect(() => {
@@ -47,50 +47,30 @@ const MobileMenu = () => {
 				</button>
 			</header>
 
-			<ul className={styles['menu-list']}>
+			<ul className={styles['menu-list']} onClick={closeHandler}>
 				<li className={styles['menu-list__item']}>
-					<a
-						href={'#about'}
-						onClick={closeHandler}
-						className={styles['menu-list__link']}
-					>
+					<a href={'#about'} className={styles['menu-list__link']}>
 						About us
 					</a>
 				</li>
 
 				<li className={styles['menu-list__item']}>
-					<a
-						href={'#services'}
-						onClick={closeHandler}
-						className={styles['menu-list__link']}
-					>
+					<a href={'#services'} className={styles['menu-list__link']}>
 						Our service
 					</a>
 				</li>
 				<li className={styles['menu-list__item']}>
-					<a
-						href={'#project'}
-						onClick={closeHandler}
-						className={styles['menu-list__link']}
-					>
+					<a href={'#project'} className={styles['menu-list__link']}>
 						Our projects
 					</a>
 				</li>
 				<li className={styles['menu-list__item']}>
-					<a
-						href={'#advantages'}
-						onClick={closeHandler}
-						className={styles['menu-list__link']}
-					>
+					<a href={'#advantages'} className={styles['menu-list__link']}>
 						Our advantages
 					</a>
 				</li>
 				<li className={styles['menu-list__item']}>
-					<a
-						href={'#contacts'}
-						onClick={closeHandler}
-						className={styles['menu-list__link']}
-					>
+					<a href={'#contacts'} className={styles['menu-list__link']}>
 						Contacts
 					</a>
 				</li>

@@ -1,26 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-	showModal: false,
+	menuModal: false,
 	servicesModal: false,
-	videoModal: false,
+	videoModal: false
 }
 
 const systemSlice = createSlice({
 	name: 'system',
 	initialState,
 	reducers: {
-		toggleModal: (state) => {
-			state.showModal = !state.showModal
+		toggleMenu: state => {
+			state.menuModal = !state.menuModal
 		},
-		toggleVideo: (state) => {
+		toggleVideo: state => {
 			state.videoModal = !state.videoModal
 		},
-		toggleServices: (state) => {
+		toggleServices: state => {
 			state.servicesModal = !state.servicesModal
-		},
-	},
+		}
+	}
 })
 
-export const { toggleModal, toggleVideo, toggleServices } = systemSlice.actions
+export const { toggleMenu, toggleVideo, toggleServices } = systemSlice.actions
 export default systemSlice.reducer

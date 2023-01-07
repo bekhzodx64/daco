@@ -18,13 +18,13 @@ import ServicesModal from '../components/Services/components/ServicesModal'
 import { useSelector } from 'react-redux'
 
 const Home = () => {
-	const { showModal, videoModal, servicesModal } = useSelector(
-		(state) => state.systemSlice
+	const { menuModal, videoModal, servicesModal } = useSelector(
+		state => state.systemSlice
 	)
 
 	return (
 		<main className='flex flex-col min-h-screen'>
-			{showModal ? null : <Header />}
+			{menuModal ? null : <Header />}
 			<Intro />
 			<AboutUs />
 			<Carousel />
@@ -38,7 +38,7 @@ const Home = () => {
 			<Footer />
 
 			{videoModal ? <IntroModal /> : null}
-			{showModal ? <MobileMenu /> : null}
+			{menuModal ? <MobileMenu /> : null}
 			{servicesModal ? <ServicesModal /> : null}
 		</main>
 	)
