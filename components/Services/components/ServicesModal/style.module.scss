@@ -1,8 +1,24 @@
 .modal {
-	@apply bg-black/80 backdrop-blur-xl fixed inset-0 z-50 flex items-center justify-center;
+	@apply bg-black/80
+	backdrop-blur-xl
+	fixed
+	inset-0 
+	z-50
+	flex
+	items-center
+	justify-center;
 
 	&-window {
-		@apply px-20 py-12 bg-accent/10 rounded-xl backdrop-blur-xl border border-white/50 w-full max-w-[700px] relative;
+		@apply px-20
+		py-12
+		bg-accent/10
+		rounded-xl
+		backdrop-blur-xl
+		border
+		border-white/50
+		w-full
+		max-w-[700px]
+		relative;
 
 		h2 {
 			@apply text-center font-semibold text-2xl mb-8;
@@ -10,10 +26,29 @@
 	}
 
 	&-form {
-		@apply w-full space-y-6;
+		@apply w-full
+		space-y-6;
 
 		&__input {
-			@apply bg-transparent outline-none py-3 w-full;
+			@apply bg-transparent
+			outline-none
+			py-3
+			w-full
+			border-b
+			border-white/50
+			relative
+			resize-none
+
+			focus:placeholder:text-white
+
+			after:content-['']
+			after:w-1/2
+			after:h-5
+			after:absolute
+			after:bottom-0
+			after:left-0
+			after:bg-white
+			after:z-50;
 		}
 
 		&__button {
