@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
@@ -15,6 +17,17 @@ const montserrat = Montserrat({
 })
 
 const Places = () => {
+	const [indexPlan, setIndexPlan] = useState([])
+	const [idx, setIdx] = useState()
+	const ref = useRef([])
+	console.log(indexPlan)
+	const handleChangeSwiper = (items) => {
+		ref.current = items.plans
+	}
+	useEffect(() => {
+		ref.current = ref.current
+	}, [indexPlan])
+
 	return (
 		<div
 			className={`${styles.places} ${montserrat.variable} font-sans container`}
@@ -47,40 +60,57 @@ const Places = () => {
 					centeredSlides={true}
 					spaceBetween={50}
 					className='relative mt-10'
+					// onChange={(value) => console.log(value)}
+					onSlideChange={(e) => {
+						console.log(e)
+						setIndexPlan((p) => (p += 1))
+					}}
+					onActiveIndexChange={(e) => {
+						setIdx(e.realIndex)
+					}}
 				>
-					{projects.map((project) => (
-						<SwiperSlide>
-							{({ isActive }) => {
-								return (
-									<div
-										className={`${
-											isActive ? 'opacity-100' : 'opacity-50'
-										} w-full h-full space-y-4`}
-									>
-										<div
-											className={` ${
-												isActive ? 'bg-accent/20' : ''
-											}  rounded-md  backdrop-blur-xl p-6`}
-										>
-											<div className='relative pt-[80%]'>
-												<Image
-													src={project.image}
-													fill
-													alt=''
-													quality={100}
-													draggable={false}
-													className='object-cover'
-												/>
+					{projects.map((project, idx, array) => {
+						return (
+							<>
+								<SwiperSlide key={project.id}>
+									{({ isActive }) => {
+										return (
+											<div
+												className={`${
+													isActive ? 'opacity-100' : 'opacity-50'
+												} w-full h-full space-y-4`}
+											>
+												{idx && isActive
+													? handleChangeSwiper(array[idx])
+													: null}
+												<div
+													className={` ${
+														isActive ? 'bg-accent/20' : ''
+													}  rounded-md  backdrop-blur-xl p-6`}
+												>
+													<div className='relative pt-[80%]'>
+														<Image
+															src={project.image}
+															fill
+															alt=''
+															quality={100}
+															draggable={false}
+															className='object-cover'
+														/>
+													</div>
+												</div>
+												{isActive ? (
+													<h2 className='text-lg line-clamp-2'>
+														{project.title}
+													</h2>
+												) : null}
 											</div>
-										</div>
-										{isActive ? (
-											<h2 className='text-lg line-clamp-2'>{project.title}</h2>
-										) : null}
-									</div>
-								)
-							}}
-						</SwiperSlide>
-					))}
+										)
+									}}
+								</SwiperSlide>
+							</>
+						)
+					})}
 				</Swiper>
 
 				<div className='container flex items-center justify-between gap-8 py-4'>
@@ -117,7 +147,7 @@ const Places = () => {
 				<h2 className='text-center'>2. Choose available places</h2>
 
 				<div className={styles['places-plans']}>
-					{plans.map((plan) => (
+					{ref.current.map((plan) => (
 						<div
 							key={plan.id}
 							className={styles['places-plans__item']}
@@ -159,6 +189,7 @@ const Places = () => {
 					))}
 				</div>
 			</div>
+
 			<div className={styles['places-footer']}>
 				<div className={styles['places-section']}>
 					<h2 className='mb-10'>3. You choosed</h2>
