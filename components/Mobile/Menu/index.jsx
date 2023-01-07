@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { toggleModal } from '../../../store/features/system'
@@ -7,7 +8,7 @@ import styles from './style.module.scss'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat',
+	variable: '--font-montserrat'
 })
 
 const MobileMenu = () => {
@@ -17,17 +18,19 @@ const MobileMenu = () => {
 		dispatch(toggleModal())
 	}
 
+	useEffect(() => {
+		document.body.classList.add('modal-open')
+
+		return () => {
+			document.body.classList.remove('modal-open')
+		}
+	}, [])
+
 	return (
 		<div className={`${styles.menu} ${montserrat.variable} font-sans`}>
 			<header className='flex items-center justify-between px-1 py-4 sm:container'>
 				<div>
-					<Image
-						src='/logo.png'
-						priority
-						width={154}
-						height={44}
-						alt='logo'
-					/>
+					<Image src='/logo.png' priority width={154} height={44} alt='logo' />
 				</div>
 				<button
 					type='button'
@@ -95,30 +98,15 @@ const MobileMenu = () => {
 
 			<ul className={styles['menu-langs']}>
 				<li className={styles['menu-langs__item']}>
-					<Image
-						src={'/flags/1.jpg'}
-						width={22}
-						height={13}
-						alt='flags'
-					/>
+					<Image src={'/flags/1.jpg'} width={22} height={13} alt='flags' />
 					<p>ENG</p>
 				</li>
 				<li className={styles['menu-langs__item']}>
-					<Image
-						src={'/flags/2.jpg'}
-						width={22}
-						height={13}
-						alt='flags'
-					/>
+					<Image src={'/flags/2.jpg'} width={22} height={13} alt='flags' />
 					<p>UZB</p>
 				</li>
 				<li className={styles['menu-langs__item']}>
-					<Image
-						src={'/flags/3.jpg'}
-						width={22}
-						height={13}
-						alt='flags'
-					/>
+					<Image src={'/flags/3.jpg'} width={22} height={13} alt='flags' />
 					<p>RUS</p>
 				</li>
 			</ul>
@@ -126,16 +114,8 @@ const MobileMenu = () => {
 			<div className={styles['menu-phone']}>
 				<p className={styles['menu-phone__title']}>Phone number:</p>
 
-				<a
-					href='tel:+998881605555'
-					className={styles['menu-phone__link']}
-				>
-					<Image
-						src={'/icons/phone.svg'}
-						width={18}
-						height={18}
-						alt='phone'
-					/>
+				<a href='tel:+998881605555' className={styles['menu-phone__link']}>
+					<Image src={'/icons/phone.svg'} width={18} height={18} alt='phone' />
 					<span>+998 88 160 55 55</span>
 				</a>
 			</div>
