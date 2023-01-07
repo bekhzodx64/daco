@@ -6,18 +6,22 @@
 	z-50
 	flex
 	items-center
+	p-4
+	overflow-y-auto
 	justify-center;
 
 	&-window {
 		@apply px-20
 		py-12
 		bg-accent/10
+		m-auto
 		rounded-xl
 		backdrop-blur-xl
 		border
 		border-white/50
 		w-full
 		max-w-[700px]
+		max-h-min
 		relative;
 
 		h2 {
@@ -33,7 +37,6 @@
 			@apply bg-transparent
 			outline-none
 			py-3
-			
 			w-full
 			border-b
 			border-white/50
@@ -63,7 +66,7 @@
 		}
 
 		&__checkboxes {
-			@apply grid grid-cols-2 gap-x-12 gap-y-5;
+			@apply grid md:grid-cols-2 gap-x-12 gap-y-5;
 
 			label {
 				@apply flex items-start gap-[10px] cursor-pointer;
