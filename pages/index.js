@@ -16,9 +16,10 @@ import IntroModal from '../components/Intro/components/IntroModal'
 import ServicesModal from '../components/Services/components/ServicesModal'
 
 import { useSelector } from 'react-redux'
+import ProjectModal from '../components/Projects/components/ProjectModal'
 
 const Home = () => {
-	const { menuModal, videoModal, servicesModal } = useSelector(
+	const { menuModal, videoModal, servicesModal, projectModal } = useSelector(
 		state => state.systemSlice
 	)
 
@@ -40,6 +41,7 @@ const Home = () => {
 			{videoModal ? <IntroModal /> : null}
 			{menuModal ? <MobileMenu /> : null}
 			{servicesModal ? <ServicesModal /> : null}
+			{projectModal ? <ProjectModal /> : null}
 		</main>
 	)
 }

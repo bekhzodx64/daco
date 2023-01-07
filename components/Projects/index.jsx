@@ -2,16 +2,17 @@ import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCoverflow, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
+import { useDispatch } from 'react-redux'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
 const ProjectModalNoSSR = dynamic(() => import('./components/ProjectModal'), {
-	ssr: false,
+	ssr: false
 })
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat',
+	variable: '--font-montserrat'
 })
 
 const projects = [
@@ -23,17 +24,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg',
-			},
-		],
+				image: '/projects/1.jpg'
+			}
+		]
 	},
 	{
 		id: 2,
@@ -43,17 +44,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg',
-			},
-		],
+				image: '/projects/1.jpg'
+			}
+		]
 	},
 	{
 		id: 3,
@@ -63,17 +64,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg',
-			},
-		],
+				image: '/projects/1.jpg'
+			}
+		]
 	},
 	{
 		id: 4,
@@ -83,17 +84,17 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg',
-			},
-		],
+				image: '/projects/1.jpg'
+			}
+		]
 	},
 	{
 		id: 5,
@@ -103,21 +104,22 @@ const projects = [
 		gallery: [
 			{
 				id: 1,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 2,
-				image: '/projects/1.jpg',
+				image: '/projects/1.jpg'
 			},
 			{
 				id: 3,
-				image: '/projects/1.jpg',
-			},
-		],
-	},
+				image: '/projects/1.jpg'
+			}
+		]
+	}
 ]
 
 const Projects = () => {
+	const dispatch = useDispatch()
 	const [gallery, showGallery] = useState(null)
 
 	return (
@@ -143,11 +145,11 @@ const Projects = () => {
 					type: 'custom',
 					renderCustom: function (swiper, current, total) {
 						return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-					},
+					}
 				}}
 				navigation={{
 					prevEl: '.projects-prev',
-					nextEl: '.projects-next',
+					nextEl: '.projects-next'
 				}}
 				loop={true}
 				speed={1000}
@@ -157,15 +159,12 @@ const Projects = () => {
 					rotate: -5,
 					depth: 150,
 					modifier: 2,
-					stretch: -70,
+					stretch: -70
 				}}
 				className='relative mt-24'
 			>
-				{projects.map((project) => (
-					<SwiperSlide
-						key={project.id}
-						className='group'
-					>
+				{projects.map(project => (
+					<SwiperSlide key={project.id} className='group'>
 						<div className='pt-[100%] sm:pt-[60%] lg:pt-[40%]'>
 							<Image
 								src={project.image}
@@ -176,18 +175,15 @@ const Projects = () => {
 							/>
 						</div>
 
-						<div className='absolute inset-0 flex flex-col justify-end px-5 py-3 md:py-11 md:px-20 transition-all duration-500  group-hover:bg-black/40'>
+						<div className='absolute inset-0 flex flex-col justify-end px-5 py-3 transition-all duration-500 md:py-11 md:px-20 group-hover:bg-black/40'>
 							<p className='text-sm font-medium transition-all duration-500 translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0'>
 								{project.location}
 							</p>
 							<p className='text-shadow font-semibold text-[22px] lg:text-[28px]'>
 								{project.title}
 							</p>
-							<div className='flex items-center mt-3 lg:mt-10 justify-between overflow-hidden transition-all duration-1000 opacity-0 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
-								<button
-									type='button'
-									className='md:hidden'
-								>
+							<div className='flex items-center justify-between mt-3 overflow-hidden transition-all duration-1000 opacity-0 lg:mt-10 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
+								<button type='button' className='md:hidden'>
 									See available places
 								</button>
 
@@ -252,13 +248,6 @@ const Projects = () => {
 					</div>
 				</div>
 			</Swiper>
-
-			{gallery ? (
-				<ProjectModalNoSSR
-					showGallery={showGallery}
-					projects={projects}
-				/>
-			) : null}
 		</div>
 	)
 }
