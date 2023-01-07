@@ -1,6 +1,9 @@
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { plans } from '../../helpers/data'
+import { projects } from '../../helpers/data'
 
 import styles from './style.module.scss'
 
@@ -16,6 +19,95 @@ const Places = () => {
 		<div
 			className={`${styles.places} ${montserrat.variable} font-sans container`}
 		>
+			<p className='font-semibold relative opacity-20 text-accent text-[80px] lg:text-[200px] lg:-mb-40 -z-10 whitespace-nowrap overflow-hidden'>
+				Our available places
+				<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
+			</p>
+
+			<h2 className='text-center section-title'>Our available places</h2>
+
+			<div>
+				<Swiper
+					modules={[Pagination, Navigation]}
+					pagination={{
+						el: '.custom-places-pagination',
+						type: 'custom',
+						renderCustom: function (swiper, current, total) {
+							return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
+						},
+					}}
+					navigation={{
+						prevEl: '.places-prev',
+						nextEl: '.places-next',
+					}}
+					loop={true}
+					slidesPerView={3}
+					centeredSlides={true}
+					spaceBetween={50}
+					className='relative mt-24'
+				>
+					{projects.map((project) => (
+						<SwiperSlide>
+							{({ isActive }) => {
+								return (
+									<div
+										className={`${
+											isActive ? 'opacity-100' : 'opacity-50'
+										} w-full h-full space-y-4`}
+									>
+										<div
+											className={` ${
+												isActive ? 'bg-accent/20' : ''
+											}  rounded-md  backdrop-blur-xl p-6`}
+										>
+											<div className='relative pt-[80%]'>
+												<Image
+													src={project.image}
+													fill
+													alt=''
+													quality={100}
+													className='object-cover'
+												/>
+											</div>
+										</div>
+										<h2 className='text-lg'>{project.title}</h2>
+									</div>
+								)
+							}}
+						</SwiperSlide>
+					))}
+				</Swiper>
+
+				<div className='container flex items-center justify-between gap-8 py-4'>
+					<div className='w-20 custom-places-pagination'></div>
+					<div className='h-[1px] w-full bg-gradient-to-tl from-transparent via-white/40 to-transparent rounded-full flex-1'></div>
+					<div className='flex gap-3 custom-places-navigation'>
+						<button
+							type='button'
+							className='flex items-center justify-center w-12 h-12 border rounded-full places-prev'
+						>
+							<Image
+								src={'/icons/chevron-left.svg'}
+								width={9}
+								height={5}
+								alt='places prev'
+							/>
+						</button>
+						<button
+							type='button'
+							className='flex items-center justify-center w-12 h-12 border rounded-full places-next'
+						>
+							<Image
+								src={'/icons/chevron-right.svg'}
+								width={9}
+								height={5}
+								alt='places next'
+							/>
+						</button>
+					</div>
+				</div>
+			</div>
+
 			<div className={styles['places-section']}>
 				<h2 className='text-center'>2. Choose available places</h2>
 
@@ -62,7 +154,6 @@ const Places = () => {
 					))}
 				</div>
 			</div>
-
 			<div className={styles['places-footer']}>
 				<div className={styles['places-section']}>
 					<h2 className='mb-10'>3. You choosed</h2>
