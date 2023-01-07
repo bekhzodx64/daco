@@ -27,6 +27,8 @@ const Places = () => {
 			<h2 className='text-center section-title'>Our available places</h2>
 
 			<div>
+				<h2 className='text-center'>1. Choose project</h2>
+
 				<Swiper
 					modules={[Pagination, Navigation]}
 					pagination={{
@@ -44,7 +46,7 @@ const Places = () => {
 					slidesPerView={3}
 					centeredSlides={true}
 					spaceBetween={50}
-					className='relative mt-24'
+					className='relative mt-10'
 				>
 					{projects.map((project) => (
 						<SwiperSlide>
@@ -66,11 +68,14 @@ const Places = () => {
 													fill
 													alt=''
 													quality={100}
+													draggable={false}
 													className='object-cover'
 												/>
 											</div>
 										</div>
-										<h2 className='text-lg'>{project.title}</h2>
+										{isActive ? (
+											<h2 className='text-lg line-clamp-2'>{project.title}</h2>
+										) : null}
 									</div>
 								)
 							}}
