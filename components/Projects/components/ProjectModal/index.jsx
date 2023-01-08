@@ -3,13 +3,26 @@ import { useSelector, useDispatch } from 'react-redux'
 import Image from 'next/image'
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { motion } from 'framer-motion'
 
 import { toggleProjects } from '../../../../store/features/system'
+
+const variants = {
+	initial: {
+		opacity: 0
+	},
+	animate: {
+		opacity: 1
+	},
+	exit: {
+		opacity: 0
+	}
+}
 
 const ProjectModal = () => {
 	const dispatch = useDispatch()
 
-	const { projectModal } = useSelector((state) => state.systemSlice)
+	const { projectModal } = useSelector(state => state.systemSlice)
 
 	useEffect(() => {
 		document.body.classList.add('modal-open')
@@ -20,11 +33,17 @@ const ProjectModal = () => {
 	}, [])
 
 	return (
-		<div className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xl'>
+		<motion.div
+			className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xl'
+			variants={variants}
+			initial='initial'
+			animate='animate'
+			exit='exit'
+		>
 			<div className='mb-4'>
 				<button
 					type='button'
-					onClick={() => dispatch(toggleProjects(false))}
+					onClick={() => dispatch(toggleProjects(null))}
 					className='flex items-center justify-center w-12 h-12 border rounded-full'
 				>
 					<Image
@@ -61,10 +80,10 @@ const ProjectModal = () => {
 					loop={true}
 					navigation={{
 						prevEl: '.projects-modal-prev',
-						nextEl: '.projects-modal-next',
+						nextEl: '.projects-modal-next'
 					}}
 				>
-					{projectModal.map((project) => (
+					{projectModal.map(project => (
 						<SwiperSlide key={project.id}>
 							<div className='relative pt-[60%]'>
 								<Image
@@ -94,7 +113,7 @@ const ProjectModal = () => {
 					</button>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

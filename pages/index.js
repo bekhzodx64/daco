@@ -1,3 +1,5 @@
+import { AnimatePresence } from 'framer-motion'
+
 import AboutUs from '../components/AboutUs'
 import Advantages from '../components/Advantages'
 import Carousel from '../components/Carousel'
@@ -21,12 +23,12 @@ import ProjectModal from '../components/Projects/components/ProjectModal'
 
 const Home = () => {
 	const { menuModal, videoModal, servicesModal, projectModal } = useSelector(
-		(state) => state.systemSlice
+		state => state.systemSlice
 	)
 
 	return (
 		<main className='flex flex-col min-h-screen'>
-			{menuModal ? null : <Header />}
+			<AnimatePresence>{menuModal ? null : <Header />}</AnimatePresence>
 			<Intro />
 			<AboutUs />
 			<Carousel />
@@ -40,10 +42,14 @@ const Home = () => {
 			<ContactUs />
 			<Footer />
 
-			{videoModal ? <IntroModal /> : null}
-			{menuModal ? <MobileMenu /> : null}
-			{servicesModal ? <ServicesModal /> : null}
-			{projectModal ? <ProjectModal /> : null}
+			<AnimatePresence>{videoModal ? <IntroModal /> : null}</AnimatePresence>
+			<AnimatePresence>{menuModal ? <MobileMenu /> : null}</AnimatePresence>
+			<AnimatePresence>
+				{servicesModal ? <ServicesModal /> : null}
+			</AnimatePresence>
+			<AnimatePresence>
+				{projectModal ? <ProjectModal /> : null}
+			</AnimatePresence>
 		</main>
 	)
 }

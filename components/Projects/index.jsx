@@ -9,7 +9,7 @@ import { projects } from '../../helpers/data'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat',
+	variable: '--font-montserrat'
 })
 
 const Projects = () => {
@@ -38,11 +38,11 @@ const Projects = () => {
 					type: 'custom',
 					renderCustom: function (swiper, current, total) {
 						return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-					},
+					}
 				}}
 				navigation={{
 					prevEl: '.projects-prev',
-					nextEl: '.projects-next',
+					nextEl: '.projects-next'
 				}}
 				loop={true}
 				speed={1000}
@@ -52,15 +52,12 @@ const Projects = () => {
 					rotate: -5,
 					depth: 150,
 					modifier: 2,
-					stretch: -70,
+					stretch: -70
 				}}
 				className='relative mt-24'
 			>
-				{projects.map((project) => (
-					<SwiperSlide
-						key={project.id}
-						className='group'
-					>
+				{projects.map(project => (
+					<SwiperSlide key={project.id} className='group'>
 						<div className='pt-[100%] sm:pt-[60%] lg:pt-[40%]'>
 							<Image
 								src={project.image}
@@ -79,10 +76,7 @@ const Projects = () => {
 								{project.title}
 							</p>
 							<div className='flex items-center justify-between mt-3 overflow-hidden transition-all duration-1000 opacity-0 lg:mt-10 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
-								<button
-									type='button'
-									className='md:hidden'
-								>
+								<button type='button' className='md:hidden'>
 									See available places
 								</button>
 

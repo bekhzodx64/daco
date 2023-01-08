@@ -2,8 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { toggleVideo } from '../../../../store/features/system'
+import { motion } from 'framer-motion'
 
 import styles from './style.module.scss'
+
+const variants = {
+	initial: {
+		opacity: 0
+	},
+	animate: {
+		opacity: 1
+	},
+	exit: {
+		opacity: 0
+	}
+}
 
 const IntroModal = () => {
 	const dispatch = useDispatch()
@@ -33,17 +46,15 @@ const IntroModal = () => {
 	}, [])
 
 	return (
-		<div className={styles.video}>
-			<button
-				type='button'
-				onClick={closeHandler}
-			>
-				<Image
-					src={'/icons/close.svg'}
-					width={20}
-					height={20}
-					alt='close'
-				/>
+		<motion.div
+			className={styles.video}
+			variants={variants}
+			initial='initial'
+			animate='animate'
+			exit='exit'
+		>
+			<button type='button' onClick={closeHandler}>
+				<Image src={'/icons/close.svg'} width={20} height={20} alt='close' />
 			</button>
 
 			<div className={styles['video-player']}>
@@ -56,10 +67,7 @@ const IntroModal = () => {
 				></video>
 
 				{play ? (
-					<div
-						className={styles['video-icon']}
-						onClick={playHandler}
-					>
+					<div className={styles['video-icon']} onClick={playHandler}>
 						<Image
 							src={'/icons/play-white.svg'}
 							width={20}
@@ -70,7 +78,7 @@ const IntroModal = () => {
 					</div>
 				) : null}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

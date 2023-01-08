@@ -13,17 +13,18 @@ import plan1 from '../../public/places/1.png'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat',
+	variable: '--font-montserrat'
 })
 
 const Places = () => {
 	const [indexPlan, setIndexPlan] = useState([])
 	const [idx, setIdx] = useState()
 	const ref = useRef([])
-	console.log(indexPlan)
-	const handleChangeSwiper = (items) => {
+
+	const handleChangeSwiper = items => {
 		ref.current = items.plans
 	}
+
 	useEffect(() => {
 		ref.current = ref.current
 	}, [indexPlan])
@@ -49,23 +50,21 @@ const Places = () => {
 						type: 'custom',
 						renderCustom: function (swiper, current, total) {
 							return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-						},
+						}
 					}}
 					navigation={{
 						prevEl: '.places-prev',
-						nextEl: '.places-next',
+						nextEl: '.places-next'
 					}}
 					loop={true}
 					slidesPerView={3}
 					centeredSlides={true}
 					spaceBetween={50}
 					className='relative mt-10'
-					// onChange={(value) => console.log(value)}
-					onSlideChange={(e) => {
-						console.log(e)
-						setIndexPlan((p) => (p += 1))
+					onSlideChange={e => {
+						setIndexPlan(p => (p += 1))
 					}}
-					onActiveIndexChange={(e) => {
+					onActiveIndexChange={e => {
 						setIdx(e.realIndex)
 					}}
 				>
@@ -147,11 +146,8 @@ const Places = () => {
 				<h2 className='text-center'>2. Choose available places</h2>
 
 				<div className={styles['places-plans']}>
-					{ref.current.map((plan) => (
-						<div
-							key={plan.id}
-							className={styles['places-plans__item']}
-						>
+					{ref.current.map(plan => (
+						<div key={plan.id} className={styles['places-plans__item']}>
 							<div className={styles['places-plans__image']}>
 								<Image
 									src={plan.planImage}
@@ -257,15 +253,9 @@ const Places = () => {
 						<h2 className='text-lg font-medium text-center'>Application</h2>
 
 						<form className={styles['places-form']}>
-							<input
-								type='text'
-								placeholder='Your name'
-							/>
+							<input type='text' placeholder='Your name' />
 
-							<input
-								type='tel'
-								placeholder='Phone number'
-							/>
+							<input type='tel' placeholder='Phone number' />
 
 							<div className='flex justify-center mt-[15px]'>
 								<button className={styles['places-form__button']}>
