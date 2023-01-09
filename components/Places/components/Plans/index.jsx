@@ -1,10 +1,21 @@
 import Image from 'next/image'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectPlan } from '../../../../store/features/system'
 
 import styles from './style.module.scss'
 
 const Plans = ({ plan }) => {
+	const dispatch = useDispatch()
+
+	const { currentPlan } = useSelector((state) => state.systemSlice)
+
 	return (
-		<div className={styles['places-plans__item']}>
+		<div
+			className={`${styles['places-plans__item']} ${
+				currentPlan.id === plan.id ? styles['places-plans__item-active'] : ''
+			}`}
+			onClick={() => dispatch(selectPlan(plan))}
+		>
 			<div className={styles['places-plans__image']}>
 				<Image
 					src={plan.planImage}

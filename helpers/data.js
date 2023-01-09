@@ -28,6 +28,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/1.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -36,6 +37,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 5,
 				planImage: '/places/2.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -44,6 +46,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/3.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -52,6 +55,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 6,
 				planImage: '/places/4.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -60,6 +64,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/5.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -68,6 +73,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/6.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -76,6 +82,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 4,
 				planImage: '/places/7.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -84,6 +91,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/8.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -92,6 +100,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/9.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -100,6 +109,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/10.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 		],
 	},
@@ -130,6 +140,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/1.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -138,6 +149,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 5,
 				planImage: '/places/2.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -146,6 +158,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/3.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -154,6 +167,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 6,
 				planImage: '/places/4.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -162,6 +176,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/5.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 		],
 	},
@@ -192,6 +207,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/1.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -200,6 +216,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 5,
 				planImage: '/places/2.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 		],
 	},
@@ -230,6 +247,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/1.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -238,6 +256,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 5,
 				planImage: '/places/2.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -246,6 +265,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/3.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -254,6 +274,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 6,
 				planImage: '/places/4.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -262,6 +283,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/5.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -270,6 +292,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/6.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -278,6 +301,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 4,
 				planImage: '/places/7.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -286,6 +310,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/8.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 		],
 	},
@@ -316,6 +341,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/1.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -324,6 +350,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 5,
 				planImage: '/places/2.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -332,6 +359,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 2,
 				planImage: '/places/3.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -340,6 +368,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 6,
 				planImage: '/places/4.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 			{
 				id: uuid(),
@@ -348,6 +377,7 @@ export const projects = [
 				noBalcony: 74.46,
 				rooms: 3,
 				planImage: '/places/5.png',
+				title: 'Project of a multi-store residental building “Anxor Tower”',
 			},
 		],
 	},

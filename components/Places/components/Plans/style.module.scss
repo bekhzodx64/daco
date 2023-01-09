@@ -8,7 +8,12 @@
             pt-4
             max-w-[267px]
             space-y-4
+			cursor-pointer
             w-full;
+
+			&-active {
+				background: linear-gradient(137.15deg, #d89382 0%, #894636 100%);
+			}
 		}
 
 		&__image {

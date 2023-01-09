@@ -17,6 +17,28 @@
         gap-y-14
         gap-x-7
         place-items-center;
+
+		&__list {
+			@apply space-y-3;
+
+			li {
+				@apply flex
+                justify-between;
+
+				span {
+					&:first-child {
+						@apply opacity-50
+                        text-sm
+                        font-medium;
+					}
+
+					&:last-child {
+						@apply font-medium
+                        text-sm;
+					}
+				}
+			}
+		}
 	}
 
 	&-footer {
