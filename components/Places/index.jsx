@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
-import { plans } from '../../helpers/data'
 import { projects } from '../../helpers/data'
+import Plans from './components/Plans'
 
 import styles from './style.module.scss'
 
@@ -13,21 +12,16 @@ import plan1 from '../../public/places/1.png'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
 
 const Places = () => {
 	const [indexPlan, setIndexPlan] = useState([])
-	const [idx, setIdx] = useState()
-	const ref = useRef([])
+	const [selectedPlan, setSelectedPlan] = useState(null)
 
-	const handleChangeSwiper = items => {
-		ref.current = items.plans
+	const togglePlans = (items) => {
+		setIndexPlan(items)
 	}
-
-	useEffect(() => {
-		ref.current = ref.current
-	}, [indexPlan])
 
 	return (
 		<div
@@ -50,25 +44,19 @@ const Places = () => {
 						type: 'custom',
 						renderCustom: function (swiper, current, total) {
 							return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-						}
+						},
 					}}
 					navigation={{
 						prevEl: '.places-prev',
-						nextEl: '.places-next'
+						nextEl: '.places-next',
 					}}
 					loop={true}
 					slidesPerView={3}
 					centeredSlides={true}
 					spaceBetween={50}
 					className='relative mt-10'
-					onSlideChange={e => {
-						setIndexPlan(p => (p += 1))
-					}}
-					onActiveIndexChange={e => {
-						setIdx(e.realIndex)
-					}}
 				>
-					{projects.map((project, idx, array) => {
+					{projects.map((project) => {
 						return (
 							<>
 								<SwiperSlide key={project.id}>
@@ -79,9 +67,7 @@ const Places = () => {
 													isActive ? 'opacity-100' : 'opacity-50'
 												} w-full h-full space-y-4`}
 											>
-												{idx && isActive
-													? handleChangeSwiper(array[idx])
-													: null}
+												{isActive ? togglePlans(project.plans) : null}
 												<div
 													className={` ${
 														isActive ? 'bg-accent/20' : ''
@@ -146,43 +132,14 @@ const Places = () => {
 				<h2 className='text-center'>2. Choose available places</h2>
 
 				<div className={styles['places-plans']}>
-					{ref.current.map(plan => (
-						<div key={plan.id} className={styles['places-plans__item']}>
-							<div className={styles['places-plans__image']}>
-								<Image
-									src={plan.planImage}
-									fill
-									alt=''
-									draggable={false}
-									quality={100}
-									className='object-scale-down w-full h-full'
-								/>
-							</div>
-
-							<ul className={styles['places-plans__list']}>
-								<li>
-									<span>Этаж:</span>
-									<span>{plan.floor}</span>
-								</li>
-								<li>
-									<span>
-										С балконом м<sup>2</sup>:
-									</span>
-									<span>{plan.hasBalcony}</span>
-								</li>
-								<li>
-									<span>
-										Без балкона м<sup>2</sup>:
-									</span>
-									<span>{plan.noBalcony}</span>
-								</li>
-								<li>
-									<span>Комнат:</span>
-									<span>{plan.rooms}</span>
-								</li>
-							</ul>
-						</div>
-					))}
+					{indexPlan?.map((item) => {
+						return (
+							<Plans
+								key={item.id}
+								plan={item}
+							/>
+						)
+					})}
 				</div>
 			</div>
 
@@ -253,9 +210,15 @@ const Places = () => {
 						<h2 className='text-lg font-medium text-center'>Application</h2>
 
 						<form className={styles['places-form']}>
-							<input type='text' placeholder='Your name' />
+							<input
+								type='text'
+								placeholder='Your name'
+							/>
 
-							<input type='tel' placeholder='Phone number' />
+							<input
+								type='tel'
+								placeholder='Phone number'
+							/>
 
 							<div className='flex justify-center mt-[15px]'>
 								<button className={styles['places-form__button']}>

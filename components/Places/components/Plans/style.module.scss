@@ -1,0 +1,43 @@
+.places {
+	&-plans {
+		&__item {
+			@apply bg-brown/25
+            rounded-2xl
+            px-6
+            pb-6
+            pt-4
+            max-w-[267px]
+            space-y-4
+            w-full;
+		}
+
+		&__image {
+			@apply w-[190px]            
+            h-[180px]
+            mx-auto
+            relative;
+		}
+
+		&__list {
+			@apply space-y-3;
+
+			li {
+				@apply flex
+                justify-between;
+
+				span {
+					&:first-child {
+						@apply opacity-50
+                        text-sm
+                        font-medium;
+					}
+
+					&:last-child {
+						@apply font-medium
+                        text-sm;
+					}
+				}
+			}
+		}
+	}
+}

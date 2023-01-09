@@ -9,20 +9,20 @@ import { toggleProjects } from '../../../../store/features/system'
 
 const variants = {
 	initial: {
-		opacity: 0
+		opacity: 0,
 	},
 	animate: {
-		opacity: 1
+		opacity: 1,
 	},
 	exit: {
-		opacity: 0
-	}
+		opacity: 0,
+	},
 }
 
 const ProjectModal = () => {
 	const dispatch = useDispatch()
 
-	const { projectModal } = useSelector(state => state.systemSlice)
+	const { projectModal } = useSelector((state) => state.systemSlice)
 
 	useEffect(() => {
 		document.body.classList.add('modal-open')
@@ -80,10 +80,10 @@ const ProjectModal = () => {
 					loop={true}
 					navigation={{
 						prevEl: '.projects-modal-prev',
-						nextEl: '.projects-modal-next'
+						nextEl: '.projects-modal-next',
 					}}
 				>
-					{projectModal.map(project => (
+					{projectModal?.map((project) => (
 						<SwiperSlide key={project.id}>
 							<div className='relative pt-[60%]'>
 								<Image
