@@ -1,13 +1,8 @@
 import { useState } from 'react'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
 import { useDispatch } from 'react-redux'
 import { toggleServices } from '../../store/features/system'
-
-const ServicesModalNoSSR = dynamic(() => import('./components/ServicesModal'), {
-	ssr: false,
-})
 
 const montserrat = Montserrat({
 	subsets: ['latin'],

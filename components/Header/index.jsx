@@ -66,7 +66,7 @@ const Header = () => {
 							</a>
 						</div>
 
-						<div className='flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px] cursor-pointer'>
+						<div className='flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px] cursor-pointer relative group'>
 							<Image
 								src={'/flags/1.jpg'}
 								width={22}
@@ -83,6 +83,41 @@ const Header = () => {
 									priority
 									alt='chevron down'
 								/>
+							</div>
+
+							<div className='absolute left-0 w-full pt-2 overflow-hidden transition-all origin-top scale-y-0 opacity-0 cursor-default top-full group-hover:scale-y-100 group-hover:opacity-100'>
+								<ul className='flex flex-col py-2 overflow-hidden border rounded-xl border-white/30 bg-bgBlack'>
+									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
+										<Image
+											src={'/flags/1.jpg'}
+											width={22}
+											height={14}
+											alt='flag'
+											priority
+										/>
+										<span>ru</span>
+									</li>
+									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
+										<Image
+											src={'/flags/1.jpg'}
+											width={22}
+											height={14}
+											alt='flag'
+											priority
+										/>
+										<span>uz</span>
+									</li>
+									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
+										<Image
+											src={'/flags/1.jpg'}
+											width={22}
+											height={14}
+											alt='flag'
+											priority
+										/>
+										<span>kr</span>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
