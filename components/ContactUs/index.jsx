@@ -1,8 +1,8 @@
 import { Montserrat } from '@next/font/google'
+import { useForm } from 'react-hook-form'
 import Image from 'next/image'
 import fog from '../../public/contact/fog.png'
 import building from '../../public/contact/contact-bg.png'
-import logo from '../../public/contact/logo.png'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -10,6 +10,10 @@ const montserrat = Montserrat({
 })
 
 const ContactUs = () => {
+	const { register, handleSubmit } = useForm()
+
+	const onSubmit = (data) => console.log(data)
+
 	return (
 		<div
 			className={`${montserrat.variable} font-sans relative`}
@@ -34,14 +38,21 @@ const ContactUs = () => {
 						</p>
 					</div>
 
-					<form className='flex flex-col items-center w-full max-w-sm gap-5 lg:w-auto lg:max-w-none lg:flex-row'>
+					<form
+						onSubmit={handleSubmit(onSubmit)}
+						className='flex flex-col items-center w-full max-w-sm gap-5 lg:w-auto lg:max-w-none lg:flex-row'
+					>
 						<input
+							{...register('name', {
+								required: true,
+							})}
 							type='text'
 							className='w-full lg:w-auto px-5 py-4 font-medium outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 text-[15px]'
 							placeholder='Name'
 						/>
 
 						<input
+							{...register('phone', { required: true })}
 							type='tel'
 							className='w-full lg:w-auto px-5 py-4 outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 font-medium text-[15px]'
 							pattern='+[0-9]{3} ([0-9]{2}) [0-9]{3}-[0-9]{2}-[0-9]{2}'

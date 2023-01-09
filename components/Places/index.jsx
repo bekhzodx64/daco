@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useForm } from 'react-hook-form'
 import { Pagination, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
@@ -17,7 +18,11 @@ const montserrat = Montserrat({
 const Places = () => {
 	const [indexPlan, setIndexPlan] = useState([])
 
+	const { register, handleSubmit } = useForm()
+
 	const { currentPlan } = useSelector((state) => state.systemSlice)
+
+	const onSubmit = (data) => console.log(data)
 
 	const togglePlans = (items) => {
 		setIndexPlan(items)
@@ -222,7 +227,10 @@ const Places = () => {
 					>
 						<h2 className='text-lg font-medium text-center'>Application</h2>
 
-						<form className={styles['places-form']}>
+						<form
+							onSubmit={handleSubmit(onSubmit)}
+							className={styles['places-form']}
+						>
 							<input
 								type='text'
 								placeholder='Your name'
