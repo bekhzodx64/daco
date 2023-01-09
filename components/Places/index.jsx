@@ -173,8 +173,8 @@ const Places = () => {
 										Plan information:
 									</h3>
 
-									<div className='flex justify-between'>
-										<div className='w-1/3'>
+									<div className='flex flex-col justify-between space-y-3 sm:flex-row sm:space-y-0'>
+										<div className='sm:w-1/3'>
 											<div className={styles['places-footer__layout-image']}>
 												<Image
 													src={currentPlan.planImage}
@@ -185,7 +185,7 @@ const Places = () => {
 												/>
 											</div>
 										</div>
-										<ul className={`${styles['places-plans__list']} w-1/2`}>
+										<ul className={`${styles['places-plans__list']} sm:w-1/2`}>
 											<li>
 												<span>Этаж:</span>
 												<span>{currentPlan.floor}</span>
@@ -218,7 +218,7 @@ const Places = () => {
 					<h2 className='mb-10'>4. Fill an application below </h2>
 
 					<div
-						className={`${styles['places-footer__layout']} px-20 pt-6 pb-12`}
+						className={`${styles['places-footer__layout']} px-4 pt-9 pb-11 sm:px-20 sm:pt-6 sm:pb-12`}
 					>
 						<h2 className='text-lg font-medium text-center'>Application</h2>
 
