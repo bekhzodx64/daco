@@ -12,7 +12,7 @@ const Plans = ({ plan }) => {
 	return (
 		<div
 			className={`${styles['places-plans__item']} ${
-				currentPlan.id === plan.id ? styles['places-plans__item-active'] : ''
+				currentPlan?.id === plan.id ? styles['places-plans__item-active'] : ''
 			}`}
 			onClick={() => dispatch(selectPlan(plan))}
 		>

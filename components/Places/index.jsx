@@ -50,50 +50,54 @@ const Places = () => {
 						prevEl: '.places-prev',
 						nextEl: '.places-next',
 					}}
+					breakpoints={{
+						768: {
+							slidesPerView: 2,
+						},
+					}}
 					loop={true}
-					slidesPerView={3}
+					slidesPerView={1}
 					centeredSlides={true}
 					spaceBetween={50}
 					className='relative mt-10'
 				>
-					{projects.map((project) => {
+					{projects?.map((project, index) => {
 						return (
-							<>
-								<SwiperSlide key={project.id}>
-									{({ isActive }) => {
-										return (
+							<SwiperSlide key={index}>
+								{({ isActive }) => {
+									isActive ? togglePlans(project.plans) : null
+
+									return (
+										<div
+											className={`${
+												isActive ? 'opacity-100' : 'opacity-50'
+											} w-full h-full space-y-4`}
+										>
 											<div
-												className={`${
-													isActive ? 'opacity-100' : 'opacity-50'
-												} w-full h-full space-y-4`}
+												className={` ${
+													isActive ? 'bg-accent/20' : ''
+												}  rounded-md  backdrop-blur-xl p-6`}
 											>
-												{isActive ? togglePlans(project.plans) : null}
-												<div
-													className={` ${
-														isActive ? 'bg-accent/20' : ''
-													}  rounded-md  backdrop-blur-xl p-6`}
-												>
-													<div className='relative pt-[80%]'>
-														<Image
-															src={project.image}
-															fill
-															alt=''
-															quality={100}
-															draggable={false}
-															className='object-cover'
-														/>
-													</div>
+												<div className='relative pt-[80%]'>
+													<Image
+														src={project.image}
+														fill
+														alt=''
+														quality={100}
+														draggable={false}
+														className='object-cover'
+													/>
 												</div>
-												{isActive ? (
-													<h2 className='text-lg line-clamp-2'>
-														{project.title}
-													</h2>
-												) : null}
 											</div>
-										)
-									}}
-								</SwiperSlide>
-							</>
+											{isActive ? (
+												<h2 className='text-lg line-clamp-2'>
+													{project.title}
+												</h2>
+											) : null}
+										</div>
+									)
+								}}
+							</SwiperSlide>
 						)
 					})}
 				</Swiper>
@@ -132,10 +136,10 @@ const Places = () => {
 				<h2 className='text-center'>2. Choose available places</h2>
 
 				<div className={styles['places-plans']}>
-					{indexPlan?.map((item) => {
+					{indexPlan?.map((item, index) => {
 						return (
 							<Plans
-								key={item.id}
+								key={index}
 								plan={item}
 							/>
 						)

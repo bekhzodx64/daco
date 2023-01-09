@@ -13,10 +13,12 @@
 
 	&-plans {
 		@apply grid
-        grid-cols-4
         gap-y-14
         gap-x-7
-        place-items-center;
+        place-items-center
+		sm:grid-cols-2
+		md:grid-cols-3
+		lg:grid-cols-4;
 
 		&__list {
 			@apply space-y-3;
@@ -42,7 +44,9 @@
 	}
 
 	&-footer {
-		@apply grid grid-cols-2 gap-7;
+		@apply grid
+		 lg:grid-cols-2 
+		 gap-7;
 
 		&__layout {
 			@apply bg-brown/25 rounded-3xl;

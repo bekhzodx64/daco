@@ -85,7 +85,7 @@ const Header = () => {
 								/>
 							</div>
 
-							<div className='absolute left-0 w-full pt-2 overflow-hidden transition-all origin-top scale-y-0 opacity-0 cursor-default top-full group-hover:scale-y-100 group-hover:opacity-100'>
+							<div className='absolute left-0 w-full pt-2 overflow-hidden transition-all duration-300 origin-top scale-y-0 opacity-0 cursor-default top-full group-hover:scale-y-100 group-hover:opacity-100'>
 								<ul className='flex flex-col py-2 overflow-hidden border rounded-xl border-white/30 bg-bgBlack'>
 									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
 										<Image
