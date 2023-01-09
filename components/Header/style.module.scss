@@ -1,0 +1,16 @@
+.header {
+	@apply text-sm
+    sticky
+    top-0
+    right-0
+    left-0
+    z-50
+    py-4
+    bg-bgBlack;
+
+	&-inner {
+		@apply flex
+        items-center
+        justify-between;
+	}
+}

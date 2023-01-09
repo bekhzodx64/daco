@@ -7,6 +7,8 @@ import { navLinks } from '../../helpers/data'
 
 import { toggleMenu } from '../../store/features/system'
 
+import styles from './style.module.scss'
+
 const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
@@ -22,10 +24,8 @@ const Header = () => {
 	}
 
 	return (
-		<header
-			className={`${montserrat.variable} font-sans py-4 text-sm sticky top-0 right-0 left-0 z-50 bg-bgBlack`}
-		>
-			<div className='container flex items-center justify-between'>
+		<header className={`${montserrat.variable} ${styles.header} font-sans`}>
+			<div className={`${styles['header-inner']} container`}>
 				<a href='#main'>
 					<Image
 						src='/logo.png'
@@ -36,10 +36,10 @@ const Header = () => {
 					/>
 				</a>
 
-				<div className='items-center hidden gap-20 lg:flex'>
+				<div className='items-center hidden gap-10 xl:gap-20 lg:flex'>
 					<div>
 						<nav>
-							<ul className='flex items-center gap-7'>
+							<ul className='flex items-center gap-3 xl:gap-7'>
 								{navLinks.map((link) => (
 									<li key={link.id}>
 										<a href={`#${link.url}`}>{link.name}</a>
@@ -49,7 +49,7 @@ const Header = () => {
 						</nav>
 					</div>
 
-					<div className='flex items-center gap-12'>
+					<div className='flex items-center gap-6 xl:gap-12'>
 						<div>
 							<a
 								href='tel:+998881605555'
