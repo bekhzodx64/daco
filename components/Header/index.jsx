@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { navLinks } from '../../helpers/data'
+import { motion } from 'framer-motion'
 
 import { toggleMenu } from '../../store/features/system'
 
@@ -13,6 +14,18 @@ const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
 })
+
+const variants = {
+	initial: {
+		opacity: 0,
+	},
+	animate: {
+		opacity: 1,
+	},
+	exit: {
+		opacity: 0,
+	},
+}
 
 const Header = () => {
 	const dispatch = useDispatch()
@@ -24,7 +37,13 @@ const Header = () => {
 	}
 
 	return (
-		<header className={`${montserrat.variable} ${styles.header} font-sans`}>
+		<motion.header
+			className={`${montserrat.variable} ${styles.header} font-sans`}
+			variants={variants}
+			initial='initial'
+			animate='animate'
+			exit='exit'
+		>
 			<div className={`${styles['header-inner']} container`}>
 				<a href='#main'>
 					<Image
@@ -137,7 +156,7 @@ const Header = () => {
 					/>
 				</button>
 			</div>
-		</header>
+		</motion.header>
 	)
 }
 
