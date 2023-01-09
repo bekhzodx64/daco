@@ -54,6 +54,9 @@ const Places = () => {
 						768: {
 							slidesPerView: 2,
 						},
+						1360: {
+							slidesPerView: 3,
+						},
 					}}
 					loop={true}
 					slidesPerView={1}
