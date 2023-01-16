@@ -5,6 +5,7 @@ import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { navLinks } from '../../helpers/data'
 import { motion } from 'framer-motion'
+import LangSwitcher from './components/LangSwitcher'
 
 import { toggleMenu } from '../../store/features/system'
 
@@ -85,7 +86,9 @@ const Header = () => {
 							</a>
 						</div>
 
-						<div className='flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px] cursor-pointer relative group'>
+						<LangSwitcher />
+
+						{/* <div className='flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px] cursor-pointer relative group'>
 							<Image
 								src={'/flags/1.jpg'}
 								width={22}
@@ -138,7 +141,7 @@ const Header = () => {
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 
