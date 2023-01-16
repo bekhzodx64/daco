@@ -71,12 +71,13 @@ const LangSwitcher = () => {
 						style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
 						className='flex flex-col py-2 border rounded-xl border-white/30 bg-bgBlack'
 					>
-						{langRouter.locales.map((locale) => (
+						{langRouter.locales.map((locale, index) => (
 							<Link
 								href={langRouter.asPath}
 								locale={locale}
 								scroll={false}
 								replace
+								key={index}
 							>
 								<li className='flex items-center gap-2 px-5 py-2 uppercase cursor-pointer hover:bg-darkAccent'>
 									{locale === 'en' ? (
