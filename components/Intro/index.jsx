@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Montserrat } from '@next/font/google'
+import useTranslation from 'next-translate/useTranslation'
 import { useDispatch } from 'react-redux'
 
 import { toggleVideo } from '../../store/features/system'
@@ -17,6 +18,7 @@ const montserrat = Montserrat({
 
 const Intro = () => {
 	const dispatch = useDispatch()
+	const { t } = useTranslation()
 
 	const playHandler = () => {
 		dispatch(toggleVideo())
@@ -48,13 +50,13 @@ const Intro = () => {
 				<div className='container relative flex flex-col justify-center h-full gap-10 pt-16 -mt-20 sm:mt-0 sm:gap-0'>
 					<div className='mt-auto space-y-7'>
 						<h1 className={styles['intro-title']}>
+							{/* {t('home:intro_title')} */}
 							We always offer perfect
 							<p>Construction Services</p>
 						</h1>
 
 						<p className={styles['intro-description']}>
-							DACO GROUP is one of the fastest growing development companies
-							with 15 years of experience in the market.
+							{t('home:intro_description')}
 						</p>
 
 						<div className={styles['intro-buttons']}>
@@ -63,7 +65,7 @@ const Intro = () => {
 								type='button'
 								className={`${styles['intro-button__project']} accent-gradient`}
 							>
-								<p>See projects</p>
+								<p> {t('home:intro_main_button')}</p>
 								<Image
 									src={'/icons/chevron-right.svg'}
 									width={9}
