@@ -410,3 +410,24 @@ export const navLinks = [
 		url: 'contacts',
 	},
 ]
+
+export const socialLinks = [
+	{
+		id: uuid(),
+		icon: '/icons/twitter.svg',
+		name: 'twitter',
+		url: '#!',
+	},
+	{
+		id: uuid(),
+		icon: '/icons/facebook.svg',
+		name: 'facebook',
+		url: '#!',
+	},
+	{
+		id: uuid(),
+		icon: '/icons/instagram.svg',
+		name: 'instagram',
+		url: '#!',
+	},
+]

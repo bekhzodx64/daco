@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 
 import { toggleVideo } from '../../store/features/system'
 
+import SocialLinks from './components/SocialLinks'
+
 import desktop from '../../public/intro/desktop-intro-bg.jpg'
 import building from '../../public/intro/building.jpg'
 import layer from '../../public/intro/layer.png'
@@ -94,43 +96,8 @@ const Intro = () => {
 					</div>
 
 					<div className={`${styles['intro-socials']}`}>
-						<div>
-							<ul className='flex items-center gap-5'>
-								<li>
-									<a href='#'>
-										<Image
-											src={'/icons/twitter.svg'}
-											width={24}
-											height={24}
-											priority
-											alt='twitter'
-										/>
-									</a>
-								</li>
-								<li>
-									<a href='#'>
-										<Image
-											src={'/icons/facebook.svg'}
-											width={24}
-											height={24}
-											priority
-											alt='facebook'
-										/>
-									</a>
-								</li>
-								<li>
-									<a href='#'>
-										<Image
-											src={'/icons/instagram.svg'}
-											width={24}
-											height={24}
-											priority
-											alt='instagram'
-										/>
-									</a>
-								</li>
-							</ul>
-						</div>
+						<SocialLinks />
+
 						<div className={styles['intro-socials__divide']}></div>
 						<div className='text-sm opacity-50'>Follow us</div>
 					</div>

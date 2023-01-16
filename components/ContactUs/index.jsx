@@ -1,6 +1,10 @@
 import { Montserrat } from '@next/font/google'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
+import ReactInputMask from 'react-input-mask'
 import Image from 'next/image'
+
+import InputMaskNumber from './components/InputMaskNumber'
+
 import fog from '../../public/contact/fog.png'
 import building from '../../public/contact/contact-bg.png'
 
@@ -10,9 +14,16 @@ const montserrat = Montserrat({
 })
 
 const ContactUs = () => {
-	const { register, handleSubmit } = useForm()
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors },
+	} = useForm()
 
-	const onSubmit = (data) => console.log(data)
+	const onSubmit = (data) => {
+		console.log(data)
+	}
 
 	return (
 		<div
@@ -42,22 +53,26 @@ const ContactUs = () => {
 						onSubmit={handleSubmit(onSubmit)}
 						className='flex flex-col items-center w-full max-w-sm gap-5 lg:w-auto lg:max-w-none lg:flex-row'
 					>
-						<input
-							{...register('name', {
-								required: true,
-							})}
-							type='text'
-							className='w-full lg:w-auto px-5 py-4 font-medium outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 text-[15px]'
-							placeholder='Name'
-						/>
+						<div className='relative'>
+							<input
+								{...register('name', { required: true })}
+								aria-invalid={errors.name ? 'true' : 'false'}
+								type='text'
+								className='w-full px-5 py-4 text-sm font-medium outline-none lg:w-auto rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40'
+								placeholder='Name'
+							/>
 
-						<input
-							{...register('phone', { required: true })}
-							type='tel'
-							className='w-full lg:w-auto px-5 py-4 outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 font-medium text-[15px]'
-							pattern='+[0-9]{3} ([0-9]{2}) [0-9]{3}-[0-9]{2}-[0-9]{2}'
-							placeholder='Phone number'
-						/>
+							{/* {errors.name?.type === 'required' && (
+								<p
+									role='alert'
+									className='absolute top-0 text-sm font-medium text-red-600 -translate-y-full'
+								>
+									First name is required*
+								</p>
+							)} */}
+						</div>
+
+						<InputMaskNumber control={control} />
 
 						<button className='flex items-center py-1 pr-1 pl-6 border gap-[14px] rounded-full'>
 							<span>Send info</span>
