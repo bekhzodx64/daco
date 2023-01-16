@@ -31,6 +31,9 @@ const variants = {
 const Header = () => {
 	const dispatch = useDispatch()
 	const [toggleIcon, setToggleIcon] = useState(false)
+	const [activeLink, setActiveLink] = useState({
+		id: 0,
+	})
 
 	const menuHandler = () => {
 		dispatch(toggleMenu())
@@ -46,7 +49,10 @@ const Header = () => {
 			exit='exit'
 		>
 			<div className={`${styles['header-inner']} container`}>
-				<a href='#main'>
+				<a
+					href='#main'
+					onClick={() => setActiveLink({ id: 0 })}
+				>
 					<Image
 						src='/logo.png'
 						priority
@@ -61,8 +67,24 @@ const Header = () => {
 						<nav>
 							<ul className='flex items-center gap-3 xl:gap-7'>
 								{navLinks.map((link) => (
-									<li key={link.id}>
-										<a href={`#${link.url}`}>{link.name}</a>
+									<li
+										key={link.id}
+										className='relative'
+									>
+										<a
+											href={`#${link.url}`}
+											onClick={() => setActiveLink(link)}
+											className={`${
+												activeLink.id === link?.id ? 'text-accent' : ''
+											} transition-all group hover:text-accent`}
+										>
+											{link.name}
+											<span
+												className={` ${
+													activeLink.id === link?.id ? 'min-w-full' : ''
+												} absolute bottom-0 left-0 min-w-0 h-[1px] bg-accent group-hover:min-w-full transition-all`}
+											></span>
+										</a>
 									</li>
 								))}
 							</ul>
