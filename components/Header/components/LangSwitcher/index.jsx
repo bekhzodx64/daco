@@ -77,119 +77,63 @@ const LangSwitcher = () => {
 				leaveFrom='transform opacity-100 scale-100'
 				leaveTo='transform opacity-0 scale-95'
 			>
-				<Menu.Items className='absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+				<Menu.Items className='absolute right-0 w-full mt-2 origin-top-right divide-y rounded-md shadow-lg backdrop-blur-2xl bg-black/80 ring-1 ring-black ring-opacity-5 focus:outline-none'>
 					<div className='px-1 py-1 '>
+						{langRouter.locales.map((locale, index) => (
+							<Menu.Items>
+								{({ active }) => (
+									<Link
+										href={langRouter.asPath}
+										locale={locale}
+										scroll={false}
+										replace
+										key={index}
+									>
+										<li className='flex items-center gap-2 px-2 py-2 uppercase rounded-md cursor-pointer hover:bg-accent'>
+											{locale === 'en' ? (
+												<Image
+													src={'/flags/1.jpg'}
+													width={22}
+													height={14}
+													alt='flag'
+													priority
+												/>
+											) : null}
+
+											{locale === 'uz' ? (
+												<Image
+													src={'/flags/2.jpg'}
+													width={22}
+													height={14}
+													alt='flag'
+													priority
+												/>
+											) : null}
+
+											{locale === 'ru' ? (
+												<Image
+													src={'/flags/3.jpg'}
+													width={22}
+													height={14}
+													alt='flag'
+													priority
+												/>
+											) : null}
+
+											<span>{locale}</span>
+										</li>
+									</Link>
+								)}
+							</Menu.Items>
+						))}
 						<Menu.Item>
 							{({ active }) => (
 								<button
 									className={`${
-										active ? 'bg-violet-500 text-white' : 'text-gray-900'
-									} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+										active ? 'bg-accent' : ''
+									} group flex w-full text-white items-center rounded-md px-2 py-2 text-sm`}
 								>
-									{/* {active ? (
-										<EditActiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									) : (
-										<EditInactiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									)} */}
-									Edit
-								</button>
-							)}
-						</Menu.Item>
-						<Menu.Item>
-							{({ active }) => (
-								<button
-									className={`${
-										active ? 'bg-violet-500 text-white' : 'text-gray-900'
-									} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-								>
-									{/* {active ? (
-										<DuplicateActiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									) : (
-										<DuplicateInactiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									)} */}
-									Duplicate
-								</button>
-							)}
-						</Menu.Item>
-					</div>
-					<div className='px-1 py-1'>
-						<Menu.Item>
-							{({ active }) => (
-								<button
-									className={`${
-										active ? 'bg-violet-500 text-white' : 'text-gray-900'
-									} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-								>
-									{/* {active ? (
-										<ArchiveActiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									) : (
-										<ArchiveInactiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									)} */}
-									Archive
-								</button>
-							)}
-						</Menu.Item>
-						<Menu.Item>
-							{({ active }) => (
-								<button
-									className={`${
-										active ? 'bg-violet-500 text-white' : 'text-gray-900'
-									} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-								>
-									{/* {active ? (
-										<MoveActiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									) : (
-										<MoveInactiveIcon
-											className='w-5 h-5 mr-2'
-											aria-hidden='true'
-										/>
-									)} */}
-									Move
-								</button>
-							)}
-						</Menu.Item>
-					</div>
-					<div className='px-1 py-1'>
-						<Menu.Item>
-							{({ active }) => (
-								<button
-									className={`${
-										active ? 'bg-violet-500 text-white' : 'text-gray-900'
-									} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-								>
-									{/* {active ? (
-										<DeleteActiveIcon
-											className='w-5 h-5 mr-2 text-violet-400'
-											aria-hidden='true'
-										/>
-									) : (
-										<DeleteInactiveIcon
-											className='w-5 h-5 mr-2 text-violet-400'
-											aria-hidden='true'
-										/>
-									)} */}
-									Delete
+									duplicate
 								</button>
 							)}
 						</Menu.Item>
