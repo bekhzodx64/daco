@@ -1,6 +1,5 @@
 import { Montserrat } from '@next/font/google'
-import { useForm, Controller } from 'react-hook-form'
-import ReactInputMask from 'react-input-mask'
+import { useForm } from 'react-hook-form'
 import Image from 'next/image'
 
 import InputMaskNumber from './components/InputMaskNumber'
@@ -21,9 +20,7 @@ const ContactUs = () => {
 		formState: { errors },
 	} = useForm()
 
-	const onSubmit = (data) => {
-		console.log(data)
-	}
+	const onSubmit = (data) => console.log(data)
 
 	return (
 		<div
@@ -72,7 +69,10 @@ const ContactUs = () => {
 							)} */}
 						</div>
 
-						<InputMaskNumber control={control} />
+						<InputMaskNumber
+							control={control}
+							className='w-full lg:w-auto px-5 py-4 outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 font-medium text-[15px]'
+						/>
 
 						<button className='flex items-center py-1 pr-1 pl-6 border gap-[14px] rounded-full'>
 							<span>Send info</span>

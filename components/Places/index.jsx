@@ -3,10 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { useForm } from 'react-hook-form'
 import { Pagination, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
+import { useSelector } from 'react-redux'
 import Image from 'next/image'
+
+import InputMaskNumber from '../ContactUs/components/InputMaskNumber'
+
 import { projects } from '../../helpers/data'
 import Plans from './components/Plans'
-import { useSelector } from 'react-redux'
 
 import styles from './style.module.scss'
 
@@ -18,7 +21,7 @@ const montserrat = Montserrat({
 const Places = () => {
 	const [indexPlan, setIndexPlan] = useState([])
 
-	const { register, handleSubmit } = useForm()
+	const { register, handleSubmit, control } = useForm()
 
 	const { currentPlan } = useSelector((state) => state.systemSlice)
 
@@ -155,108 +158,118 @@ const Places = () => {
 				</div>
 			</div>
 
-			<div className={styles['places-footer']}>
-				<div className={styles['places-section']}>
-					<h2 className='mb-10'>3. You choosed</h2>
+			<div>
+				<form
+					onSubmit={handleSubmit(onSubmit)}
+					className={styles['places-footer']}
+				>
+					<div className={styles['places-section']}>
+						<h2 className='mb-10'>3. You choosed</h2>
 
-					<div className={`${styles['places-footer__layout']} p-10 space-y-8`}>
-						{currentPlan === null ? (
-							'No data'
-						) : (
-							<>
-								<div className='flex flex-col gap-2'>
-									<h3 className={styles['places-footer__layout-title']}>
-										Project name:
-									</h3>
-									<p className={styles['places-footer__layout-description']}>
-										{currentPlan.title}
-									</p>
-								</div>
-
-								<div className='space-y-3'>
-									<h3 className={styles['places-footer__layout-title']}>
-										Plan information:
-									</h3>
-
-									<div className='flex flex-col justify-between space-y-3 sm:flex-row sm:space-y-0'>
-										<div className='sm:w-1/3'>
-											<div className={styles['places-footer__layout-image']}>
-												<Image
-													src={currentPlan.planImage}
-													fill
-													alt=''
-													quality={100}
-													className='object-scale-down'
-												/>
-											</div>
-										</div>
-										<ul className={`${styles['places-plans__list']} sm:w-1/2`}>
-											<li>
-												<span>Этаж:</span>
-												<span>{currentPlan.floor}</span>
-											</li>
-											<li>
-												<span>
-													С балконом м<sup>2</sup>:
-												</span>
-												<span>{currentPlan.hasBalcony}</span>
-											</li>
-											<li>
-												<span>
-													Без балкона м<sup>2</sup>:
-												</span>
-												<span>{currentPlan.noBalcony}</span>
-											</li>
-											<li>
-												<span>Комнат:</span>
-												<span>{currentPlan.rooms}</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</>
-						)}
-					</div>
-				</div>
-
-				<div className={styles['places-section']}>
-					<h2 className='mb-10'>4. Fill an application below </h2>
-
-					<div
-						className={`${styles['places-footer__layout']} px-4 pt-9 pb-11 sm:px-20 sm:pt-6 sm:pb-12`}
-					>
-						<h2 className='text-lg font-medium text-center'>Application</h2>
-
-						<form
-							onSubmit={handleSubmit(onSubmit)}
-							className={styles['places-form']}
+						<div
+							className={`${styles['places-footer__layout']} p-10 space-y-8`}
 						>
-							<input
-								type='text'
-								placeholder='Your name'
-							/>
+							{currentPlan === null ? (
+								'No data'
+							) : (
+								<>
+									<div className='flex flex-col gap-2'>
+										<h3 className={styles['places-footer__layout-title']}>
+											Project name:
+										</h3>
+										<p className={styles['places-footer__layout-description']}>
+											{currentPlan.title}
+										</p>
 
-							<input
-								type='tel'
-								placeholder='Phone number'
-							/>
-
-							<div className='flex justify-center mt-[15px]'>
-								<button className={styles['places-form__button']}>
-									<span>Send all information</span>
-									<div className={styles.icon}>
-										<Image
-											src={'/icons/chevron-right.svg'}
-											width={10}
-											height={10}
-											alt='chevron'
+										<input
+											{...register('project')}
+											value={currentPlan.title}
+											className='hidden'
 										/>
 									</div>
-								</button>
-							</div>
-						</form>
+
+									<div className='space-y-3'>
+										<h3 className={styles['places-footer__layout-title']}>
+											Plan information:
+										</h3>
+
+										<div className='flex flex-col justify-between space-y-3 sm:flex-row sm:space-y-0'>
+											<div className='sm:w-1/3'>
+												<div className={styles['places-footer__layout-image']}>
+													<Image
+														src={currentPlan.planImage}
+														fill
+														alt=''
+														quality={100}
+														className='object-scale-down'
+													/>
+												</div>
+											</div>
+											<ul
+												className={`${styles['places-plans__list']} sm:w-1/2`}
+											>
+												<li>
+													<span>Этаж:</span>
+													<span>{currentPlan.floor}</span>
+												</li>
+												<li>
+													<span>
+														С балконом м<sup>2</sup>:
+													</span>
+													<span>{currentPlan.hasBalcony}</span>
+												</li>
+												<li>
+													<span>
+														Без балкона м<sup>2</sup>:
+													</span>
+													<span>{currentPlan.noBalcony}</span>
+												</li>
+												<li>
+													<span>Комнат:</span>
+													<span>{currentPlan.rooms}</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</>
+							)}
+						</div>
 					</div>
-				</div>
+
+					<div className={styles['places-section']}>
+						<h2 className='mb-10'>4. Fill an application below </h2>
+
+						<div
+							className={`${styles['places-footer__layout']} px-4 pt-9 pb-11 sm:px-20 sm:pt-6 sm:pb-12`}
+						>
+							<h2 className='text-lg font-medium text-center'>Application</h2>
+
+							<div className={styles['places-form']}>
+								<input
+									{...register('name', { required: true })}
+									type='text'
+									placeholder='Your name'
+								/>
+
+								<InputMaskNumber control={control} />
+
+								<div className='flex justify-center mt-[15px]'>
+									<button className={styles['places-form__button']}>
+										<span>Send all information</span>
+										<div className={styles.icon}>
+											<Image
+												src={'/icons/chevron-right.svg'}
+												width={10}
+												height={10}
+												alt='chevron'
+											/>
+										</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	)

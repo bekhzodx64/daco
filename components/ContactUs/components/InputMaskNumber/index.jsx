@@ -1,7 +1,7 @@
 import InputMask from 'react-input-mask'
 import { Controller } from 'react-hook-form'
 
-const InputMaskNumber = ({ control }) => {
+const InputMaskNumber = ({ control, className }) => {
 	return (
 		<Controller
 			name='phone'
@@ -20,7 +20,7 @@ const InputMaskNumber = ({ control }) => {
 						<input
 							{...inputProps}
 							type='text'
-							className='w-full lg:w-auto px-5 py-4 outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 font-medium text-[15px]'
+							className={className}
 							placeholder='Phone number'
 						/>
 					)}
