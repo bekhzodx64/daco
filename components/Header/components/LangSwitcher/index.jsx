@@ -20,7 +20,7 @@ const LangSwitcher = () => {
 			className='relative inline-block text-left'
 		>
 			<div>
-				<Menu.Button className='inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
+				<Menu.Button className='inline-flex justify-center w-full text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
 					<button
 						className='outline-none flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px]'
 						aria-label='Customise options'
@@ -77,10 +77,10 @@ const LangSwitcher = () => {
 				leaveFrom='transform opacity-100 scale-100'
 				leaveTo='transform opacity-0 scale-95'
 			>
-				<Menu.Items className='absolute right-0 w-full mt-2 origin-top-right divide-y rounded-md shadow-lg backdrop-blur-2xl bg-black/80 ring-1 ring-black ring-opacity-5 focus:outline-none'>
-					<div className='px-1 py-1 '>
+				<Menu.Items className='absolute w-full mt-2 origin-top-right divide-y rounded-md shadow-lg backdrop-blur-2xl bg-black/80 ring-1 ring-black ring-opacity-5 focus:outline-none'>
+					<div className='p-1'>
 						{langRouter.locales.map((locale, index) => (
-							<Menu.Items>
+							<Menu.Item>
 								{({ active }) => (
 									<Link
 										href={langRouter.asPath}
@@ -124,19 +124,8 @@ const LangSwitcher = () => {
 										</li>
 									</Link>
 								)}
-							</Menu.Items>
+							</Menu.Item>
 						))}
-						<Menu.Item>
-							{({ active }) => (
-								<button
-									className={`${
-										active ? 'bg-accent' : ''
-									} group flex w-full text-white items-center rounded-md px-2 py-2 text-sm`}
-								>
-									duplicate
-								</button>
-							)}
-						</Menu.Item>
 					</div>
 				</Menu.Items>
 			</Transition>
