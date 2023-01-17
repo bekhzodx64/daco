@@ -15,6 +15,7 @@ const InputMaskNumber = ({ control, className }) => {
 					value={field.value}
 					maskChar='_'
 					onChange={field.onChange}
+					// onChange={(e) => inputChange(e)}
 				>
 					{(inputProps) => (
 						<input

@@ -7,29 +7,32 @@ import { toggleServices } from '../../../../store/features/system'
 import { motion } from 'framer-motion'
 
 import styles from './style.module.scss'
+import InputMaskNumber from '../../../ContactUs/components/InputMaskNumber'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
 
 const variants = {
 	initial: {
-		opacity: 0
+		opacity: 0,
 	},
 	animate: {
-		opacity: 1
+		opacity: 1,
 	},
 	exit: {
-		opacity: 0
-	}
+		opacity: 0,
+	},
 }
 
 const ServicesModal = () => {
 	const dispatch = useDispatch()
-	const { register, handleSubmit } = useForm()
+	const { register, handleSubmit, control } = useForm()
 
-	const onSubmit = data => console.log(data)
+	const onSubmit = (data) => {
+		console.log(data)
+	}
 
 	const handleModal = () => {
 		dispatch(toggleServices())
@@ -54,14 +57,19 @@ const ServicesModal = () => {
 		>
 			<div
 				className={styles['modal-window']}
-				onClick={e => e.stopPropagation()}
+				onClick={(e) => e.stopPropagation()}
 			>
 				<button
 					type='button'
 					onClick={handleModal}
 					className={styles['modal-close']}
 				>
-					<Image src={'/icons/close.svg'} width={20} height={20} alt='close' />
+					<Image
+						src={'/icons/close.svg'}
+						width={20}
+						height={20}
+						alt='close'
+					/>
 				</button>
 
 				<h2>Leave an application</h2>
@@ -72,16 +80,19 @@ const ServicesModal = () => {
 				>
 					<input
 						placeholder='Your name'
-						{...register('name', {
-							required: true
-						})}
+						{...register('name', { required: true })}
 						className={styles['modal-form__input']}
 					/>
 
-					<input
-						placeholder='Phone number'
-						{...register('phone', { required: true })}
+					<InputMaskNumber
+						control={control}
 						className={styles['modal-form__input']}
+						// inputChange={(e) => {
+						// 	if (e.target.value[e.target.value.length - 1] !== '_') {
+						// 		setSendForm(true)
+						// 		console.log(true)
+						// 	}
+						// }}
 					/>
 
 					<textarea
@@ -96,27 +107,61 @@ const ServicesModal = () => {
 
 						<div className={styles['modal-form__checkboxes']}>
 							<label>
-								<input type='checkbox' />
+								<input
+									type='checkbox'
+									value='Design constructions'
+									className={styles.checkbox}
+									{...register('services')}
+								/>
 								<p>Design constructions</p>
 							</label>
 							<label>
-								<input type='checkbox' className={styles.checkbox} />
+								<input
+									value='Interior finishing works'
+									type='checkbox'
+									className={styles.checkbox}
+									{...register('services')}
+								/>
 								<p>Interior finishing works</p>
 							</label>
 							<label>
-								<input type='checkbox' className={styles.checkbox} />
+								<input
+									value='Installation of engineering network'
+									type='checkbox'
+									name='services option'
+									className={styles.checkbox}
+									{...register('services')}
+								/>
 								<p>Installation of engineering network</p>
 							</label>
 							<label>
-								<input type='checkbox' className={styles.checkbox} />
+								<input
+									value='Commissioning of equipment'
+									type='checkbox'
+									name='services option'
+									className={styles.checkbox}
+									{...register('services')}
+								/>
 								<p>Commissioning of equipment</p>
 							</label>
 							<label>
-								<input type='checkbox' className={styles.checkbox} />
+								<input
+									value='Construction works'
+									type='checkbox'
+									name='services option'
+									className={styles.checkbox}
+									{...register('services')}
+								/>
 								<p>Construction works</p>
 							</label>
 							<label>
-								<input type='checkbox' className={styles.checkbox} />
+								<input
+									value='Video surveilliance of during construction'
+									type='checkbox'
+									name='services option'
+									className={styles.checkbox}
+									{...register('services')}
+								/>
 								<p>Video surveilliance of during construction</p>
 							</label>
 						</div>

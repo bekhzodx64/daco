@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Montserrat } from '@next/font/google'
@@ -34,11 +34,24 @@ const Header = () => {
 	const [activeLink, setActiveLink] = useState({
 		id: 0,
 	})
+	const [anchor, setAnchor] = useState(null)
 
 	const menuHandler = () => {
 		dispatch(toggleMenu())
 		setToggleIcon(!toggleIcon)
 	}
+
+	// private onClickAbout(e) {
+	// 	e && e.preventDefault();
+	// 	const elementToView = document.getElementById("idOfAbout");
+	// 	elementToView.scrollIntoView();
+	// 	}
+
+	useEffect(() => {
+		const main = document.getElementById('main')
+
+		setAnchor(main)
+	}, [])
 
 	return (
 		<motion.header
@@ -49,9 +62,11 @@ const Header = () => {
 			exit='exit'
 		>
 			<div className={`${styles['header-inner']} container`}>
-				<a
-					href='#main'
-					onClick={() => setActiveLink({ id: 0 })}
+				<button
+					type='button'
+					onClick={() => {
+						anchor.scrollIntoView()
+					}}
 				>
 					<Image
 						src='/logo.png'
@@ -60,7 +75,7 @@ const Header = () => {
 						height={44}
 						alt='logo'
 					/>
-				</a>
+				</button>
 
 				<div className='items-center hidden gap-10 xl:gap-20 lg:flex'>
 					<div>
@@ -71,7 +86,8 @@ const Header = () => {
 										key={link.id}
 										className='relative'
 									>
-										<a
+										<button
+											type='button'
 											href={`#${link.url}`}
 											onClick={() => setActiveLink(link)}
 											className={`${
@@ -84,7 +100,7 @@ const Header = () => {
 													activeLink.id === link?.id ? 'min-w-full' : ''
 												} absolute bottom-0 left-0 min-w-0 h-[1px] bg-accent group-hover:min-w-full transition-all`}
 											></span>
-										</a>
+										</button>
 									</li>
 								))}
 							</ul>

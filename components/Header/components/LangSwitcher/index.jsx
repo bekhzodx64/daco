@@ -67,10 +67,7 @@ const LangSwitcher = () => {
 					className={`${montserrat.variable} font-sans z-[100] outline-none`}
 					sideOffset={10}
 				>
-					<ul
-						style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
-						className='flex flex-col py-2 border rounded-xl border-white/30 bg-bgBlack'
-					>
+					<ul className='flex flex-col py-2 border rounded-xl border-white/30 bg-bgBlack'>
 						{langRouter.locales.map((locale, index) => (
 							<Link
 								href={langRouter.asPath}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
@@ -86,7 +87,7 @@ const Services = () => {
 				</p>
 			</div>
 
-			<div className='flex flex-col items-center gap-10 lg:flex-row'>
+			<div className='relative flex flex-col items-center gap-10 lg:flex-row'>
 				<div>
 					<div className='px-10 rounded-[20px] accent-gradient py-11 max-w-xs mx-auto'>
 						<h3 className='text-2xl font-semibold line-clamp-2'>

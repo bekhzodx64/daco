@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 import AboutUs from '../components/AboutUs'
 import Advantages from '../components/Advantages'
@@ -22,8 +23,11 @@ import { useSelector } from 'react-redux'
 import ProjectModal from '../components/Projects/components/ProjectModal'
 
 const Home = () => {
+	const test = useRouter()
+	console.log('🚀 ~ file: index.js:27 ~ Home ~ test', test)
+
 	const { menuModal, videoModal, servicesModal, projectModal } = useSelector(
-		state => state.systemSlice
+		(state) => state.systemSlice
 	)
 
 	return (
