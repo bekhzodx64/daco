@@ -52,7 +52,6 @@ const Intro = () => {
 				<div className='container relative flex flex-col justify-center h-full gap-10 pt-16 -mt-20 sm:mt-0 sm:gap-0'>
 					<div className='mt-auto space-y-7'>
 						<h1 className={styles['intro-title']}>
-							{/* {t('home:intro_title')} */}
 							We always offer perfect
 							<p>Construction Services</p>
 						</h1>
@@ -62,8 +61,7 @@ const Intro = () => {
 						</p>
 
 						<div className={styles['intro-buttons']}>
-							<a
-								href='#project'
+							<button
 								type='button'
 								className={`${styles['intro-button__project']} accent-gradient`}
 							>
@@ -75,7 +73,7 @@ const Intro = () => {
 									priority
 									alt='chevron right'
 								/>
-							</a>
+							</button>
 							<button
 								type='button'
 								onClick={playHandler}

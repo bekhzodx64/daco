@@ -34,6 +34,7 @@ const Places = () => {
 	return (
 		<div
 			className={`${styles.places} ${montserrat.variable} font-sans container`}
+			id='places'
 		>
 			<p className='font-semibold relative opacity-20 text-accent text-[80px] lg:text-[200px] lg:-mb-40 -z-10 whitespace-nowrap overflow-hidden'>
 				Our available places
