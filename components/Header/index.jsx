@@ -31,27 +31,18 @@ const variants = {
 const Header = () => {
 	const dispatch = useDispatch()
 	const [toggleIcon, setToggleIcon] = useState(false)
-	const [activeLink, setActiveLink] = useState({
-		id: 0,
-	})
-	const [anchor, setAnchor] = useState(null)
+	const [getId, setGetId] = useState(null)
 
 	const menuHandler = () => {
 		dispatch(toggleMenu())
 		setToggleIcon(!toggleIcon)
 	}
 
-	// private onClickAbout(e) {
-	// 	e && e.preventDefault();
-	// 	const elementToView = document.getElementById("idOfAbout");
-	// 	elementToView.scrollIntoView();
-	// 	}
-
 	useEffect(() => {
-		const main = document.getElementById('main')
-
-		setAnchor(main)
-	}, [])
+		if (getId) {
+			document.getElementById(getId).scrollIntoView()
+		}
+	}, [getId])
 
 	return (
 		<motion.header
@@ -64,9 +55,7 @@ const Header = () => {
 			<div className={`${styles['header-inner']} container`}>
 				<button
 					type='button'
-					onClick={() => {
-						anchor.scrollIntoView()
-					}}
+					onClick={() => setGetId('main')}
 				>
 					<Image
 						src='/logo.png'
@@ -88,17 +77,12 @@ const Header = () => {
 									>
 										<button
 											type='button'
-											href={`#${link.url}`}
-											onClick={() => setActiveLink(link)}
-											className={`${
-												activeLink.id === link?.id ? 'text-accent' : ''
-											} transition-all group hover:text-accent`}
+											onClick={() => setGetId(link.url)}
+											className={`transition-all group hover:text-accent`}
 										>
 											{link.name}
 											<span
-												className={` ${
-													activeLink.id === link?.id ? 'min-w-full' : ''
-												} absolute bottom-0 left-0 min-w-0 h-[1px] bg-accent group-hover:min-w-full transition-all`}
+												className={`absolute bottom-0 left-0 min-w-0 h-[1px] bg-accent group-hover:min-w-full transition-all`}
 											></span>
 										</button>
 									</li>
