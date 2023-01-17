@@ -80,14 +80,13 @@ const LangSwitcher = () => {
 				<Menu.Items className='absolute w-full mt-2 origin-top-right divide-y rounded-md shadow-lg backdrop-blur-2xl bg-black/80 ring-1 ring-black ring-opacity-5 focus:outline-none'>
 					<div className='p-1'>
 						{langRouter.locales.map((locale, index) => (
-							<Menu.Item>
+							<Menu.Item key={index}>
 								{({ active }) => (
 									<Link
 										href={langRouter.asPath}
 										locale={locale}
 										scroll={false}
 										replace
-										key={index}
 									>
 										<li className='flex items-center gap-2 px-2 py-2 uppercase rounded-md cursor-pointer hover:bg-accent'>
 											{locale === 'en' ? (
