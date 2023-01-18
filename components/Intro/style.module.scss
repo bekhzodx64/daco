@@ -1,49 +1,111 @@
 .intro {
 	&-content {
-		@apply sm:h-[calc(100vh-86px)] flex flex-col z-10 justify-center relative min-h-[570px];
+		@apply sm:h-[calc(100vh-86px)]
+		flex
+		flex-col
+		z-10
+		justify-center
+		relative
+		min-h-[570px];
 	}
 
 	&-title {
-		@apply text-[32px] lg:text-[40px] font-medium tracking-tight leading-tight mx-auto lg:mx-0 max-w-max;
+		@apply text-[32px]
+		lg:text-[40px]
+		font-medium
+		tracking-tight
+		leading-tight
+		mx-auto
+		lg:mx-0
+		max-w-max;
 
 		p {
-			@apply text-accent font-semibold;
+			@apply text-accent
+			font-semibold;
 		}
 	}
 
 	&-description {
-		@apply w-full max-w-[474px] opacity-50 text-sm font-medium leading-relaxed text-center lg:text-left mx-auto lg:mx-0;
+		@apply w-full
+		max-w-[474px]
+		opacity-50
+		text-sm
+		font-medium
+		leading-relaxed
+		text-center
+		mx-auto
+		lg:text-left
+		lg:mx-0;
 	}
 
 	&-buttons {
-		@apply flex items-center gap-5 lg:gap-12 justify-center lg:justify-start pt-10;
+		@apply flex
+		items-center
+		gap-5
+		justify-center
+		pt-10
+		lg:gap-12
+		lg:justify-start;
 	}
 
 	&-button {
 		&__project {
-			@apply flex items-center gap-4 font-medium text-sm px-6 py-5 rounded-full;
+			@apply flex
+			items-center
+			gap-4
+			font-medium
+			text-sm
+			px-6
+			py-5
+			rounded-full;
 		}
 
 		&__play {
-			@apply flex items-center gap-4;
+			@apply flex
+			items-center
+			gap-4;
 
-			@apply text-sm font-medium;
+			@apply text-sm 
+			font-medium;
 
 			p {
 				@apply opacity-70;
 			}
 
 			&-icon {
-				@apply w-12 h-12 rounded-full border border-accent flex items-center justify-center;
+				@apply w-12
+				h-12
+				rounded-full
+				border
+				border-accent
+				flex
+				items-center
+				justify-center;
 			}
 		}
 	}
 
 	&-socials {
-		@apply lg:flex items-center gap-5 space-y-4 lg:space-y-0 text-center lg:text-left max-w-max mt-auto mb-10 mx-auto lg:mx-0;
+		@apply lg:flex
+		items-center
+		gap-5
+		space-y-4
+		lg:space-y-0
+		text-center
+		lg:text-left
+		max-w-max
+		mt-auto
+		mb-10
+		mx-auto
+		lg:mx-0;
 
 		&__divide {
-			@apply h-[20px] w-[1px] lg:h-[1px] lg:w-[33px] bg-white/50 mx-auto;
+			@apply h-[20px]
+			w-[1px] 
+			lg:h-[1px]
+			lg:w-[33px]
+			bg-white/50
+			mx-auto;
 		}
 	}
 }

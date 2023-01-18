@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
+import { Montserrat } from '@next/font/google'
 
 import AboutUs from '../components/AboutUs'
 import Advantages from '../components/Advantages'
@@ -20,13 +21,20 @@ import ServicesModal from '../components/Services/components/ServicesModal'
 import { useSelector } from 'react-redux'
 import ProjectModal from '../components/Projects/components/ProjectModal'
 
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
+
 const Home = () => {
 	const { menuModal, servicesModal, projectModal } = useSelector(
 		(state) => state.systemSlice
 	)
 
 	return (
-		<main className='flex flex-col min-h-screen'>
+		<main
+			className={`${montserrat.variable} font-sans flex flex-col min-h-screen`}
+		>
 			<AnimatePresence>{menuModal ? null : <Header />}</AnimatePresence>
 			<Intro />
 			<AboutUs />

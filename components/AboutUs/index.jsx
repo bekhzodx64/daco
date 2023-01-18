@@ -12,8 +12,6 @@ const AboutUs = () => {
 	const [getId, setGetId] = useState(null)
 
 	useEffect(() => {
-		console.log(getId)
-
 		if (getId) {
 			document.getElementById(getId).scrollIntoView()
 
@@ -26,7 +24,7 @@ const AboutUs = () => {
 
 	return (
 		<div
-			className={`${montserrat.variable} ${styles.about} font-sans pt-12`}
+			className={`${styles.about} pt-12`}
 			id='about'
 		>
 			<div className='container'>

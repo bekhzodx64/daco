@@ -1,18 +1,18 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useRef, useState } from 'react'
-import { Montserrat } from '@next/font/google'
-import * as Popover from '@radix-ui/react-popover'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Fragment, useState, useEffect } from 'react'
 
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
+import { langs } from '../../../../helpers/system'
 
 const LangSwitcher = () => {
 	const langRouter = useRouter()
+	const [currentLang, setCurrentLang] = useState(langRouter.locale)
+
+	useEffect(() => {
+		setCurrentLang(langRouter.locale)
+	}, [langRouter.locale])
 
 	return (
 		<Menu
@@ -21,39 +21,23 @@ const LangSwitcher = () => {
 		>
 			<div>
 				<Menu.Button className='inline-flex justify-center w-full text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
-					<button
+					<div
 						className='outline-none flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px]'
 						aria-label='Customise options'
 					>
-						{langRouter.locale === 'en' ? (
-							<Image
-								src={'/flags/1.jpg'}
-								width={22}
-								height={14}
-								alt='flag'
-								priority
-							/>
-						) : null}
-
-						{langRouter.locale === 'uz' ? (
-							<Image
-								src={'/flags/2.jpg'}
-								width={22}
-								height={14}
-								alt='flag'
-								priority
-							/>
-						) : null}
-
-						{langRouter.locale === 'ru' ? (
-							<Image
-								src={'/flags/3.jpg'}
-								width={22}
-								height={14}
-								alt='flag'
-								priority
-							/>
-						) : null}
+						{langs.map((lang) =>
+							lang.code === currentLang ? (
+								<Image
+									src={lang.icon}
+									width={22}
+									height={14}
+									alt='flag'
+									priority
+									quality={100}
+									key={lang.code}
+								/>
+							) : null
+						)}
 
 						<div className='flex items-center gap-1'>
 							<span>{langRouter.locale}</span>
@@ -65,9 +49,10 @@ const LangSwitcher = () => {
 								alt='chevron down'
 							/>
 						</div>
-					</button>
+					</div>
 				</Menu.Button>
 			</div>
+
 			<Transition
 				as={Fragment}
 				enter='transition ease-out duration-100'
@@ -79,9 +64,9 @@ const LangSwitcher = () => {
 			>
 				<Menu.Items className='absolute w-full mt-2 origin-top-right divide-y rounded-md shadow-lg backdrop-blur-2xl bg-black/80 ring-1 ring-black ring-opacity-5 focus:outline-none'>
 					<div className='p-1'>
-						{langRouter.locales.map((locale, index) => (
-							<Menu.Item key={index}>
-								{({ active }) => (
+						{langRouter.locales.map((locale) => (
+							<Menu.Item key={locale}>
+								{() => (
 									<Link
 										href={langRouter.asPath}
 										locale={locale}
@@ -89,36 +74,19 @@ const LangSwitcher = () => {
 										replace
 									>
 										<li className='flex items-center gap-2 px-2 py-2 uppercase rounded-md cursor-pointer hover:bg-accent'>
-											{locale === 'en' ? (
-												<Image
-													src={'/flags/1.jpg'}
-													width={22}
-													height={14}
-													alt='flag'
-													priority
-												/>
-											) : null}
-
-											{locale === 'uz' ? (
-												<Image
-													src={'/flags/2.jpg'}
-													width={22}
-													height={14}
-													alt='flag'
-													priority
-												/>
-											) : null}
-
-											{locale === 'ru' ? (
-												<Image
-													src={'/flags/3.jpg'}
-													width={22}
-													height={14}
-													alt='flag'
-													priority
-												/>
-											) : null}
-
+											{langs.map((lang) =>
+												lang.code === locale ? (
+													<Image
+														src={lang.icon}
+														width={22}
+														height={14}
+														alt={locale}
+														priority
+														quality={100}
+														key={lang.code}
+													/>
+												) : null
+											)}
 											<span>{locale}</span>
 										</li>
 									</Link>
@@ -133,53 +101,3 @@ const LangSwitcher = () => {
 }
 
 export default LangSwitcher
-
-// className={`${montserrat.variable} font-sans`}
-
-{
-	/* <ul className='flex flex-col py-2 border rounded-xl border-white/30 bg-bgBlack'>
-						{langRouter.locales.map((locale, index) => (
-							<Link
-								href={langRouter.asPath}
-								locale={locale}
-								scroll={false}
-								replace
-								key={index}
-							>
-								<li className='flex items-center gap-2 px-5 py-2 uppercase cursor-pointer hover:bg-darkAccent'>
-									{locale === 'en' ? (
-										<Image
-											src={'/flags/1.jpg'}
-											width={22}
-											height={14}
-											alt='flag'
-											priority
-										/>
-									) : null}
-
-									{locale === 'uz' ? (
-										<Image
-											src={'/flags/2.jpg'}
-											width={22}
-											height={14}
-											alt='flag'
-											priority
-										/>
-									) : null}
-
-									{locale === 'ru' ? (
-										<Image
-											src={'/flags/3.jpg'}
-											width={22}
-											height={14}
-											alt='flag'
-											priority
-										/>
-									) : null}
-
-									<span>{locale}</span>
-								</li>
-							</Link>
-						))}
-					</ul> */
-}

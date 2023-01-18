@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
 import { navLinks } from '../../helpers/data'
 import { motion } from 'framer-motion'
@@ -10,11 +9,6 @@ import LangSwitcher from './components/LangSwitcher'
 import { toggleMenu } from '../../store/features/system'
 
 import styles from './style.module.scss'
-
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
 
 const variants = {
 	initial: {
@@ -51,7 +45,7 @@ const Header = () => {
 
 	return (
 		<motion.header
-			className={`${montserrat.variable} ${styles.header} font-sans`}
+			className={`${styles.header}`}
 			variants={variants}
 			initial='initial'
 			animate='animate'
