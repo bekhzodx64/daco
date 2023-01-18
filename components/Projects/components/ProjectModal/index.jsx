@@ -1,119 +1,132 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { Fragment } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
+import { Montserrat } from '@next/font/google'
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { motion } from 'framer-motion'
 
-import { toggleProjects } from '../../../../store/features/system'
+const montserrat = Montserrat({
+	subsets: ['latin'],
+	variable: '--font-montserrat',
+})
 
-const variants = {
-	initial: {
-		opacity: 0,
-	},
-	animate: {
-		opacity: 1,
-	},
-	exit: {
-		opacity: 0,
-	},
-}
-
-const ProjectModal = () => {
-	const dispatch = useDispatch()
-
-	const { projectModal } = useSelector((state) => state.systemSlice)
-
-	useEffect(() => {
-		document.body.classList.add('modal-open')
-
-		return () => {
-			document.body.classList.remove('modal-open')
-		}
-	}, [])
+const ProjectModal = ({ modalData, setModalData }) => {
+	function clickHandler() {
+		console.log('it works')
+	}
 
 	return (
-		<motion.div
-			className='fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xl'
-			variants={variants}
-			initial='initial'
-			animate='animate'
-			exit='exit'
+		<Transition
+			appear
+			show={modalData.isOpen}
+			as={Fragment}
 		>
-			<div className='mb-4'>
-				<button
-					type='button'
-					onClick={() => dispatch(toggleProjects(null))}
-					className='flex items-center justify-center w-12 h-12 border rounded-full'
+			<Dialog
+				as='div'
+				className={`${montserrat.variable} font-sans relative z-20`}
+				onClose={() => setModalData({ isOpen: false })}
+			>
+				<Transition.Child
+					as={Fragment}
+					enter='ease-out duration-300'
+					enterFrom='opacity-0'
+					enterTo='opacity-100'
+					leave='ease-in duration-200'
+					leaveFrom='opacity-100'
+					leaveTo='opacity-0'
 				>
-					<Image
-						src={'/icons/close.svg'}
-						width={14}
-						priority
-						height={14}
-						alt='close'
-					/>
-				</button>
-			</div>
+					<div className='fixed inset-0 bg-black/80 backdrop-blur-xl' />
+				</Transition.Child>
 
-			<div className='relative w-full max-w-4xl'>
-				<div className='absolute z-50 -translate-x-full -translate-y-1/2 -left-4 top-1/2'>
-					<button
-						type='button'
-						className='flex items-center justify-center w-12 h-12 border rounded-full projects-modal-prev'
-					>
-						<Image
-							src={'/icons/chevron-left.svg'}
-							width={9}
-							priority
-							height={5}
-							alt='projects prev'
-						/>
-					</button>
+				<div className='fixed inset-0 overflow-y-auto'>
+					<div className='flex items-center justify-center min-h-full p-4'>
+						<Transition.Child
+							as={Fragment}
+							enter='ease-out duration-300'
+							enterFrom='opacity-0 scale-95'
+							enterTo='opacity-100 scale-100'
+							leave='ease-in duration-200'
+							leaveFrom='opacity-100 scale-100'
+							leaveTo='opacity-0 scale-95'
+						>
+							<Dialog.Panel className='relative w-full max-w-4xl'>
+								<div className='relative w-full max-w-4xl'>
+									<button
+										type='button'
+										onClick={() => setModalData({ isOpen: false })}
+										className='absolute flex items-center justify-center w-12 h-12 mx-auto -translate-x-1/2 -translate-y-1/2 border rounded-full left-1/2 bottom-full'
+									>
+										<Image
+											src={'/icons/close.svg'}
+											width={14}
+											priority
+											height={14}
+											alt='close'
+										/>
+									</button>
+
+									<div className='absolute -translate-x-full -translate-y-1/2 -left-4 top-1/2'>
+										<button
+											type='button'
+											className='flex items-center justify-center w-12 h-12 border rounded-full projects-modal-prev'
+										>
+											<Image
+												src={'/icons/chevron-left.svg'}
+												width={9}
+												priority
+												height={5}
+												alt='projects prev'
+											/>
+										</button>
+									</div>
+
+									<Swiper
+										modules={[Pagination, Navigation]}
+										centeredSlides={true}
+										pagination={true}
+										spaceBetween={5}
+										loop={true}
+										navigation={{
+											prevEl: '.projects-modal-prev',
+											nextEl: '.projects-modal-next',
+										}}
+									>
+										{modalData?.items?.map((project, index) => (
+											<SwiperSlide key={index}>
+												<div className='relative pt-[60%]'>
+													<Image
+														src={project.image}
+														fill
+														quality={100}
+														alt='image'
+														className='object-cover'
+													/>
+												</div>
+											</SwiperSlide>
+										))}
+									</Swiper>
+
+									<div className='absolute translate-x-full -translate-y-1/2 -right-4 top-1/2'>
+										<button
+											type='button'
+											className='flex items-center justify-center w-12 h-12 border rounded-full projects-modal-next'
+										>
+											<Image
+												src={'/icons/chevron-right.svg'}
+												width={9}
+												priority
+												height={5}
+												alt='projects next'
+											/>
+										</button>
+									</div>
+								</div>
+							</Dialog.Panel>
+						</Transition.Child>
+					</div>
 				</div>
-
-				<Swiper
-					modules={[Pagination, Navigation]}
-					centeredSlides={true}
-					pagination={true}
-					spaceBetween={5}
-					loop={true}
-					navigation={{
-						prevEl: '.projects-modal-prev',
-						nextEl: '.projects-modal-next',
-					}}
-				>
-					{projectModal?.map((project) => (
-						<SwiperSlide key={project.id}>
-							<div className='relative pt-[60%]'>
-								<Image
-									src={project.image}
-									fill
-									quality={100}
-									alt='image'
-									className='object-cover'
-								/>
-							</div>
-						</SwiperSlide>
-					))}
-				</Swiper>
-
-				<div className='absolute z-50 translate-x-full -translate-y-1/2 -right-4 top-1/2'>
-					<button
-						type='button'
-						className='flex items-center justify-center w-12 h-12 border rounded-full projects-modal-next'
-					>
-						<Image
-							src={'/icons/chevron-right.svg'}
-							width={9}
-							priority
-							height={5}
-							alt='projects next'
-						/>
-					</button>
-				</div>
-			</div>
-		</motion.div>
+			</Dialog>
+		</Transition>
 	)
 }
 

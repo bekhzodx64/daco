@@ -16,10 +16,8 @@ import Live from '../components/Live'
 import Places from '../components/Places'
 
 import MobileMenu from '../components/Mobile/Menu'
-import ServicesModal from '../components/Services/components/ServicesModal'
 
 import { useSelector } from 'react-redux'
-import ProjectModal from '../components/Projects/components/ProjectModal'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -27,9 +25,7 @@ const montserrat = Montserrat({
 })
 
 const Home = () => {
-	const { menuModal, servicesModal, projectModal } = useSelector(
-		(state) => state.systemSlice
-	)
+	const { menuModal } = useSelector((state) => state.systemSlice)
 
 	return (
 		<main
@@ -50,12 +46,6 @@ const Home = () => {
 			<Footer />
 
 			<AnimatePresence>{menuModal ? <MobileMenu /> : null}</AnimatePresence>
-			<AnimatePresence>
-				{servicesModal ? <ServicesModal /> : null}
-			</AnimatePresence>
-			<AnimatePresence>
-				{projectModal ? <ProjectModal /> : null}
-			</AnimatePresence>
 		</main>
 	)
 }

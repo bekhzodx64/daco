@@ -1,19 +1,22 @@
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCoverflow, Navigation } from 'swiper'
 import { Montserrat } from '@next/font/google'
-import { useDispatch } from 'react-redux'
 import Image from 'next/image'
-import { toggleProjects } from '../../store/features/system'
+import ProjectModal from './components/ProjectModal'
 
 import { projects } from '../../helpers/data'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
-	variable: '--font-montserrat'
+	variable: '--font-montserrat',
 })
 
 const Projects = () => {
-	const dispatch = useDispatch()
+	const [modalData, setModalData] = useState({
+		isOpen: false,
+		items: [],
+	})
 
 	return (
 		<div
@@ -32,32 +35,34 @@ const Projects = () => {
 			<Swiper
 				modules={[EffectCoverflow, Pagination, Navigation]}
 				effect={'coverflow'}
-				allowTouchMove={false}
 				pagination={{
 					el: '.custom-projects-pagination',
 					type: 'custom',
 					renderCustom: function (swiper, current, total) {
 						return `<div><span style="font-size:40px" className='text-[40px]'>${current}</span> / <span>${total}</span></div>`
-					}
+					},
 				}}
 				navigation={{
 					prevEl: '.projects-prev',
-					nextEl: '.projects-next'
+					nextEl: '.projects-next',
 				}}
 				loop={true}
-				speed={1000}
+				speed={800}
 				slidesPerView={1.3}
 				centeredSlides={true}
 				coverflowEffect={{
 					rotate: -5,
 					depth: 150,
 					modifier: 2,
-					stretch: -70
+					stretch: -70,
 				}}
 				className='relative mt-24'
 			>
-				{projects.map(project => (
-					<SwiperSlide key={project.id} className='group'>
+				{projects.map((project, index) => (
+					<SwiperSlide
+						key={index}
+						className='group'
+					>
 						<div className='pt-[100%] sm:pt-[60%] lg:pt-[40%]'>
 							<Image
 								src={project.image}
@@ -76,7 +81,10 @@ const Projects = () => {
 								{project.title}
 							</p>
 							<div className='flex items-center justify-between mt-3 overflow-hidden transition-all duration-1000 opacity-0 lg:mt-10 max-h-0 group-hover:max-h-full group-hover:opacity-100'>
-								<button type='button' className='md:hidden'>
+								<button
+									type='button'
+									className='md:hidden'
+								>
 									See available places
 								</button>
 
@@ -97,7 +105,9 @@ const Projects = () => {
 
 								<button
 									type='button'
-									onClick={() => dispatch(toggleProjects(project.gallery))}
+									onClick={() =>
+										setModalData({ isOpen: true, items: project.gallery })
+									}
 									className='relative z-10 flex items-center justify-center border rounded-full border-white/30 w-14 h-14'
 								>
 									<Image
@@ -141,6 +151,11 @@ const Projects = () => {
 					</div>
 				</div>
 			</Swiper>
+
+			<ProjectModal
+				setModalData={setModalData}
+				modalData={modalData}
+			/>
 		</div>
 	)
 }

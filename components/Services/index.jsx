@@ -34,7 +34,7 @@ const Services = () => {
 			<div className='relative flex flex-col items-center gap-10 lg:flex-row'>
 				{services.map((item, index) =>
 					service === index ? (
-						<div>
+						<div key={index}>
 							<div className='px-10 rounded-[20px] accent-gradient py-11 max-w-xs mx-auto'>
 								<h3 className='text-2xl font-semibold line-clamp-2'>
 									{item.title}

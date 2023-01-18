@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Montserrat } from '@next/font/google'
 import { useForm } from 'react-hook-form'
@@ -6,6 +6,9 @@ import Image from 'next/image'
 
 import styles from './style.module.scss'
 import InputMaskNumber from '../../../ContactUs/components/InputMaskNumber'
+import { services } from '../../../../helpers/data'
+
+// import { botToken, chatId } from '../../helpers/data'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -94,67 +97,22 @@ const ServicesModal = ({ modalHandler, isOpen }) => {
 										className={styles['modal-form__input']}
 										rows={1}
 									></textarea>
+
 									<div>
 										<p className='mb-4 text-accent'>Choose services</p>
 										<div className={styles['modal-form__checkboxes']}>
-											<label>
-												<input
-													type='checkbox'
-													value='Design constructions'
-													className={styles.checkbox}
-													{...register('services')}
-												/>
-												<p>Design constructions</p>
-											</label>
-											<label>
-												<input
-													value='Interior finishing works'
-													type='checkbox'
-													className={styles.checkbox}
-													{...register('services')}
-												/>
-												<p>Interior finishing works</p>
-											</label>
-											<label>
-												<input
-													value='Installation of engineering network'
-													type='checkbox'
-													name='services option'
-													className={styles.checkbox}
-													{...register('services')}
-												/>
-												<p>Installation of engineering network</p>
-											</label>
-											<label>
-												<input
-													value='Commissioning of equipment'
-													type='checkbox'
-													name='services option'
-													className={styles.checkbox}
-													{...register('services')}
-												/>
-												<p>Commissioning of equipment</p>
-											</label>
-											<label>
-												<input
-													value='Construction works'
-													type='checkbox'
-													name='services option'
-													className={styles.checkbox}
-													{...register('services')}
-												/>
-												<p>Construction works</p>
-											</label>
-											<label>
-												<input
-													value='Video surveilliance of during construction'
-													type='checkbox'
-													name='services option'
-													className={styles.checkbox}
-													{...register('services')}
-												/>
-												<p>Video surveilliance of during construction</p>
-											</label>
+											{services.map((service) => (
+												<label>
+													<input
+														type='checkbox'
+														value={service.title}
+														className={styles.checkbox}
+														{...register('services')}
+														onChange={(e) => console.log(e.target.value)}
+													/>
+													<p>{service.title}</p>
+												</label>
+											))}
 										</div>
 									</div>
 									<div className='flex justify-center'>

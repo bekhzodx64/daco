@@ -13,6 +13,8 @@ import Plans from './components/Plans'
 
 import styles from './style.module.scss'
 
+import { botToken, chatId } from '../../helpers/data'
+
 const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
@@ -25,7 +27,17 @@ const Places = () => {
 
 	const { currentPlan } = useSelector((state) => state.systemSlice)
 
-	const onSubmit = (data) => console.log(data)
+	const onSubmit = (data) => {
+		const phone = data.phone
+		const name = data.name
+
+		fetch(
+			`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=<b>Ismi</b>: ${name}<b> Telefon</b>: ${phone}&parse_mode=html`,
+			{
+				method: 'post',
+			}
+		)
+	}
 
 	const togglePlans = (items) => {
 		setIndexPlan(items)

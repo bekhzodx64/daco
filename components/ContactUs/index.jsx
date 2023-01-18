@@ -7,6 +7,8 @@ import InputMaskNumber from './components/InputMaskNumber'
 import fog from '../../public/contact/fog.png'
 import building from '../../public/contact/contact-bg.png'
 
+import { botToken, chatId } from '../../helpers/data'
+
 const montserrat = Montserrat({
 	subsets: ['latin'],
 	variable: '--font-montserrat',
@@ -20,7 +22,17 @@ const ContactUs = () => {
 		formState: { errors },
 	} = useForm()
 
-	const onSubmit = (data) => console.log(data)
+	const onSubmit = (data) => {
+		const phone = data.phone
+		const name = data.name
+
+		fetch(
+			`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=<b>Ismi</b>: ${name}<b> Telefon</b>: ${phone}&parse_mode=html`,
+			{
+				method: 'post',
+			}
+		)
+	}
 
 	return (
 		<div
@@ -42,7 +54,7 @@ const ContactUs = () => {
 					<div className='max-w-sm'>
 						<h2 className='font-semibold text-[40px]'>Contact us</h2>
 						<p className='text-[15px] opacity-70'>
-							Get to know the best aspects of our company
+							Get to know the best aspects of our company dsadsa
 						</p>
 					</div>
 
