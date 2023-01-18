@@ -3,7 +3,6 @@ import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 
 import { Dialog, Transition } from '@headlessui/react'
-import { Montserrat } from '@next/font/google'
 
 import SocialLinks from './components/SocialLinks'
 
@@ -12,11 +11,6 @@ import desktop from '../../public/intro/desktop-intro-bg.jpg'
 import layer from '../../public/intro/layer.png'
 
 import styles from './style.module.scss'
-
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
 
 const Intro = () => {
 	const { t } = useTranslation()
@@ -40,7 +34,7 @@ const Intro = () => {
 	}
 
 	return (
-		<div className={`${styles.intro} ${montserrat.variable} font-sans`}>
+		<div className={`${styles.intro} font-sans`}>
 			<Image
 				src={desktop}
 				quality={100}

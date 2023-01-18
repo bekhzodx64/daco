@@ -431,3 +431,48 @@ export const socialLinks = [
 		url: '#!',
 	},
 ]
+
+export const services = [
+	{
+		id: 1,
+		title: 'Design constructions',
+		description:
+			'We provide a single point of contact, saving you both time and money. Our professional team is supported by dedicated engineering resources so we can offer the following services:',
+		icon: '/icons/services/1.svg',
+	},
+	{
+		id: 2,
+		title: 'Installation of engineering network',
+		description:
+			'We provide a single point of contact, saving you both time and money. Our professional team is supported by dedicated engineering resources so we can offer the following services:',
+		icon: '/icons/services/2.svg',
+	},
+	{
+		id: 3,
+		title: 'Construction works ',
+		description:
+			'We provide a single point of contact, saving you both time and money. Our professional team is supported by dedicated engineering resources so we can offer the following services:',
+		icon: '/icons/services/3.svg',
+	},
+	{
+		id: 4,
+		title: 'Interior finishing works',
+		description:
+			'We provide a single point of contact, saving you both time and money. Our professional team is supported by dedicated engineering resources so we can offer the following services:',
+		icon: '/icons/services/4.svg',
+	},
+	{
+		id: 5,
+		title: 'Commissioning of equipment',
+		description:
+			'We provide a single point of contact, saving you both time and money. Our professional team is supported by dedicated engineering resources so we can offer the following services:',
+		icon: '/icons/services/5.svg',
+	},
+	{
+		id: 6,
+		title: 'Video surveilliance of during construction',
+		description:
+			'We provide a single point of contact, saving you both time and money. Our professional team is supported by dedicated engineering resources so we can offer the following services:',
+		icon: '/icons/services/6.svg',
+	},
+]
