@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Montserrat } from '@next/font/google'
 import { useForm } from 'react-hook-form'
@@ -101,8 +101,8 @@ const ServicesModal = ({ modalHandler, isOpen }) => {
 									<div>
 										<p className='mb-4 text-accent'>Choose services</p>
 										<div className={styles['modal-form__checkboxes']}>
-											{services.map((service) => (
-												<label>
+											{services.map((service, index) => (
+												<label key={index}>
 													<input
 														type='checkbox'
 														value={service.title}
