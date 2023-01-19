@@ -1,45 +1,10 @@
-import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
-
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
-
-const advantages = [
-	{
-		id: 1,
-		title: 'Quality assurance',
-		description:
-			'We are confident in the high quality of the work performed and provide a full long-term guarantee',
-		icon: '/icons/advantages/1.svg',
-	},
-	{
-		id: 2,
-		title: 'Deadlines',
-		description:
-			'Strict control at each stage of work allows you to effectively meet the deadlines for the implementation of projects without loss of quality',
-		icon: '/icons/advantages/2.svg',
-	},
-	{
-		id: 3,
-		title: 'Work according to strict international standarts',
-		description:
-			'Allows you to achieve not only excellent aesthetic qualities during construction and repair, but also reliability, durability of the work performed',
-		icon: '/icons/advantages/3.svg',
-	},
-	{
-		id: 4,
-		title: 'A complex approach',
-		description: 'We use an integrated approach in solving the problem',
-		icon: '/icons/advantages/4.svg',
-	},
-]
+import { advantages } from '../../helpers/data'
 
 const Advantages = () => {
 	return (
 		<div
-			className={`${montserrat.variable} font-sans pt-20`}
+			className={`pt-20`}
 			id='advantages'
 		>
 			<p className='font-semibold relative opacity-20 text-accent text-[80px] lg:text-[200px] lg:-mb-28 -z-10 whitespace-nowrap overflow-hidden'>
@@ -55,7 +20,7 @@ const Advantages = () => {
 					</p>
 				</div>
 
-				<div className='grid lg:grid-cols-4 mt-[60px] lg:mt-[70px] gap-10 max-w-5xl mx-auto'>
+				<div className='grid lg:grid-cols-4 mt-[60px] lg:mt-[70px] gap-10 mx-auto xl:px-[50px] lg:px-[20px] md:px-0'>
 					{advantages.map((advantage, index) => (
 						<div key={advantage.id}>
 							<div className='flex flex-col gap-7'>

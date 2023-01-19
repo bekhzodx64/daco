@@ -479,3 +479,33 @@ export const services = [
 		icon: '/icons/services/6.svg',
 	},
 ]
+
+export const advantages = [
+	{
+		id: 1,
+		title: 'Quality assurance',
+		description:
+			'We are confident in the high quality of the work performed and provide a full long-term guarantee',
+		icon: '/icons/advantages/1.svg',
+	},
+	{
+		id: 2,
+		title: 'Deadlines',
+		description:
+			'Strict control at each stage of work allows you to effectively meet the deadlines for the implementation of projects without loss of quality',
+		icon: '/icons/advantages/2.svg',
+	},
+	{
+		id: 3,
+		title: 'Work according to strict international standarts',
+		description:
+			'Allows you to achieve not only excellent aesthetic qualities during construction and repair, but also reliability, durability of the work performed',
+		icon: '/icons/advantages/3.svg',
+	},
+	{
+		id: 4,
+		title: 'A complex approach',
+		description: 'We use an integrated approach in solving the problem',
+		icon: '/icons/advantages/4.svg',
+	},
+]
