@@ -73,7 +73,7 @@ const LangSwitcher = () => {
 										scroll={false}
 										replace
 									>
-										<li className='flex items-center gap-2 px-2 py-2 uppercase rounded-md cursor-pointer hover:bg-accent'>
+										<div className='flex items-center gap-2 px-2 py-2 uppercase rounded-md cursor-pointer hover:bg-accent'>
 											{langs.map((lang) =>
 												lang.code === locale ? (
 													<Image
@@ -88,7 +88,7 @@ const LangSwitcher = () => {
 												) : null
 											)}
 											<span>{locale}</span>
-										</li>
+										</div>
 									</Link>
 								)}
 							</Menu.Item>

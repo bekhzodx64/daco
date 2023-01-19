@@ -35,12 +35,9 @@ const Header = () => {
 	useEffect(() => {
 		if (getId) {
 			document.getElementById(getId).scrollIntoView()
-
-			const timer = setTimeout(() => {
-				setGetId(null)
-				clearTimeout(timer)
-			}, 100)
 		}
+
+		return setGetId(null)
 	}, [getId])
 
 	return (

@@ -1,16 +1,14 @@
-import { useEffect } from 'react'
-import { Montserrat } from '@next/font/google'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { toggleMenu } from '../../../store/features/system'
 import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 
-import styles from './style.module.scss'
+import { toggleMenu } from '../../../store/features/system'
+import { langs } from '../../../helpers/system'
 
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
+import styles from './style.module.scss'
+import Link from 'next/link'
 
 const variants = {
 	initial: {
@@ -25,6 +23,7 @@ const variants = {
 }
 
 const MobileMenu = () => {
+	const langRouter = useRouter()
 	const dispatch = useDispatch()
 
 	const closeHandler = () => {
@@ -41,7 +40,7 @@ const MobileMenu = () => {
 
 	return (
 		<motion.div
-			className={`${styles.menu} ${montserrat.variable} font-sans`}
+			className={`${styles.menu}`}
 			variants={variants}
 			initial='initial'
 			animate='animate'
@@ -119,35 +118,28 @@ const MobileMenu = () => {
 				</li>
 			</ul>
 
-			<ul className={styles['menu-langs']}>
-				<li className={styles['menu-langs__item']}>
-					<Image
-						src={'/flags/1.jpg'}
-						width={22}
-						height={13}
-						alt='flags'
-					/>
-					<p>ENG</p>
-				</li>
-				<li className={styles['menu-langs__item']}>
-					<Image
-						src={'/flags/2.jpg'}
-						width={22}
-						height={13}
-						alt='flags'
-					/>
-					<p>UZB</p>
-				</li>
-				<li className={styles['menu-langs__item']}>
-					<Image
-						src={'/flags/3.jpg'}
-						width={22}
-						height={13}
-						alt='flags'
-					/>
-					<p>RUS</p>
-				</li>
-			</ul>
+			<div className={styles['menu-langs']}>
+				{langs.map((lang) => (
+					<Link
+						href={langRouter.asPath}
+						locale={lang.code}
+						scroll={false}
+						replace
+						key={lang.id}
+						onClick={closeHandler}
+					>
+						<div className={styles['menu-langs__item']}>
+							<Image
+								src={lang.icon}
+								width={22}
+								height={13}
+								alt={lang.code}
+							/>
+							<p className='uppercase'>{lang.code}</p>
+						</div>
+					</Link>
+				))}
+			</div>
 
 			<div className={styles['menu-phone']}>
 				<p className={styles['menu-phone__title']}>Phone number:</p>
