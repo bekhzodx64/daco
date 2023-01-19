@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import { Montserrat } from '@next/font/google'
@@ -11,9 +11,7 @@ const montserrat = Montserrat({
 })
 
 const ProjectModal = ({ modalData, setModalData }) => {
-	function clickHandler() {
-		console.log('it works')
-	}
+	const swiperRef = useRef()
 
 	return (
 		<Transition
@@ -69,6 +67,7 @@ const ProjectModal = ({ modalData, setModalData }) => {
 										<button
 											type='button'
 											className='flex items-center justify-center w-12 h-12 border rounded-full projects-modal-prev'
+											onClick={() => swiperRef.current?.slidePrev()}
 										>
 											<Image
 												src={'/icons/chevron-left.svg'}
@@ -86,9 +85,8 @@ const ProjectModal = ({ modalData, setModalData }) => {
 										pagination={true}
 										spaceBetween={5}
 										loop={true}
-										navigation={{
-											prevEl: '.projects-modal-prev',
-											nextEl: '.projects-modal-next',
+										onBeforeInit={(swiper) => {
+											swiperRef.current = swiper
 										}}
 									>
 										{modalData?.items?.map((project, index) => (
@@ -110,6 +108,7 @@ const ProjectModal = ({ modalData, setModalData }) => {
 										<button
 											type='button'
 											className='flex items-center justify-center w-12 h-12 border rounded-full projects-modal-next'
+											onClick={() => swiperRef.current?.slideNext()}
 										>
 											<Image
 												src={'/icons/chevron-right.svg'}
