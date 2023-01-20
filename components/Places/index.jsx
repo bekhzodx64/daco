@@ -2,11 +2,10 @@ import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useForm } from 'react-hook-form'
 import { Pagination, Navigation } from 'swiper'
-import { Montserrat } from '@next/font/google'
 import { useSelector } from 'react-redux'
+import InputMask from 'react-input-mask'
 import Image from 'next/image'
-
-import InputMaskNumber from '../ContactUs/components/InputMaskNumber'
+import { toast } from 'react-toastify'
 
 import { projects } from '../../helpers/data'
 import Plans from './components/Plans'
@@ -15,28 +14,43 @@ import styles from './style.module.scss'
 
 import { botToken, chatId } from '../../helpers/data'
 
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
-
 const Places = () => {
 	const [indexPlan, setIndexPlan] = useState([])
+	const [value, setValue] = useState('')
 
-	const { register, handleSubmit, control } = useForm()
+	const { register, handleSubmit, reset } = useForm({
+		name: '',
+		phone: '',
+		project: '',
+	})
 
 	const { currentPlan } = useSelector((state) => state.systemSlice)
 
-	const onSubmit = (data) => {
+	const sendForm = (data) => {
 		const phone = data.phone
 		const name = data.name
+		const project = data.project
 
 		fetch(
-			`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=<b>Ismi</b>: ${name}<b> Telefon</b>: ${phone}&parse_mode=html`,
+			`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=<b>Ismi</b>: ${name}<b> Telefon</b>: ${phone}<b> Proyekt</b>: ${project}&parse_mode=html`,
 			{
 				method: 'post',
 			}
 		)
+
+		toast.success('test', {
+			position: 'top-right',
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: true,
+			progress: undefined,
+			theme: 'light',
+		})
+
+		setValue('')
+		reset()
 	}
 
 	const togglePlans = (items) => {
@@ -45,7 +59,7 @@ const Places = () => {
 
 	return (
 		<div
-			className={`${styles.places} ${montserrat.variable} font-sans container`}
+			className={`${styles.places} container`}
 			id='places'
 		>
 			<p className='font-semibold relative opacity-20 text-accent text-[80px] lg:text-[200px] lg:-mb-40 -z-10 whitespace-nowrap overflow-hidden'>
@@ -173,7 +187,13 @@ const Places = () => {
 
 			<div>
 				<form
-					onSubmit={handleSubmit(onSubmit)}
+					onSubmit={handleSubmit((data) => {
+						try {
+							sendForm(data)
+						} catch (e) {
+							console.log(e)
+						}
+					})}
 					className={styles['places-footer']}
 				>
 					<div className={styles['places-section']}>
@@ -195,8 +215,9 @@ const Places = () => {
 										</p>
 
 										<input
-											{...register('project')}
+											{...register('project', { required: true })}
 											value={currentPlan.title}
+											type='text'
 											className='hidden'
 										/>
 									</div>
@@ -264,7 +285,16 @@ const Places = () => {
 									placeholder='Your name'
 								/>
 
-								<InputMaskNumber control={control} />
+								<InputMask
+									{...register('phone', { required: true })}
+									mask='+\9\98 (99) 999 99 99'
+									placeholder='Phone number'
+									type='tel'
+									value={value}
+									onChange={(e) => {
+										setValue(e.target.value)
+									}}
+								/>
 
 								<div className='flex justify-center mt-[15px]'>
 									<button className={styles['places-form__button']}>

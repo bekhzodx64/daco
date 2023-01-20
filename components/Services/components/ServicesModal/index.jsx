@@ -1,14 +1,15 @@
-import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Montserrat } from '@next/font/google'
-import { useForm } from 'react-hook-form'
 import Image from 'next/image'
+import { Fragment, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import InputMask from 'react-input-mask'
+import { toast } from 'react-toastify'
 
-import styles from './style.module.scss'
-import InputMaskNumber from '../../../ContactUs/components/InputMaskNumber'
 import { services } from '../../../../helpers/data'
+import styles from './style.module.scss'
 
-// import { botToken, chatId } from '../../helpers/data'
+import { botToken, chatId } from '../../../../helpers/data'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -16,10 +17,43 @@ const montserrat = Montserrat({
 })
 
 const ServicesModal = ({ modalHandler, isOpen }) => {
-	const { register, handleSubmit, control } = useForm()
+	const [value, setValue] = useState('')
+
+	const { register, handleSubmit, reset } = useForm({
+		name: '',
+		phone: '',
+		message: '',
+		services: [],
+	})
 
 	const onSubmit = (data) => {
-		console.log(data)
+		console.log('🚀 ~ file: index.jsx:30 ~ onSubmit ~ data', data)
+		const phone = data.phone
+		const name = data.name
+		const message = data.message
+		const services = data.services.join()
+
+		fetch(
+			`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=<b>Ismi</b>: ${name}<b> Telefon</b>: ${phone}<b> Xabar</b>: ${message}<b> Servis</b>: ${services}&parse_mode=html`,
+			{
+				method: 'post',
+			}
+		)
+
+		toast.success('test', {
+			position: 'top-right',
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: true,
+			progress: undefined,
+			theme: 'light',
+		})
+
+		setValue('')
+		reset()
+		modalHandler()
 	}
 
 	return (
@@ -81,16 +115,19 @@ const ServicesModal = ({ modalHandler, isOpen }) => {
 										{...register('name', { required: true })}
 										className={styles['modal-form__input']}
 									/>
-									<InputMaskNumber
-										control={control}
+
+									<InputMask
+										{...register('phone', { required: true })}
+										mask='+\9\98 (99) 999 99 99'
+										placeholder='Phone number'
+										type='tel'
+										value={value}
+										onChange={(e) => {
+											setValue(e.target.value)
+										}}
 										className={styles['modal-form__input']}
-										// inputChange={(e) => {
-										// 	if (e.target.value[e.target.value.length - 1] !== '_') {
-										// 		setSendForm(true)
-										// 		console.log(true)
-										// 	}
-										// }}
 									/>
+
 									<textarea
 										placeholder='Write a message'
 										{...register('message', { required: true })}

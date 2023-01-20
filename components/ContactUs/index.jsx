@@ -1,28 +1,23 @@
-import { Montserrat } from '@next/font/google'
-import { useForm } from 'react-hook-form'
 import Image from 'next/image'
+import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
-import InputMaskNumber from './components/InputMaskNumber'
+import { useState } from 'react'
+import InputMask from 'react-input-mask'
 
-import fog from '../../public/contact/fog.png'
 import building from '../../public/contact/contact-bg.png'
+import fog from '../../public/contact/fog.png'
 
 import { botToken, chatId } from '../../helpers/data'
 
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
-
 const ContactUs = () => {
-	const {
-		register,
-		handleSubmit,
-		control,
-		formState: { errors },
-	} = useForm()
+	const [value, setValue] = useState('')
+	const { register, handleSubmit, reset } = useForm({
+		name: '',
+		phone: '',
+	})
 
-	const onSubmit = (data) => {
+	const sendForm = (data) => {
 		const phone = data.phone
 		const name = data.name
 
@@ -32,11 +27,25 @@ const ContactUs = () => {
 				method: 'post',
 			}
 		)
+
+		toast.success('test', {
+			position: 'top-right',
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: true,
+			progress: undefined,
+			theme: 'light',
+		})
+
+		setValue('')
+		reset()
 	}
 
 	return (
 		<div
-			className={`${montserrat.variable} font-sans relative`}
+			className={`relative`}
 			id='contacts'
 		>
 			<div className='container'>
@@ -54,18 +63,23 @@ const ContactUs = () => {
 					<div className='max-w-sm'>
 						<h2 className='font-semibold text-[40px]'>Contact us</h2>
 						<p className='text-[15px] opacity-70'>
-							Get to know the best aspects of our company dsadsa
+							Get to know the best aspects of our company
 						</p>
 					</div>
-
 					<form
-						onSubmit={handleSubmit(onSubmit)}
+						onSubmit={handleSubmit((data) => {
+							try {
+								sendForm(data)
+							} catch (e) {
+								console.log(e)
+							}
+						})}
 						className='flex flex-col items-center w-full max-w-sm gap-5 lg:w-auto lg:max-w-none lg:flex-row'
 					>
 						<div className='relative'>
 							<input
 								{...register('name', { required: true })}
-								aria-invalid={errors.name ? 'true' : 'false'}
+								// aria-invalid={errors.name ? 'true' : 'false'}
 								type='text'
 								className='w-full px-5 py-4 text-sm font-medium outline-none lg:w-auto rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40'
 								placeholder='Name'
@@ -81,8 +95,15 @@ const ContactUs = () => {
 							)} */}
 						</div>
 
-						<InputMaskNumber
-							control={control}
+						<InputMask
+							{...register('phone', { required: true })}
+							mask='+\9\98 (99) 999 99 99'
+							placeholder='Phone number'
+							type='tel'
+							value={value}
+							onChange={(e) => {
+								setValue(e.target.value)
+							}}
 							className='w-full lg:w-auto px-5 py-4 outline-none rounded-xl bg-accent/50 placeholder:text-white placeholder:opacity-40 font-medium text-[15px]'
 						/>
 
