@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 export const botToken = '5704193592:AAFmPoaEjJHwo66pYpoViwrwbZ6_LL6mILk'
-export const chatId = '31433485'
+export const chatId = '-584058478'
 
 export const projects = [
 	{
