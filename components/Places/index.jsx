@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import InputMask from 'react-input-mask'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 import { projects } from '../../helpers/data'
 import Plans from './components/Plans'
@@ -14,7 +15,23 @@ import styles from './style.module.scss'
 
 import { botToken, chatId } from '../../helpers/data'
 
+const messages = [
+	{
+		code: 'ru',
+		message: 'Заявка успешно отправлено!',
+	},
+	{
+		code: 'uz',
+		message: 'Xabar muvaffaqiyatli yuborildi!',
+	},
+	{
+		code: 'en',
+		message: 'Application successfully sent!',
+	},
+]
+
 const Places = () => {
+	const { locale } = useRouter()
 	const [indexPlan, setIndexPlan] = useState([])
 	const [value, setValue] = useState('')
 
@@ -25,6 +42,8 @@ const Places = () => {
 	})
 
 	const { currentPlan } = useSelector((state) => state.systemSlice)
+
+	const currentMessage = messages.find((item) => item.code === locale)
 
 	const sendForm = (data) => {
 		const phone = data.phone
@@ -38,7 +57,7 @@ const Places = () => {
 			}
 		)
 
-		toast.success('test', {
+		toast.success(currentMessage.message, {
 			position: 'top-right',
 			autoClose: 3000,
 			hideProgressBar: false,

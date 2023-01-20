@@ -5,6 +5,7 @@ import { Fragment, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 import { services } from '../../../../helpers/data'
 import styles from './style.module.scss'
@@ -16,7 +17,23 @@ const montserrat = Montserrat({
 	variable: '--font-montserrat',
 })
 
+const messages = [
+	{
+		code: 'ru',
+		message: 'Заявка успешно отправлено!',
+	},
+	{
+		code: 'uz',
+		message: 'Xabar muvaffaqiyatli yuborildi!',
+	},
+	{
+		code: 'en',
+		message: 'Application successfully sent!',
+	},
+]
+
 const ServicesModal = ({ modalHandler, isOpen }) => {
+	const { locale } = useRouter()
 	const [value, setValue] = useState('')
 
 	const { register, handleSubmit, reset } = useForm({
@@ -26,12 +43,13 @@ const ServicesModal = ({ modalHandler, isOpen }) => {
 		services: [],
 	})
 
+	const currentMessage = messages.find((item) => item.code === locale)
+
 	const onSubmit = (data) => {
-		console.log('🚀 ~ file: index.jsx:30 ~ onSubmit ~ data', data)
 		const phone = data.phone
 		const name = data.name
 		const message = data.message
-		const services = data.services.join()
+		const services = data.services ? data.services.join() : '-'
 
 		fetch(
 			`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=<b>Ismi</b>: ${name}<b> Telefon</b>: ${phone}<b> Xabar</b>: ${message}<b> Servis</b>: ${services}&parse_mode=html`,
@@ -40,7 +58,7 @@ const ServicesModal = ({ modalHandler, isOpen }) => {
 			}
 		)
 
-		toast.success('test', {
+		toast.success(currentMessage.message, {
 			position: 'top-right',
 			autoClose: 3000,
 			hideProgressBar: false,

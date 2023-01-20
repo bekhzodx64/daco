@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
@@ -10,12 +11,30 @@ import fog from '../../public/contact/fog.png'
 
 import { botToken, chatId } from '../../helpers/data'
 
+const messages = [
+	{
+		code: 'ru',
+		message: 'Заявка успешно отправлено!',
+	},
+	{
+		code: 'uz',
+		message: 'Xabar muvaffaqiyatli yuborildi!',
+	},
+	{
+		code: 'en',
+		message: 'Application successfully sent!',
+	},
+]
+
 const ContactUs = () => {
+	const { locale } = useRouter()
 	const [value, setValue] = useState('')
 	const { register, handleSubmit, reset } = useForm({
 		name: '',
 		phone: '',
 	})
+
+	const currentMessage = messages.find((item) => item.code === locale)
 
 	const sendForm = (data) => {
 		const phone = data.phone
@@ -28,7 +47,7 @@ const ContactUs = () => {
 			}
 		)
 
-		toast.success('test', {
+		toast.success(currentMessage.message, {
 			position: 'top-right',
 			autoClose: 3000,
 			hideProgressBar: false,
