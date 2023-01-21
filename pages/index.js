@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion'
 import { Montserrat } from '@next/font/google'
+import { motion } from 'framer-motion'
 
 import AboutUs from '../components/AboutUs'
 import Advantages from '../components/Advantages'
@@ -15,6 +16,8 @@ import Services from '../components/Services'
 import Live from '../components/Live'
 import Places from '../components/Places'
 
+import { defaultAnimation } from '../helpers/animations'
+
 import MobileMenu from '../components/Mobile/Menu'
 
 import { useSelector } from 'react-redux'
@@ -28,7 +31,10 @@ const Home = () => {
 	const { menuModal } = useSelector((state) => state.systemSlice)
 
 	return (
-		<main
+		<motion.main
+			variants={defaultAnimation}
+			initial='initial'
+			animate='animate'
 			className={`${montserrat.variable} font-sans flex flex-col min-h-screen`}
 		>
 			<AnimatePresence>{menuModal ? null : <Header />}</AnimatePresence>
@@ -46,7 +52,7 @@ const Home = () => {
 			<Footer />
 
 			<AnimatePresence>{menuModal ? <MobileMenu /> : null}</AnimatePresence>
-		</main>
+		</motion.main>
 	)
 }
 

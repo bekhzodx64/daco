@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+
+import { fadeInDown } from '../../../../helpers/animations'
 
 import { socialLinks } from '../../../../helpers/data'
 
@@ -6,7 +9,10 @@ const SocialLinks = () => {
 	return (
 		<ul className='flex items-center gap-5'>
 			{socialLinks.map((link) => (
-				<li key={link.id}>
+				<motion.li
+					variants={fadeInDown}
+					key={link.id}
+				>
 					<a
 						href={link.url}
 						className='group'
@@ -20,7 +26,7 @@ const SocialLinks = () => {
 							className='transition-all group-hover:-translate-y-1 group-hover:scale-125'
 						/>
 					</a>
-				</li>
+				</motion.li>
 			))}
 		</ul>
 	)

@@ -1,12 +1,7 @@
-import { Montserrat } from '@next/font/google'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import styles from './style.module.scss'
+import { useEffect, useState } from 'react'
 
-const montserrat = Montserrat({
-	subsets: ['latin'],
-	variable: '--font-montserrat',
-})
+import styles from './style.module.scss'
 
 const AboutUs = () => {
 	const [getId, setGetId] = useState(null)

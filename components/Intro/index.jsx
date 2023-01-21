@@ -1,10 +1,13 @@
-import { Fragment, useRef, useState } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
+import { Fragment, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
 import { Dialog, Transition } from '@headlessui/react'
 
 import SocialLinks from './components/SocialLinks'
+
+import { stagger, fadeInDown, defaultAnimation } from '../../helpers/animations'
 
 import building from '../../public/intro/building.jpg'
 import desktop from '../../public/intro/desktop-intro-bg.jpg'
@@ -56,20 +59,32 @@ const Intro = () => {
 			<div className={`${styles['intro-content']} `}>
 				<div className='sm:hidden min-h-[90vh]'></div>
 
-				<div className='container relative flex flex-col justify-center h-full gap-10 pt-16 -mt-20 sm:mt-0 sm:gap-0'>
+				<motion.div
+					variants={stagger}
+					initial='initial'
+					animate='animate'
+					className='container relative flex flex-col justify-center h-full gap-10 pt-16 -mt-20 sm:mt-0 sm:gap-0'
+				>
 					<div className='mt-auto space-y-7'>
-						<h1 className={styles['intro-title']}>
+						<motion.h1
+							variants={fadeInDown}
+							className={styles['intro-title']}
+						>
 							We always offer perfect
 							<p>Construction Services</p>
-						</h1>
+						</motion.h1>
 
-						<p className={styles['intro-description']}>
+						<motion.p
+							variants={fadeInDown}
+							className={styles['intro-description']}
+						>
 							{t('home:intro_description')}
-						</p>
+						</motion.p>
 
 						<div className={styles['intro-buttons']}>
-							<button
+							<motion.button
 								type='button'
+								variants={fadeInDown}
 								className={`${styles['intro-button__project']} accent-gradient`}
 							>
 								<p> {t('home:intro_main_button')}</p>
@@ -80,8 +95,9 @@ const Intro = () => {
 									priority
 									alt='chevron right'
 								/>
-							</button>
-							<button
+							</motion.button>
+							<motion.button
+								variants={fadeInDown}
 								type='button'
 								onClick={modalHandler}
 								className={styles['intro-button__play']}
@@ -96,15 +112,23 @@ const Intro = () => {
 									/>
 								</div>
 								<p>Introduction</p>
-							</button>
+							</motion.button>
 						</div>
 					</div>
 
 					<div className={`${styles['intro-socials']}`}>
 						<SocialLinks />
 
-						<div className={styles['intro-socials__divide']}></div>
-						<div className='text-sm opacity-50'>Follow us</div>
+						<motion.div
+							variants={defaultAnimation}
+							className={styles['intro-socials__divide']}
+						></motion.div>
+						<motion.div
+							variants={defaultAnimation}
+							className='text-sm opacity-50'
+						>
+							Follow us
+						</motion.div>
 					</div>
 
 					<Image
@@ -115,7 +139,7 @@ const Intro = () => {
 						fill
 						className='object-cover object-top sm:hidden -z-10'
 					/>
-				</div>
+				</motion.div>
 			</div>
 
 			<Transition

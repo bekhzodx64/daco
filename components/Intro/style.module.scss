@@ -1,4 +1,6 @@
 .intro {
+	@apply min-h-screen w-full;
+
 	&-content {
 		@apply sm:h-[calc(100vh-86px)]
 		flex

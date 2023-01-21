@@ -10,18 +10,6 @@ import { toggleMenu } from '../../store/features/system'
 
 import styles from './style.module.scss'
 
-const variants = {
-	initial: {
-		opacity: 0,
-	},
-	animate: {
-		opacity: 1,
-	},
-	exit: {
-		opacity: 0,
-	},
-}
-
 const Header = () => {
 	const dispatch = useDispatch()
 	const [toggleIcon, setToggleIcon] = useState(false)
@@ -41,13 +29,7 @@ const Header = () => {
 	}, [getId])
 
 	return (
-		<motion.header
-			className={`${styles.header}`}
-			variants={variants}
-			initial='initial'
-			animate='animate'
-			exit='exit'
-		>
+		<header className={`${styles.header}`}>
 			<div className={`${styles['header-inner']} container`}>
 				<button
 					type='button'
@@ -105,61 +87,6 @@ const Header = () => {
 						</div>
 
 						<LangSwitcher />
-
-						{/* <div className='flex items-center px-5 py-4 font-medium uppercase border border-white/30 rounded-full gap-[10px] cursor-pointer relative group'>
-							<Image
-								src={'/flags/1.jpg'}
-								width={22}
-								height={14}
-								alt='flag'
-								priority
-							/>
-							<div className='flex items-center gap-1'>
-								<span>eng</span>
-								<Image
-									src={'/icons/chevron-down.svg'}
-									width={8}
-									height={4}
-									priority
-									alt='chevron down'
-								/>
-							</div>
-
-							<div className='absolute left-0 w-full pt-2 overflow-hidden transition-all duration-300 origin-top scale-y-0 opacity-0 cursor-default top-full group-hover:scale-y-100 group-hover:opacity-100'>
-								<ul className='flex flex-col py-2 overflow-hidden border rounded-xl border-white/30 bg-bgBlack'>
-									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
-										<Image
-											src={'/flags/1.jpg'}
-											width={22}
-											height={14}
-											alt='flag'
-											priority
-										/>
-										<span>ru</span>
-									</li>
-									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
-										<Image
-											src={'/flags/1.jpg'}
-											width={22}
-											height={14}
-											alt='flag'
-											priority
-										/>
-										<span>uz</span>
-									</li>
-									<li className='flex items-center gap-2 px-5 py-2 cursor-pointer hover:bg-darkAccent'>
-										<Image
-											src={'/flags/1.jpg'}
-											width={22}
-											height={14}
-											alt='flag'
-											priority
-										/>
-										<span>kr</span>
-									</li>
-								</ul>
-							</div>
-						</div> */}
 					</div>
 				</div>
 
@@ -177,7 +104,7 @@ const Header = () => {
 					/>
 				</button>
 			</div>
-		</motion.header>
+		</header>
 	)
 }
 
