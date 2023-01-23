@@ -222,7 +222,11 @@ const Places = () => {
 							className={`${styles['places-footer__layout']} p-10 space-y-8`}
 						>
 							{currentPlan === null ? (
-								'No data'
+								<div className='flex items-center justify-center h-[257px]'>
+									<h3 className='text-lg font-semibold leading-none'>
+										Choose one place !
+									</h3>
+								</div>
 							) : (
 								<>
 									<div className='flex flex-col gap-2'>
