@@ -7,7 +7,13 @@ export default function Document() {
 			className='scroll-smooth'
 			id='main'
 		>
-			<Head />
+			<Head>
+				<title>DacoGroup</title>
+				<meta
+					name='description'
+					content='Dacogroup'
+				></meta>
+			</Head>
 			<body className='text-white bg-[#080808]'>
 				<Main />
 				<NextScript />
