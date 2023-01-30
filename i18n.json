@@ -1,7 +1,10 @@
 {
 	"locales": ["uz", "ru", "en"],
 	"defaultLocale": "ru",
+	"defaultNS": "translation",
+	"keySeparator": false,
+	"nsSeparator": false,
 	"pages": {
-		"/": ["home"]
+		"*": ["translation"]
 	}
 }

@@ -1,9 +1,11 @@
+import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 import styles from './style.module.scss'
 
 const AboutUs = () => {
+	const { t } = useTranslation()
 	const [getId, setGetId] = useState(null)
 
 	useEffect(() => {
@@ -57,23 +59,18 @@ const AboutUs = () => {
 					</div>
 					<div className='w-full'>
 						<h2 className='text-[32px] lg:text-[40px] font-semibold relative z-0'>
-							About us
+							{t('about us')}
 						</h2>
 						<div className='space-y-4 mt-7'>
 							<p className='text-sm font-light opacity-60'>
-								DACO GROUP is one of the fastest growing development companies
-								with 15 years of experience in the market. The company&apos;s
-								activity is aimed at creating unique residential complexes,
-								distinguished by their innovation, smart approach and high
-								quality.
+								{t(
+									"DACO GROUP is one of the fastest growing development companies with 15 years of experience in the market. The company's activity is aimed at creating unique residential complexes, distinguished by their innovation, smart approach and high quality"
+								)}
 							</p>
 							<p className='text-sm font-light opacity-60'>
-								DACO GROUP pays special attention to both construction issues
-								and work with clients, providing an individual approach and
-								thorough advice when choosing an apartment or business property.
-								Our main task is not only in high-quality construction and
-								development of social infrastructure, but also in timely
-								settlement and after-sales service.
+								{t(
+									'DACO GROUP pays special attention to both construction issues and work with clients, providing an individual approach and thorough advice when choosing an apartment or business property. Our main task is not only in high-quality construction and development of social infrastructure, but also in timely settlement and after-sales service'
+								)}
 							</p>
 						</div>
 
@@ -81,7 +78,7 @@ const AboutUs = () => {
 							type='button'
 							className='z-10 bg-black/50 text-sm lg:text-base relative pr-[6px] pt-[6px] pb-[6px] mt-10 flex items-center gap-6 pl-5 rounded-full border border-white/30'
 						>
-							<span>Leave an application</span>
+							<span>{t('leave an application')}</span>
 							<div className='flex items-center justify-center w-12 h-12 rounded-full accent-gradient'>
 								<Image
 									src={'/icons/chevron-right.svg'}

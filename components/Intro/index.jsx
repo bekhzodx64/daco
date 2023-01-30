@@ -78,7 +78,7 @@ const Intro = () => {
 							variants={fadeInDown}
 							className={styles['intro-description']}
 						>
-							{t('home:intro_description')}
+							{t('See projects')}
 						</motion.p>
 
 						<div className={styles['intro-buttons']}>
@@ -87,7 +87,7 @@ const Intro = () => {
 								variants={fadeInDown}
 								className={`${styles['intro-button__project']} accent-gradient`}
 							>
-								<p> {t('home:intro_main_button')}</p>
+								<p> {t('see projects')}</p>
 								<Image
 									src={'/icons/chevron-right.svg'}
 									width={9}
