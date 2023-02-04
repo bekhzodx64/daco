@@ -9,8 +9,8 @@ import SocialLinks from './components/SocialLinks'
 
 import { stagger, fadeInDown, defaultAnimation } from '../../helpers/animations'
 
-import building from '../../public/intro/building.jpg'
-import desktop from '../../public/intro/desktop-intro-bg.jpg'
+import building from '../../public/intro/building2.jpg'
+import desktop from '../../public/intro/desktop-intro-bg2.jpg'
 import layer from '../../public/intro/layer.png'
 
 import styles from './style.module.scss'
@@ -39,25 +39,25 @@ const Intro = () => {
 	return (
 		<div className={`${styles.intro} font-sans`}>
 			<Image
-				src={desktop}
-				quality={100}
-				priority
-				alt='daco'
-				fill
-				className='object-cover min-h-[570px] hidden sm:block'
-			/>
-
-			<Image
 				src={building}
 				quality={100}
 				priority
 				alt='daco'
 				fill
-				className='sm:hidden object-cover object-top pt-[76px]'
+				className='object-cover object-top sm:hidden aspect-auto'
 			/>
 
 			<div className={`${styles['intro-content']} `}>
 				<div className='sm:hidden min-h-[90vh]'></div>
+
+				<Image
+					src={desktop}
+					quality={100}
+					priority
+					alt='daco'
+					fill
+					className='hidden object-cover sm:block aspect-video'
+				/>
 
 				<motion.div
 					variants={stagger}

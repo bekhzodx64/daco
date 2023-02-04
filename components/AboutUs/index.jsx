@@ -45,17 +45,15 @@ const AboutUs = () => {
 					<span className='absolute bottom-0 left-0 right-0 z-10 h-2/3 bg-gradient-to-t from-black/95 via-black/80 to-transparent'></span>
 				</h2>
 
-				<div className='py-10 lg:flex lg:py-24'>
-					<div className='w-full'>
-						<div className='pt-[70%] w-full relative'>
-							<Image
-								src={'/about/sketch.png'}
-								fill
-								draggable={false}
-								alt='about us'
-								className='object-cover'
-							/>
-						</div>
+				<div className='py-10 lg:flex lg:py-24 lg:gap-10'>
+					<div className='relative w-full lg:mt-10 aspect-video'>
+						<Image
+							src={'/about/sketch.png'}
+							fill
+							draggable={false}
+							alt='about us'
+							className='object-cover'
+						/>
 					</div>
 					<div className='w-full'>
 						<h2 className='text-[32px] lg:text-[40px] font-semibold relative z-0'>
