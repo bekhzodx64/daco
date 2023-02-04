@@ -78,7 +78,9 @@ const Intro = () => {
 							variants={fadeInDown}
 							className={styles['intro-description']}
 						>
-							{t('see projects')}
+							{t(
+								'DACO GROUP is one of the fastest growing development companies with 15 years of experience in the market'
+							)}
 						</motion.p>
 
 						<div className={styles['intro-buttons']}>
